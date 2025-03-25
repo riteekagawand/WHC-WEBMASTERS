@@ -19,6 +19,7 @@
     "chart.js": "^4.4.8",
     "cors": "^2.8.5",
     "echarts": "^5.6.0",
+    "echarts-for-react": "^3.0.2",
     "express": "^4.21.2",
     "lucide-react": "^0.477.0",
     "motion": "^12.4.10",
