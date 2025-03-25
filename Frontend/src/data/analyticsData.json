@@ -1,0 +1,17 @@
+{
+    "activeVisitors": {
+      "name": "Active Visitors",
+      "data": [100, 200, 130, 240, 300, 380, 500]
+    },
+    "popularProducts": {
+      "name": "Sales",
+      "data": [120, 90, 70, 50, 30],
+      "categories": [
+        "Handbag",
+        "Mug",
+        "Earrings",
+        "Candle",
+        "Ceramics"
+      ]
+    }
+  }

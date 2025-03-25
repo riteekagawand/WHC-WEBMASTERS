@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound"
 import Builder from "./pages/Builder"
 import Forum from "./pages/Forum"
 import Assistant from './pages/Assistant'
+import Analytics from "./pages/Analytics"
 export const AppRoutes = () => {
   return (
     <Routes>
@@ -28,6 +29,10 @@ export const AppRoutes = () => {
         <Route
           path="ecommerce"
           element={<Ecommerce />}
+        />
+        <Route
+          path="analytics"
+          element={<Analytics />}
         />
         <Route
           path="forum"
