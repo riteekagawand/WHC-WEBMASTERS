@@ -1,34 +1,79 @@
 import React from 'react';
 import Chart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts'; // Import ApexOptions for typing
-import analyticsData from '../data/analyticsData.json'; // Direct import
+import SummaryCard from '../components/DashboardSummary';
+import analyticsData from '../data/analyticsData.json'; // Direct import of JSON data
+import { FaUsers, FaMousePointer, FaClock, FaChartLine } from 'react-icons/fa';
+
+// Define TypeScript interfaces for the JSON data structure
+interface Metric {
+  value: number | string;
+  change: string;
+  name: string;
+}
 
 interface ChartData {
-  activeVisitors: {
-    name: string;
-    data: number[];
+  name: string;
+  data: number[];
+  categories?: string[];
+}
+
+interface AnalyticsData {
+  metrics: {
+    activeVisitors: Metric;
+    totalClicks: Metric;
+    averageTimeOnSite: Metric;
+    conversionRate: Metric;
   };
-  popularProducts: {
-    name: string;
-    data: number[];
-    categories: string[];
+  charts: {
+    activeVisitorsOverTime: ChartData;
+    popularProducts: ChartData;
   };
 }
 
 const Analytics: React.FC = () => {
-  const chartData: ChartData = analyticsData; // Use the imported data directly
+  // Use the imported JSON data directly
+  const data: AnalyticsData = analyticsData;
 
-  // Data for Active Visitors (Spline Area Chart)
+  // Summary data for the metric cards
+  const summaryData = [
+    {
+      title: data.metrics.activeVisitors.name,
+      value: data.metrics.activeVisitors.value.toLocaleString(),
+      change: data.metrics.activeVisitors.change,
+      icon: FaUsers,
+    },
+    {
+      title: data.metrics.totalClicks.name,
+      value: data.metrics.totalClicks.value.toLocaleString(),
+      change: data.metrics.totalClicks.change,
+      icon: FaMousePointer,
+    },
+    {
+      title: data.metrics.averageTimeOnSite.name,
+      value: data.metrics.averageTimeOnSite.value,
+      change: data.metrics.averageTimeOnSite.change,
+      icon: FaClock,
+    },
+    {
+      title: data.metrics.conversionRate.name,
+      value: data.metrics.conversionRate.value,
+      change: data.metrics.conversionRate.change,
+      icon: FaChartLine,
+    },
+  ];
+
+  // Data for Active Visitors Over Time (Spline Area Chart)
   const activeVisitorsSeries = [
     {
-      name: chartData.activeVisitors.name,
-      data: chartData.activeVisitors.data,
+      name: data.charts.activeVisitorsOverTime.name,
+      data: data.charts.activeVisitorsOverTime.data,
     },
   ];
 
   const activeVisitorsOptions: ApexOptions = {
     chart: {
-      type: 'area' as const, // Changed to 'area' for Spline Area chart
+      type: 'area' as const, // Spline Area chart
       height: 350,
       zoom: {
         enabled: false,
@@ -85,8 +130,8 @@ const Analytics: React.FC = () => {
   // Data for Popular Products (Bar Chart)
   const popularProductsSeries = [
     {
-      name: chartData.popularProducts.name,
-      data: chartData.popularProducts.data,
+      name: data.charts.popularProducts.name,
+      data: data.charts.popularProducts.data,
     },
   ];
 
@@ -110,7 +155,7 @@ const Analytics: React.FC = () => {
       colors: ['transparent'],
     },
     xaxis: {
-      categories: chartData.popularProducts.categories,
+      categories: data.charts.popularProducts.categories,
       labels: {
         style: {
           colors: '#6B7280',
@@ -139,106 +184,59 @@ const Analytics: React.FC = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen p-6">
-      <h1 className="text-3xl font-semibold text-violet-700 text-center mb-8">
-        HerSpace Analytics Dashboard
-      </h1>
+    <div className="p-6 min-h-screen">
+      {/* Header */}
+      <h1 className="text-3xl font-bold text-gray-800 mb-6">Analytics Dashboard</h1>
 
-      {/* Metrics Section */}
-      <div className="flex flex-wrap justify-around gap-4 mb-8">
-        {/* Active Visitors */}
-        <div className="bg-gray-50 rounded-lg p-6 flex items-center gap-4 shadow-md flex-1 min-w-[250px] max-w-[300px]">
-          <div className="w-12 h-12 bg-violet-500 rounded-full flex items-center justify-center">
-            <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
-              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-            </svg>
-          </div>
-          <div>
-            <h3 className="text-lg font-medium text-gray-700">Active Visitors</h3>
-            <p className="text-2xl font-semibold text-gray-900">400</p>
-            <p className="text-sm text-gray-500">+15% from last month</p>
-          </div>
-        </div>
+      {/* Navigation Tabs */}
+      <div className="flex space-x-4 mb-6">
+        <button className="text-gray-600 font-semibold border-b-2 border-purple-600 pb-2">
+          Overview
+        </button>
+        <button className="text-gray-600 font-semibold ">Visitors</button>
+        <button className="text-gray-600 font-semibold ">Behavior</button>
+        <button className="text-gray-600 font-semibold ">Conversions</button>
+        <button className="text-gray-600 font-semibold ">Settings</button>
+      </div>
 
-        {/* Total Visitors */}
-        <div className="bg-gray-50 rounded-lg p-6 flex items-center gap-4 shadow-md flex-1 min-w-[250px] max-w-[300px]">
-          <div className="w-12 h-12 bg-violet-500 rounded-full flex items-center justify-center">
-            <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
-              <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
-            </svg>
-          </div>
-          <div>
-            <h3 className="text-lg font-medium text-gray-700">Total Visitors</h3>
-            <p className="text-2xl font-semibold text-gray-900">12,345</p>
-            <p className="text-sm text-gray-500">+10% from last month</p>
-          </div>
-        </div>
-
-        {/* User Count */}
-        <div className="bg-gray-50 rounded-lg p-6 flex items-center gap-4 shadow-md flex-1 min-w-[250px] max-w-[300px]">
-          <div className="w-12 h-12 bg-violet-500 rounded-full flex items-center justify-center">
-            <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
-              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-            </svg>
-          </div>
-          <div>
-            <h3 className="text-lg font-medium text-gray-700">User Count</h3>
-            <p className="text-2xl font-semibold text-gray-900">3,210</p>
-            <p className="text-sm text-gray-500">+8% from last month</p>
-          </div>
-        </div>
-
-        {/* Conversion Rate */}
-        <div className="bg-gray-50 rounded-lg p-6 flex items-center gap-4 shadow-md flex-1 min-w-[250px] max-w-[300px]">
-          <div className="w-12 h-12 bg-violet-500 rounded-full flex items-center justify-center">
-            <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
-              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
-            </svg>
-          </div>
-          <div>
-            <h3 className="text-lg font-medium text-gray-700">Conversion Rate</h3>
-            <p className="text-2xl font-semibold text-gray-900">4.5%</p>
-            <p className="text-sm text-gray-500">+0.5% from last month</p>
-          </div>
-        </div>
-
-        {/* Average Time on Site */}
-        <div className="bg-gray-50 rounded-lg p-6 flex items-center gap-4 shadow-md flex-1 min-w-[250px] max-w-[300px]">
-          <div className="w-12 h-12 bg-violet-500 rounded-full flex items-center justify-center">
-            <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
-            </svg>
-          </div>
-          <div>
-            <h3 className="text-lg font-medium text-gray-700">Avg. Time on Site</h3>
-            <p className="text-2xl font-semibold text-gray-900">6m 32s</p>
-            <p className="text-sm text-gray-500">+1m 10s from last month</p>
-          </div>
-        </div>
+      {/* Summary Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {summaryData.map((item) => (
+          <SummaryCard
+            key={item.title}
+            title={item.title}
+            value={item.value}
+            change={item.change}
+            icon={item.icon}
+          />
+        ))}
       </div>
 
       {/* Charts Section */}
-      <div className="flex flex-wrap justify-around gap-4">
-        {/* Active Visitors Chart (Spline Area) */}
-        <div className="bg-gray-50 rounded-lg p-6 shadow-md flex-1 min-w-[700px] max-w-[500px]">
-          <h3 className="text-lg font-medium text-gray-700 mb-4">Active Visitors Over Time</h3>
-          <Chart
-            options={activeVisitorsOptions}
-            series={activeVisitorsSeries}
-            type="area"
-            height={350}
-          />
-        </div>
+      <div className="mt-8">
+        <h2 className="text-xl font-semibold text-gray-800 mb-4">Analytics Charts</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Active Visitors Chart (Spline Area) */}
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
+            <h3 className="text-lg font-medium text-gray-700 mb-4 text-center">Active Visitors Over Time</h3>
+            <Chart
+              options={activeVisitorsOptions}
+              series={activeVisitorsSeries}
+              type="area"
+              height={350}
+            />
+          </div>
 
-        {/* Popular Products Chart */}
-        <div className="bg-gray-50 rounded-lg p-6 shadow-md flex-1 min-w-[300px] max-w-[500px]">
-          <h3 className="text-lg font-medium text-gray-700 mb-4">Popular Products</h3>
-          <Chart
-            options={popularProductsOptions}
-            series={popularProductsSeries}
-            type="bar"
-            height={350}
-          />
+          {/* Popular Products Chart */}
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
+            <h3 className="text-lg font-medium text-gray-700 mb-4 text-center">Popular Products</h3>
+            <Chart
+              options={popularProductsOptions}
+              series={popularProductsSeries}
+              type="bar"
+              height={350}
+            />
+          </div>
         </div>
       </div>
     </div>
