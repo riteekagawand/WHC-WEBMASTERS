@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { LiaHomeSolid } from "react-icons/lia";
-import { MdOutlineBuild, MdOutlineShoppingCart, MdOutlineForum,  MdOutlineAnalytics } from "react-icons/md";
+import { MdOutlineBuild, MdOutlineShoppingCart, MdOutlineForum, MdOutlineAnalytics, MdOutlineSearch } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { FaRegUser, FaBars, FaTimes } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
@@ -21,7 +21,7 @@ const Sidebar: React.FC = () => {
 
       {/* Sidebar */}
       <div 
-        className={`fixed inset-y-0 left-0 w-64 bg-lightpurp p-4 shadow-lg overflow-y-auto transform transition-transform duration-300 
+        className={`fixed inset-y-0 left-0 h-scroll w-64 bg-lightpurp p-4 shadow-lg overflow-y-auto transform transition-transform duration-300 
         ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:relative md:block`}
       >
         {/* Header */}
@@ -57,6 +57,12 @@ const Sidebar: React.FC = () => {
             </Link>
           </li>
           <li className="rounded-lg hover:bg-[#e8e5ff] transition">
+            <Link to="/seooptimization" className="flex items-center space-x-2 p-2 ">
+              <MdOutlineSearch className="text-lg" />
+              <span className="text-lg">SEO & Optimization</span>
+            </Link>
+          </li>
+          <li className="rounded-lg hover:bg-[#e8e5ff] transition">
             <Link to="/forum" className="flex items-center space-x-2 p-2">
               <MdOutlineForum className="text-lg" />
               <span className="text-lg">Forum</span>
@@ -70,15 +76,14 @@ const Sidebar: React.FC = () => {
           </li>
         </ul>
 
-
         {/* Recent Projects section */}
         <div className="mt-8 pl-4">
           <h3 className="text-sm font-semibold text-gray-500">RECENT PROJECTS</h3>
-        <ul className="mt-2 space-y-2">
+          <ul className="mt-2 space-y-2">
             <li className="flex items-center space-x-2 p-2 rounded-lg hover:bg-[#e8e5ff] transition">
               <span>📁</span>
               <span>Portfolio</span>
-          </li>
+            </li>
             <li className="flex items-center space-x-2 p-2 rounded-lg hover:bg-[#e8e5ff] transition">
               <span>📁</span>
               <span>Online Store</span>

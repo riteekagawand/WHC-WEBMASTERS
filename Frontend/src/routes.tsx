@@ -9,6 +9,7 @@ import Builder from "./pages/Builder"
 import Forum from "./pages/Forum"
 import Assistant from './pages/Assistant'
 import Analytics from "./pages/Analytics"
+import SEOOptimization from "./pages/SEOOptimization"
 export const AppRoutes = () => {
   return (
     <Routes>
@@ -33,6 +34,10 @@ export const AppRoutes = () => {
         <Route
           path="analytics"
           element={<Analytics />}
+        />
+         <Route
+          path="seooptimization"
+          element={<SEOOptimization />}
         />
         <Route
           path="forum"
