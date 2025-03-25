@@ -2,23 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+
+html {
+    scroll-behavior: smooth;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 2px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: var(--background-color);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #634aff;
+    border-radius: 20px;
+  }
+  
+  *::selection {
+    color: white;
+    background-color: #634aff;
+  }
+  
+  
   body {
-    @apply min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white !important;
+    top: 0 !important;
+    
   }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+  
+  .google-translate-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 10000;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  
+  .goog-logo-link,
+  .goog-te-banner-frame,
+  .VIpgJd-ZVi9od-l4eHX-hSRGPd,
+  .VIpgJd-ZVi9od-ORHb-OEVmcd {
+    display: none !important;
   }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.6s ease-out forwards;
-}
+  
+  .goog-te-gadget {
+    color: transparent !important;
+  }
+  
+  .goog-te-gadget .goog-te-combo {
+    background-color: #634aff !important;
+    color: white !important;
+    font-size: 15px;
+    border: 2px dotted #ffffff;
+    border-radius: 5px;
+    padding: 4px;
+  }
+  
+  .goog-te-gadget .goog-te-combo option {
+    color: white;
+  }
+  
+  #goog-gt-tt,
+  .goog-te-balloon-frame {
+    display: none !important;
+  }
+  
+  .goog-text-highlight {
+    background: none !important;
+    box-shadow: none !important;
+  }
+  
+  .google-translate-container.hidden {
+    display: none !important;
+  }

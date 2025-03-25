@@ -9,7 +9,12 @@ export default {
     "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        purple: "#634aff",
+        lightpurp:"#f7f6ff" // Custom shortcut for purple
+      },
+    },
   },
   darkMode: "class",
 

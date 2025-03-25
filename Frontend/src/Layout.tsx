@@ -1,15 +1,16 @@
-import { Outlet } from "react-router-dom"
-import Header from "./components/Header"
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Sidebar from "./components/Sidebar";
 
-function Layout() {
+const Layout: React.FC = () => {
   return (
-    <>
-      <Header />
-      <main className="flex min-h-[80vh] w-screen items-center justify-center">
+    <div className="flex h-full"> {/* Full height and flex container */}
+      <Sidebar />
+      <div className="flex-1 p-4"> {/* Content area takes remaining space */}
         <Outlet />
-      </main>
-    </>
-  )
-}
+      </div>
+    </div>
+  );
+};
 
-export default Layout
+export default Layout;
