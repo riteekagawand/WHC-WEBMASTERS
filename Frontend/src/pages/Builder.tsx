@@ -45,7 +45,7 @@ const Builder: React.FC = () => {
       {/* Breadcrumb */}
       <div className="flex text-gray-600 text-sm mb-6">
         <h3 className="mr-2">Home</h3>
-        <span className="mr-2">></span>
+        <span className="mr-2"></span>
         <h3>Website Builder</h3>
       </div>
 
