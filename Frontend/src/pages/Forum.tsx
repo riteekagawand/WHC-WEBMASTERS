@@ -1,7 +1,7 @@
 // src/App.tsx
 
 import React from 'react';
-import Card from '../components/AiTools';
+import Card from '../Components/AiTools';
 import { FaUserCircle, FaComments, FaMoneyBillWave, FaShoppingCart } from 'react-icons/fa';
 
 const App: React.FC = () => {

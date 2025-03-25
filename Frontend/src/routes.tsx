@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound"
 import Builder from "./pages/Builder"
 import Forum from "./pages/Forum"
 import Assistant from './pages/Assistant'
+import Login from "./Components/Login"
 export const AppRoutes = () => {
   return (
     <Routes>
@@ -40,6 +41,10 @@ export const AppRoutes = () => {
         <Route
           path="/aiassistant"
           element={<Assistant />} 
+        />
+        <Route
+          path="/Login"
+          element={<Login />} 
         />
         <Route
           path="*"

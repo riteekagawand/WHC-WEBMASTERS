@@ -1,8 +1,8 @@
 import React from 'react';
-import SummaryCard from '../components/SummaryCard';
-import OrderRow from '../components/OrderRow';
-import ProductItem from '../components/ProductItem';
-import PaymentMethodItem from '../components/PaymentMethodItem';
+import SummaryCard from '../Components/SummaryCard';
+import OrderRow from '../Components/OrderRow';
+import ProductItem from '../Components/ProductItem';
+import PaymentMethodItem from '../Components/PaymentMethodItem';
 import { FaBox, FaShoppingCart, FaUsers, FaCreditCard, FaPaypal, FaPlus } from 'react-icons/fa';
 import { BsCashStack } from "react-icons/bs";
 import { BsCashCoin } from "react-icons/bs";
