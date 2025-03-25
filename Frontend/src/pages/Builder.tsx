@@ -1,6 +1,6 @@
 import React from 'react';
-import TemplateCard from '../components/TemplateCard';
-import StartFromScratchCard from '../components/StartFromScratchCard'; // Import the new component
+import TemplateCard from '../Components/TemplateCard';
+import StartFromScratchCard from '../Components/StartFromScratchCard'; // Import the new component
 import { RiLayout5Line, RiRestaurantFill, RiCalendarEventLine } from 'react-icons/ri';
 import { BsBuildings } from 'react-icons/bs';
 import { LuShoppingBag } from 'react-icons/lu';
