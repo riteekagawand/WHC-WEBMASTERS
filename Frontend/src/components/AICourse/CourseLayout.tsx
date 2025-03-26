@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { FaClock, FaLanguage } from "react-icons/fa";
 import { MdCategory } from "react-icons/md";
 import { AiOutlineFieldTime } from "react-icons/ai";
-import { Button } from "@/components/ui/button";
+import { Button } from "../../Components/ui/button";
 import {
 	Card,
 	CardContent,
