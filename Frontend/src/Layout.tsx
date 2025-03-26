@@ -1,16 +1,13 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
-import Sidebar from "./Components/Sidebar";
-import { Toaster } from "sonner";
+import { Outlet } from "react-router-dom"; // Outlet renders nested routes
 
 const Layout: React.FC = () => {
   return (
-    <div className="flex h-full"> {/* Full height and flex container */}
-      <Sidebar />
-      <Toaster />
-      <div className="flex-1 p-4"> {/* Content area takes remaining space */}
-        <Outlet />
-      </div>
+    <div className="min-h-screen flex flex-col">
+      {/* Add common UI like navbar or sidebar here if needed */}
+      <main className="flex-grow">
+        <Outlet /> {/* Renders the nested route components */}
+      </main>
     </div>
   );
 };

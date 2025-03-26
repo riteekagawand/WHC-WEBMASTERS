@@ -6,7 +6,7 @@ interface OTPAttributes {
   id: number;
   email: string;
   otp: string;
-  otpExpires: Date;
+  otp_expires: Date; // ✅ Fixed field name
 }
 
 // Optional fields for OTP creation (id auto-incremented)
@@ -17,7 +17,7 @@ class OTP extends Model<OTPAttributes, OTPCreationAttributes> implements OTPAttr
   public id!: number;
   public email!: string;
   public otp!: string;
-  public otpExpires!: Date;
+  public otp_expires!: Date; // ✅ Updated field name
 }
 
 // Initialize the OTP model
@@ -31,20 +31,19 @@ OTP.init(
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
     },
     otp: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    otpExpires: {
+    otp_expires: { // ✅ Fixed field name
       type: DataTypes.DATE,
       allowNull: false,
     },
   },
   {
     sequelize,
-    tableName: "otp",
+    tableName: "otps",
     timestamps: false, // Disable createdAt and updatedAt fields
   }
 );

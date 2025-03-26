@@ -6,7 +6,9 @@ class User extends Model {
   public fullName!: string;
   public email!: string;
   public password!: string;
+  public photo: string = ""; // ✅ Default value assigned
 }
+
 
 User.init(
   {

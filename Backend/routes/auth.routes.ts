@@ -1,11 +1,12 @@
 import express from "express";
-import { register, login, getUser } from "../controllers/auth.controller";
+import { register, login, verifyOTP } from "../controllers/auth.controller";
 import { authMiddleware } from "../middleware/auth.middleware";
+
 const router = express.Router();
 
-// Directly use the controller functions
-router.post("/register", register);
-router.post("/login", login);
-router.get("/profile", authMiddleware, getUser); // Protected route
+// Use async wrapper to handle errors
+router.post("/register", async (req, res) => register(req, res));
+router.post("/login", async (req, res) => login(req, res));
+router.post("/verify-otp", async (req, res) => verifyOTP(req, res));
 
 export default router;
