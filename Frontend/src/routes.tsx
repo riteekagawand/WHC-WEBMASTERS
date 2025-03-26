@@ -9,6 +9,8 @@ import Builder from "./pages/Builder"
 import Forum from "./pages/Forum"
 import Assistant from './pages/Assistant'
 import Analytics from "./pages/Analytics"
+import Login from "./components/Login"
+/*************  ✨ Codeium Command 🌟  *************/
 export const AppRoutes = () => {
   return (
     <Routes>
@@ -47,6 +49,10 @@ export const AppRoutes = () => {
           element={<Assistant />} 
         />
         <Route
+          path="/Login"
+          element={<Login />} 
+        />
+        <Route
           path="*"
           element={<NotFound />}
         />
@@ -54,3 +60,4 @@ export const AppRoutes = () => {
     </Routes>
   )
 }
+/******  22e3b27d-9193-4558-b726-8117db100321  *******/
