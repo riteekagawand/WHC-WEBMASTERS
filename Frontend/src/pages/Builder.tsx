@@ -63,30 +63,29 @@ const Builder: React.FC = () => {
 		},
 	];
 
-	const scratchOptions = [
-		{
-			title: "Blank Canvas",
-			description:
-				"Start with a completely blank page and build your website from scratch",
-			buttonText: "Create New",
-			icon: CiCirclePlus,
-		},
-		{
-			title: "Import Design",
-			description: "Upload your own design files and convert them to a website",
-			buttonText: "Import",
-			icon: PiFileArrowUpDuotone,
-		},
-	];
+  const scratchOptions = [
+    {
+      title: 'Blank Canvas',
+      description: 'Start with a completely blank page and build your website from scratch',
+      buttonText: 'Create New',
+      icon: CiCirclePlus,
+    },
+    {
+      title: 'Import Design',
+      description: 'Upload your own design files and convert them to a website',
+      buttonText: 'Import',
+      icon: PiFileArrowUpDuotone,
+    },
+  ];
 
-	return (
-		<div className="p-6">
-			{/* Breadcrumb */}
-			<div className="flex text-gray-600 text-sm mb-6">
-				<h3 className="mr-2">Home</h3>
-				<span className="mr-2"> </span>
-				<h3>Website Builder</h3>
-			</div>
+  return (
+    <div className="p-6">
+      {/* Breadcrumb */}
+      <div className="flex text-gray-600 text-sm mb-6">
+        <h3 className="mr-2">Home</h3>
+        <span className="mr-2"></span>
+        <h3>Website Builder</h3>
+      </div>
 
 			{/* Heading */}
 			<h1 className="text-3xl font-bold text-gray-800">Website Builder</h1>

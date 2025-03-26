@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { LiaHomeSolid } from "react-icons/lia";
-import { MdOutlineBuild, MdOutlineShoppingCart, MdOutlineForum } from "react-icons/md";
+import { MdOutlineBuild, MdOutlineShoppingCart, MdOutlineForum,  MdOutlineAnalytics } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { FaRegUser, FaBars, FaTimes } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
@@ -33,31 +33,37 @@ const Sidebar: React.FC = () => {
         {/* Sidebar menu */}
         <ul className="pl-4">
           <li className="rounded-lg hover:bg-[#e8e5ff] transition">
-            <Link to="/home" className="flex items-center space-x-2 p-2 block">
+            <Link to="/home" className="flex items-center space-x-2 p-2 ">
               <LiaHomeSolid className="text-lg" />
               <span className="text-lg">Home</span>
             </Link>
           </li>
           <li className="rounded-lg hover:bg-[#e8e5ff] transition">
-            <Link to="/builder" className="flex items-center space-x-2 p-2 block">
+            <Link to="/builder" className="flex items-center space-x-2 p-2 ">
               <MdOutlineBuild className="text-lg" />
               <span className="text-lg">Builder</span>
             </Link>
           </li>
           <li className="rounded-lg hover:bg-[#e8e5ff] transition">
-            <Link to="/ecommerce" className="flex items-center space-x-2 p-2 block">
+            <Link to="/ecommerce" className="flex items-center space-x-2 p-2 ">
               <MdOutlineShoppingCart className="text-lg" />
               <span className="text-lg">E-commerce</span>
             </Link>
           </li>
           <li className="rounded-lg hover:bg-[#e8e5ff] transition">
-            <Link to="/forum" className="flex items-center space-x-2 p-2 block">
+            <Link to="/analytics" className="flex items-center space-x-2 p-2 ">
+              <MdOutlineAnalytics className="text-lg" />
+              <span className="text-lg">Analytics</span>
+            </Link>
+          </li>
+          <li className="rounded-lg hover:bg-[#e8e5ff] transition">
+            <Link to="/forum" className="flex items-center space-x-2 p-2">
               <MdOutlineForum className="text-lg" />
               <span className="text-lg">Forum</span>
             </Link>
           </li>
           <li className="rounded-lg hover:bg-[#e8e5ff] transition">
-            <Link to="/aiassistant" className="flex items-center space-x-2 p-2 block">
+            <Link to="/aiassistant" className="flex items-center space-x-2 p-2 ">
               <RiRobot2Line className="text-lg" />
               <span className="text-lg">AI Assistant</span>
             </Link>

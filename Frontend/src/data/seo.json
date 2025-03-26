@@ -1,0 +1,408 @@
+{
+    "categories": [
+      {
+        "category": "Beauty",
+        "keywords": [
+          {
+            "keyword": "skincare routine",
+            "searchVolumeTrend": "High",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Primary"
+          },
+          {
+            "keyword": "best makeup products",
+            "searchVolumeTrend": "High",
+            "competitionLevel": "High",
+            "suggestedFocus": "Secondary"
+          },
+          {
+            "keyword": "natural beauty tips",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Primary"
+          },
+          {
+            "keyword": "anti-aging cream",
+            "searchVolumeTrend": "High",
+            "competitionLevel": "High",
+            "suggestedFocus": "Long-tail"
+          },
+          {
+            "keyword": "haircare products",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Secondary"
+          },
+          {
+            "keyword": "beauty trends 2025",
+            "searchVolumeTrend": "Low",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Long-tail"
+          }
+        ]
+      },
+      {
+        "category": "Food",
+        "keywords": [
+          {
+            "keyword": "healthy recipes",
+            "searchVolumeTrend": "High",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Primary"
+          },
+          {
+            "keyword": "quick dinner ideas",
+            "searchVolumeTrend": "High",
+            "competitionLevel": "High",
+            "suggestedFocus": "Secondary"
+          },
+          {
+            "keyword": "vegan meal plans",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Primary"
+          },
+          {
+            "keyword": "baking tips",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Secondary"
+          },
+          {
+            "keyword": "food photography",
+            "searchVolumeTrend": "Low",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Long-tail"
+          },
+          {
+            "keyword": "gluten-free recipes",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Primary"
+          },
+          {
+            "keyword": "meal prep ideas",
+            "searchVolumeTrend": "High",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Secondary"
+          }
+        ]
+      },
+      {
+        "category": "Handicraft",
+        "keywords": [
+          {
+            "keyword": "handmade crafts",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Primary"
+          },
+          {
+            "keyword": "DIY home decor",
+            "searchVolumeTrend": "High",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Primary"
+          },
+          {
+            "keyword": "crafting tutorials",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Secondary"
+          },
+          {
+            "keyword": "handmade jewelry",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Primary"
+          },
+          {
+            "keyword": "upcycled crafts",
+            "searchVolumeTrend": "Low",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Long-tail"
+          }
+        ]
+      },
+      {
+        "category": "Fashion",
+        "keywords": [
+          {
+            "keyword": "latest fashion trends",
+            "searchVolumeTrend": "High",
+            "competitionLevel": "High",
+            "suggestedFocus": "Secondary"
+          },
+          {
+            "keyword": "affordable clothing",
+            "searchVolumeTrend": "High",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Primary"
+          },
+          {
+            "keyword": "sustainable fashion",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Primary"
+          },
+          {
+            "keyword": "winter outfits",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Secondary"
+          },
+          {
+            "keyword": "fashion accessories",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Secondary"
+          },
+          {
+            "keyword": "vintage clothing",
+            "searchVolumeTrend": "Low",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Long-tail"
+          }
+        ]
+      },
+      {
+        "category": "Travel",
+        "keywords": [
+          {
+            "keyword": "travel destinations",
+            "searchVolumeTrend": "High",
+            "competitionLevel": "High",
+            "suggestedFocus": "Secondary"
+          },
+          {
+            "keyword": "budget travel tips",
+            "searchVolumeTrend": "High",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Primary"
+          },
+          {
+            "keyword": "solo travel guide",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Primary"
+          },
+          {
+            "keyword": "travel packing list",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Secondary"
+          },
+          {
+            "keyword": "adventure travel",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Secondary"
+          },
+          {
+            "keyword": "luxury travel experiences",
+            "searchVolumeTrend": "Low",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Long-tail"
+          }
+        ]
+      },
+      {
+        "category": "Technology",
+        "keywords": [
+          {
+            "keyword": "tech news",
+            "searchVolumeTrend": "High",
+            "competitionLevel": "High",
+            "suggestedFocus": "Secondary"
+          },
+          {
+            "keyword": "gadget reviews",
+            "searchVolumeTrend": "High",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Primary"
+          },
+          {
+            "keyword": "smartphone comparisons",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Secondary"
+          },
+          {
+            "keyword": "tech tutorials",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Primary"
+          },
+          {
+            "keyword": "future technology trends",
+            "searchVolumeTrend": "Low",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Long-tail"
+          },
+          {
+            "keyword": "AI innovations",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Secondary"
+          }
+        ]
+      },
+      {
+        "category": "Health",
+        "keywords": [
+          {
+            "keyword": "fitness tips",
+            "searchVolumeTrend": "High",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Primary"
+          },
+          {
+            "keyword": "mental health advice",
+            "searchVolumeTrend": "High",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Primary"
+          },
+          {
+            "keyword": "weight loss diet",
+            "searchVolumeTrend": "High",
+            "competitionLevel": "High",
+            "suggestedFocus": "Secondary"
+          },
+          {
+            "keyword": "yoga for beginners",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Primary"
+          },
+          {
+            "keyword": "healthy lifestyle",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Secondary"
+          },
+          {
+            "keyword": "stress management",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Secondary"
+          }
+        ]
+      },
+      {
+        "category": "Education",
+        "keywords": [
+          {
+            "keyword": "online learning",
+            "searchVolumeTrend": "High",
+            "competitionLevel": "High",
+            "suggestedFocus": "Secondary"
+          },
+          {
+            "keyword": "study tips",
+            "searchVolumeTrend": "High",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Primary"
+          },
+          {
+            "keyword": "e-learning platforms",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Secondary"
+          },
+          {
+            "keyword": "educational resources",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Primary"
+          },
+          {
+            "keyword": "learning apps",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Secondary"
+          }
+        ]
+      },
+      {
+        "category": "Home Decor",
+        "keywords": [
+          {
+            "keyword": "home decor ideas",
+            "searchVolumeTrend": "High",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Primary"
+          },
+          {
+            "keyword": "interior design trends",
+            "searchVolumeTrend": "High",
+            "competitionLevel": "High",
+            "suggestedFocus": "Secondary"
+          },
+          {
+            "keyword": "DIY home projects",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Primary"
+          },
+          {
+            "keyword": "minimalist decor",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Secondary"
+          },
+          {
+            "keyword": "home organization",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Secondary"
+          },
+          {
+            "keyword": "vintage home decor",
+            "searchVolumeTrend": "Low",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Long-tail"
+          }
+        ]
+      },
+      {
+        "category": "Fitness",
+        "keywords": [
+          {
+            "keyword": "home workouts",
+            "searchVolumeTrend": "High",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Primary"
+          },
+          {
+            "keyword": "fitness equipment",
+            "searchVolumeTrend": "High",
+            "competitionLevel": "High",
+            "suggestedFocus": "Secondary"
+          },
+          {
+            "keyword": "strength training",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Medium",
+            "suggestedFocus": "Primary"
+          },
+          {
+            "keyword": "cardio exercises",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Secondary"
+          },
+          {
+            "keyword": "fitness motivation",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Secondary"
+          },
+          {
+            "keyword": "yoga routines",
+            "searchVolumeTrend": "Medium",
+            "competitionLevel": "Low",
+            "suggestedFocus": "Primary"
+          }
+        ]
+      }
+    ]
+  }
