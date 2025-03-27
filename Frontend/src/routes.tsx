@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound"
 import Builder from "./pages/Builder"
 import Forum from "./pages/Forum"
 import Assistant from './pages/Assistant'
+import AddProduct from "./components/AddProduct";
 export const AppRoutes = () => {
   return (
     <Routes>
@@ -25,10 +26,9 @@ export const AppRoutes = () => {
           path="builder"
           element={<Builder />}
         />
-        <Route
-          path="ecommerce"
-          element={<Ecommerce />}
-        />
+       <Route path="ecommerce" element={<Ecommerce />}>
+      <Route path="add-product" element={<AddProduct />} />
+      </Route>
         <Route
           path="forum"
           element={<Forum />}

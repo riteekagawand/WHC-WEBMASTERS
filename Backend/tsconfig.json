@@ -1,0 +1,25 @@
+// tsconfig.json
+{
+    "compilerOptions": {
+      "target": "ES6",
+      "module": "commonjs",
+      "strict": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true, // Add this for extra compatibility
+      "skipLibCheck": true,
+      "outDir": "./dist",
+      "rootDir": ".",
+      "baseUrl": ".",
+      "paths": {
+        "*": ["src/*"]
+      }
+    },
+    "include": [
+      "server.ts",
+      "src/**/*"
+    ],
+    "exclude": [
+      "node_modules",
+      "dist"
+    ]
+  }

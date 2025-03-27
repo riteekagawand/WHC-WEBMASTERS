@@ -6,9 +6,10 @@ interface SummaryCardProps {
   value: string;
   buttonText: string;
   icon: IconType;
+  onButtonClick?: () => void; // Add this optional prop
 }
 
-const SummaryCard: React.FC<SummaryCardProps> = ({ title, value, buttonText, icon: Icon }) => {
+const SummaryCard: React.FC<SummaryCardProps> = ({ title, value, buttonText, icon: Icon, onButtonClick }) => {
   return (
     <div className="p-5 bg-lightpurp rounded-2xl shadow-sm hover:shadow-md transition-all">
       {/* Icon */}
@@ -23,7 +24,10 @@ const SummaryCard: React.FC<SummaryCardProps> = ({ title, value, buttonText, ico
       <p className="text-gray-500 text-sm mt-1">{value}</p>
       {/* Button */}
       <div className="mt-4">
-        <button className="bg-purple text-white px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition">
+        <button
+          onClick={onButtonClick} // Attach the handler here
+          className="bg-purple text-white px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition"
+        >
           {buttonText}
         </button>
       </div>

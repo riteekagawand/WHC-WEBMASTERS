@@ -1,19 +1,49 @@
 import React from 'react';
+import { useNavigate, Outlet, useLocation } from 'react-router-dom';
 import SummaryCard from '../components/SummaryCard';
 import OrderRow from '../components/OrderRow';
 import ProductItem from '../components/ProductItem';
 import PaymentMethodItem from '../components/PaymentMethodItem';
 import { FaBox, FaShoppingCart, FaUsers, FaCreditCard, FaPaypal, FaPlus } from 'react-icons/fa';
-import { BsCashStack } from "react-icons/bs";
-import { BsCashCoin } from "react-icons/bs";
-
+import { BsCashStack, BsCashCoin } from "react-icons/bs";
 
 const EcommerceDashboard: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const summaryData = [
-    { title: 'Products', value: '24 active listings', buttonText: 'Add Product', icon: FaBox },
-    { title: 'Orders', value: '12 pending orders', buttonText: 'View All', icon: FaShoppingCart },
-    { title: 'Revenue', value: '$1,245 this month', buttonText: 'View Report', icon: BsCashCoin },
-    { title: 'Customers', value: '89 total customers', buttonText: 'View List', icon: FaUsers },
+    { 
+      title: 'Products', 
+      value: '24 active listings', 
+      buttonText: 'Add Product', 
+      icon: FaBox, 
+      onButtonClick: () => navigate('/ecommerce/add-product')
+    },
+    { 
+      title: 'Orders', 
+      value: '12 pending orders', 
+      buttonText: 'View All', 
+      icon: FaShoppingCart 
+    },
+    { 
+      title: 'My Products', // Changed from 'Revenue' to 'My Products'
+      value: '$1,245 this month', 
+      buttonText: 'View Report', 
+      icon: BsCashCoin 
+    },
+    { 
+      title: 'Customers', 
+      value: '89 total customers', 
+      buttonText: 'View List', 
+      icon: FaUsers 
+    },
+    { 
+      title: 'Products', // New summary card named 'Products'
+      value: '30 total products', // Example value, adjust as needed
+      buttonText: 'Manage Products', // Example button text
+      icon: FaBox, // Reusing FaBox, change if desired
+      onButtonClick: () => navigate('/ecommerce/manage-products') // Example navigation, adjust path
+    },
   ];
 
   const recentOrders = [
@@ -37,114 +67,107 @@ const EcommerceDashboard: React.FC = () => {
     { name: 'Square', status: 'Not connected', isDefault: false, icon: <BsCashStack className="text-purple-600 text-lg" /> },
   ];
 
-  return (
-    <div className="p-6  min-h-screen">
-      {/* Header */}
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">E-commerce Dashboard</h1>
-
-      {/* Navigation Tabs */}
-      <div className="flex space-x-4 mb-6">
-        <button className="text-gray-600 font-semibold border-b-2 border-purple-600 pb-2">
-          Overview
-        </button>
-        <button className="text-gray-600">Products</button>
-        <button className="text-gray-600">Orders</button>
-        <button className="text-gray-600">Payments</button>
-        <button className="text-gray-600">Settings</button>
-      </div>
-
-      {/* Summary Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {summaryData.map((item) => (
-          <SummaryCard
-            key={item.title}
-            title={item.title}
-            value={item.value}
-            buttonText={item.buttonText}
-            icon={item.icon}
-          />
-        ))}
-      </div>
-
-      {/* Recent Orders */}
-      <div className="mt-8">
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">Recent Orders</h2>
-        <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
-          <table className="w-full border border-lightpurp">
-            <thead>
-              <tr className="bg-lightpurp text-gray-600 text-sm">
-                <th className="py-3 px-4 text-left"></th>
-                <th className="py-3 px-4 text-left">Customer</th>
-                <th className="py-3 px-4 text-left">Amount</th>
-                <th className="py-3 px-4 text-left">Date</th>
-                <th className="py-3 px-4 text-left">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {recentOrders.map((order) => (
-                <OrderRow
-                  key={order.orderNumber}
-                  orderNumber={order.orderNumber}
-                  customer={order.customer}
-                  amount={order.amount}
-                  date={order.date}
-                  status={order.status}
-                />
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div className="mt-4">
-          <button className="bg-purple text-white px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition">
-            View All Orders
+  if (location.pathname === '/ecommerce') {
+    return (
+      <div className="p-6 min-h-screen">
+        <h1 className="text-3xl font-bold text-gray-800 mb-6">E-commerce Dashboard</h1>
+        <div className="flex space-x-4 mb-6">
+          <button className="text-gray-600 font-semibold border-b-2 border-purple-600 pb-2">
+            Overview
           </button>
+          <button className="text-gray-600">Products</button>
+          <button className="text-gray-600">Orders</button>
+          <button className="text-gray-600">Payments</button>
+          <button className="text-gray-600">Settings</button>
         </div>
-      </div>
-
-      {/* Top Products */}
-      <div className="mt-8">
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">Top Products</h2>
-        <div className="bg-white rounded-2xl shadow-sm p-4">
-          {topProducts.map((product) => (
-            <ProductItem
-              key={product.name}
-              name={product.name}
-              sales={product.sales}
-              price={product.price}
-              image={product.image}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {summaryData.map((item) => (
+            <SummaryCard
+              key={item.title}
+              title={item.title}
+              value={item.value}
+              buttonText={item.buttonText}
+              icon={item.icon}
+              onButtonClick={item.onButtonClick}
             />
           ))}
         </div>
-        <div className="mt-4">
-          <button className="bg-purple text-white px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition">
-            View All Products
-          </button>
-        </div>
-      </div>
-
-      {/* Payment Methods */}
-      <div className="mt-8">
-        <h2 className="text-xl font-semibold text-gray-800 mb-4">Payment Methods</h2>
-        <div className="bg-white rounded-2xl shadow-sm p-4">
-          {paymentMethods.map((method) => (
-            <PaymentMethodItem
-              key={method.name}
-              name={method.name}
-              status={method.status}
-              isDefault={method.isDefault}
-              icon={method.icon}
-            />
-          ))}
-          {/* Add Button */}
-          <div className="flex justify-center mt-4">
-            <button className="text-purple font-medium flex items-center">
-              <FaPlus className="mr-2" /> Add Payment Method
+        <div className="mt-8">
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">Recent Orders</h2>
+          <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+            <table className="w-full border border-lightpurp">
+              <thead>
+                <tr className="bg-lightpurp text-gray-600 text-sm">
+                  <th className="py-3 px-4 text-left"></th>
+                  <th className="py-3 px-4 text-left">Customer</th>
+                  <th className="py-3 px-4 text-left">Amount</th>
+                  <th className="py-3 px-4 text-left">Date</th>
+                  <th className="py-3 px-4 text-left">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {recentOrders.map((order) => (
+                  <OrderRow
+                    key={order.orderNumber}
+                    orderNumber={order.orderNumber}
+                    customer={order.customer}
+                    amount={order.amount}
+                    date={order.date}
+                    status={order.status}
+                  />
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="mt-4">
+            <button className="bg-purple text-white px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition">
+              View All Orders
             </button>
           </div>
         </div>
+        <div className="mt-8">
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">Top Products</h2>
+          <div className="bg-white rounded-2xl shadow-sm p-4">
+            {topProducts.map((product) => (
+              <ProductItem
+                key={product.name}
+                name={product.name}
+                sales={product.sales}
+                price={product.price}
+                image={product.image}
+              />
+            ))}
+          </div>
+          <div className="mt-4">
+            <button className="bg-purple text-white px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition">
+              View All Products
+            </button>
+          </div>
+        </div>
+        <div className="mt-8">
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">Payment Methods</h2>
+          <div className="bg-white rounded-2xl shadow-sm p-4">
+            {paymentMethods.map((method) => (
+              <PaymentMethodItem
+                key={method.name}
+                name={method.name}
+                status={method.status}
+                isDefault={method.isDefault}
+                icon={method.icon}
+              />
+            ))}
+            <div className="flex justify-center mt-4">
+              <button className="text-purple font-medium flex items-center">
+                <FaPlus className="mr-2" /> Add Payment Method
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+
+  return <Outlet />;
 };
 
 export default EcommerceDashboard;
