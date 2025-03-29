@@ -24,13 +24,13 @@ const EcommerceDashboard: React.FC = () => {
       value: '12 pending orders', 
       buttonText: 'View All', 
       icon: FaShoppingCart 
-    },
-    { 
-      title: 'My Products', // Changed from 'Revenue' to 'My Products'
-      value: '$1,245 this month', 
-      buttonText: 'View Report', 
-      icon: BsCashCoin 
-    },
+     },
+    // { 
+    //   title: 'My Products', // Changed from 'Revenue' to 'My Products'
+    //   value: '$1,245 this month', 
+    //   buttonText: 'View Report', 
+    //   icon: BsCashCoin 
+    // },
     { 
       title: 'Customers', 
       value: '89 total customers', 
@@ -40,9 +40,9 @@ const EcommerceDashboard: React.FC = () => {
     { 
       title: 'Products', // New summary card named 'Products'
       value: '30 total products', // Example value, adjust as needed
-      buttonText: 'Manage Products', // Example button text
+      buttonText: 'View Products', // Example button text
       icon: FaBox, // Reusing FaBox, change if desired
-      onButtonClick: () => navigate('/ecommerce/manage-products') // Example navigation, adjust path
+      onButtonClick: () => navigate('/ecommerce/view-products') // Example navigation, adjust path
     },
   ];
 
