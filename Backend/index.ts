@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import sequelize from "./config/db";
+import userRoute from "./routes/user.route";
 import authRoutes from "./routes/auth.routes";
 
 dotenv.config();
@@ -11,8 +12,8 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
-
 app.use("/api/auth", authRoutes);
+app.use("/api/user", userRoute);
 
 sequelize
   .sync()

@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import { Op } from "sequelize";
 import User from "../models/user.model";
 import OTP from "../models/otp.model";
+import fs from "fs";
 
 dotenv.config();
 
@@ -56,11 +57,11 @@ const register = async (req: Request, res: Response): Promise<Response> => {
     if (!otpSent) {
       return res.status(500).json({ message: "Failed to send OTP" });
     }
-        await OTP.update(
-        { otp, otpExpires: new Date(Date.now() + 300000) },
-        { where: { email } }
-        );
 
+    await OTP.update(
+      { otp: otp.toString(), otp_expires: new Date(Date.now() + 300000) },
+      { where: { email } }
+    );
 
     return res.status(200).json({ message: "OTP sent to email" });
   } catch (error) {
@@ -74,7 +75,7 @@ const verifyOTP = async (req: Request, res: Response): Promise<Response> => {
     const { email, enteredOTP, password, fullName } = req.body;
 
     const otpRecord = await OTP.findOne({ where: { email } });
-    if (!otpRecord || otpRecord.otpExpires < new Date()) {
+    if (!otpRecord || otpRecord.otp_expires < new Date()) {
       return res.status(400).json({ message: "OTP expired or invalid" });
     }
 
@@ -87,13 +88,12 @@ const verifyOTP = async (req: Request, res: Response): Promise<Response> => {
     const photo = `https://ui-avatars.com/api/?name=${initials}&size=150`;
 
     const newUser = await User.create({
-        email,
-        fullName,
-        password: hashedPassword,
-        photo,
-        userType: "entrepreneur", // ✅ Assign a valid value from the defined types
-      });
-      
+      email,
+      fullName,
+      password: hashedPassword,
+      photo,
+      userType: "entrepreneur",
+    });
 
     await OTP.destroy({ where: { email } });
 
@@ -135,18 +135,5 @@ const login = async (req: Request, res: Response): Promise<Response> => {
     return res.status(500).json({ message: "Internal server error" });
   }
 };
-
-router.post("/register", async (req: Request, res: Response) => {
-    await register(req, res);
-  });
-  
-  router.post("/verify-otp", async (req: Request, res: Response) => {
-    await verifyOTP(req, res);
-  });
-  
-  router.post("/login", async (req: Request, res: Response) => {
-    await login(req, res);
-  });
-  
 
 export default router;
