@@ -1,6 +1,6 @@
 import React from "react";
-import TemplateCard from "../components/TemplateCard";
-import StartFromScratchCard from "../components/StartFromScratchCard"; // Import the new component
+import TemplateCard from "../TemplateCard";
+import StartFromScratchCard from "../StartFromScratchCard"; // Import the new component
 import {
 	RiLayout5Line,
 	RiRestaurantFill,

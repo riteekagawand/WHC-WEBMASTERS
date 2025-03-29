@@ -57,6 +57,12 @@ const Sidebar: React.FC = () => {
             </Link>
           </li>
           <li className="rounded-lg hover:bg-[#e8e5ff] transition">
+            <Link to="portfoliobuilder" className="flex items-center space-x-2 p-2 ">
+              <MdOutlineForum className="text-lg" />
+              <span className="text-lg">Portfolio Builder</span>
+            </Link>
+          </li>
+          <li className="rounded-lg hover:bg-[#e8e5ff] transition">
             <Link to="aiassistant" className="flex items-center space-x-2 p-2 ">
               <RiRobot2Line className="text-lg" />
               <span className="text-lg">AI Assistant</span>

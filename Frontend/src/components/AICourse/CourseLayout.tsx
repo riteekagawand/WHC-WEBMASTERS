@@ -121,7 +121,7 @@ const CourseLayout = () => {
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
-		document.title = `CAREERINSIGHT | MY COURSE LAYOUT`;
+		document.title = `HERSPACE | MY COURSE LAYOUT`;
 	}, []);
 
 	return (

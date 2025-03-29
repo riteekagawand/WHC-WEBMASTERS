@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Sidebar from "../Components/Sidebar";
+import Sidebar from "./Sidebar";
 import { Toaster } from "sonner";
 
 const Dashboard: React.FC = () => {

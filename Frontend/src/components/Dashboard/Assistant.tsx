@@ -1,7 +1,7 @@
 // src/App.tsx
 
 import React from 'react';
-import Card from '../Components/AiTools'; // Note: The import path was updated to match the previous context
+import Card from '../AiTools'; // Note: The import path was updated to match the previous context
 import { FaPlus, FaGlobe, FaChartBar } from 'react-icons/fa';
 import { GoPencil } from 'react-icons/go';
 import { MdOutlineQueryStats } from 'react-icons/md';

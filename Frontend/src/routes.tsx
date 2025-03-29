@@ -1,16 +1,17 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./Layout"; // Your Layout component
-import Home from "./pages/Home";
+import Home from "./Components/Dashboard/Home";
 import Profile from "./pages/profile";
-import Ecommerce from "./pages/Ecommerce";
+import Ecommerce from "./Components/Dashboard/Ecommerce";
 import NotFound from "./pages/NotFound";
-import Builder from "./pages/Builder";
-import Forum from "./pages/Forum";
-import Assistant from "./pages/Assistant";
+import Builder from "./Components/Dashboard/Builder";
+import Forum from "./Components/Dashboard/Forum";
+import Assistant from "./Components/Dashboard/Assistant";
 import Login from "./Components/Login"; // Your UserLogin component
-import Dashboard from "./Components/dashboard";
+import Dashboard from "./Components/Dashboard/dashboard";
 import LandingPage from "./pages/Landing"; // The landing page with Login button
+import PortfolioBuilder from "./Components/Dashboard/portfolioBuilder";
 
 const AppRoutes: React.FC = () => {
   return (
@@ -31,6 +32,7 @@ const AppRoutes: React.FC = () => {
           <Route path="forum" element={<Forum />} />
           <Route path="profile" element={<Profile />} />
           <Route path="aiassistant" element={<Assistant />} />
+          <Route path="portfoliobuilder" element={<PortfolioBuilder />} />
         </Route>
 
         {/* Catch-all route for unmatched routes */}

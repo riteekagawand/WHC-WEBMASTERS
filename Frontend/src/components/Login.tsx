@@ -147,7 +147,7 @@ const UserLogin = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "CAREER INSIGHT | USER LOGIN / SIGNUP";
+    document.title = "HERSPACE | USER LOGIN / SIGNUP";
   }, []);
 
   return (
