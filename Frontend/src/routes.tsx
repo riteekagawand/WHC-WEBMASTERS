@@ -35,14 +35,16 @@ const AppRoutes: React.FC = () => {
           <Route path="home" element={<Home />} />
           <Route path="builder" element={<Builder />} />
           <Route path="ecommerce" element={<Ecommerce />} />
-          
           <Route path="analytics" element={<Analytics />} />
           <Route path="seo" element={<SEOOptimization />} />
           <Route path="forum" element={<Forum />} />
           <Route path="profile" element={<Profile />} />
           <Route path="aiassistant" element={<Assistant />} />
           <Route path="portfoliobuilder" element={<PortfolioBuilder />} />
+          <Route path="all-templates" element={<AllTemplates />} />
         </Route>
+
+        
 
 				{/* Catch-all route for unmatched routes */}
 				<Route path="*" element={<NotFound />} />
