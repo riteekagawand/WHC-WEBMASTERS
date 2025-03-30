@@ -41,8 +41,10 @@ const AppRoutes: React.FC = () => {
           <Route path="profile" element={<Profile />} />
           <Route path="aiassistant" element={<Assistant />} />
           <Route path="portfoliobuilder" element={<PortfolioBuilder />} />
-          <Route path="all-templates" element={<AllTemplates />} />
+          
         </Route>
+
+        <Route path="all-templates" element={<AllTemplates />} />
 
         
 
