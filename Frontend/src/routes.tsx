@@ -16,6 +16,8 @@ import Analytics from "./components/Dashboard/Analytics";
 import SEOOptimization from "./components/Dashboard/Seo";
 import Chatbot from "./pages/AiChat";
 import ContentGenerator from "./pages/ContentGenerator";
+import AllTemplates from "./pages/AllTemplates"; // Import AllTemplates
+
 
 const AppRoutes: React.FC = () => {
 	return (
@@ -26,7 +28,7 @@ const AppRoutes: React.FC = () => {
       {/* App routes under Layout */}
       <Route path="/" element={<Layout />}>
         <Route path="login" element={<Login />} />
-        
+
         {/* Dashboard route with nested child routes */}
         <Route path="dashboard" element={<Dashboard />}>
           <Route path="" element={<Home />} /> {/* Default route for dashboard */}
@@ -39,7 +41,12 @@ const AppRoutes: React.FC = () => {
           <Route path="profile" element={<Profile />} />
           <Route path="aiassistant" element={<Assistant />} />
           <Route path="portfoliobuilder" element={<PortfolioBuilder />} />
+          
         </Route>
+
+        <Route path="all-templates" element={<AllTemplates />} />
+
+        
 
 				{/* Catch-all route for unmatched routes */}
 				<Route path="*" element={<NotFound />} />
@@ -48,4 +55,4 @@ const AppRoutes: React.FC = () => {
 	);
 };
 
-export default AppRoutes; // Default export to match main.tsx
+export default AppRoutes;
