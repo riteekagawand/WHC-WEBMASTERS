@@ -13,6 +13,7 @@ import Dashboard from "./Components/Dashboard/dashboard";
 import LandingPage from "./pages/Landing"; // The landing page with Login button
 import PortfolioBuilder from "./Components/Dashboard/portfolioBuilder";
 import Chatbot from "./pages/AiChat";
+import ContentGenerator from "./pages/ContentGenerator";
 
 const AppRoutes: React.FC = () => {
 	return (
@@ -24,6 +25,7 @@ const AppRoutes: React.FC = () => {
 			<Route path="/" element={<Layout />}>
 				<Route path="login" element={<Login />} />
 				<Route path="aiChat" element={<Chatbot />} />
+				<Route path="contentGenerator" element={<ContentGenerator />} />
 
 				{/* Dashboard route with nested child routes */}
 				<Route path="dashboard" element={<Dashboard />}>

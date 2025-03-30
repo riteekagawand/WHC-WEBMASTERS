@@ -33,6 +33,10 @@ const App: React.FC = () => {
 			description:
 				"Create engaging blog posts, social media content, and product descriptions",
 			icon: GoPencil,
+			onClick: (e: React.MouseEvent) => {
+				e.preventDefault();
+				navigate("/contentGenerator");
+			},
 		},
 		{
 			title: "Customer Service Support",
@@ -120,10 +124,6 @@ const App: React.FC = () => {
 						customer support
 					</p>
 				</div>
-				<button className="bg-purple text-white px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition flex items-center">
-					<FaPlus className="mr-2" />
-					New Chat
-				</button>
 			</div>
 
 			{/* Navigation Tabs */}
