@@ -15,6 +15,7 @@ import PortfolioBuilder from "./Components/Dashboard/portfolioBuilder";
 import Chatbot from "./pages/AiChat";
 import ContentGenerator from "./pages/ContentGenerator";
 import ResourceHub from "./components/Dashboard/ResourceHub";
+import AICourse from "./pages/AICourse";
 
 const AppRoutes: React.FC = () => {
 	return (
@@ -27,6 +28,7 @@ const AppRoutes: React.FC = () => {
 				<Route path="login" element={<Login />} />
 				<Route path="aiChat" element={<Chatbot />} />
 				<Route path="contentGenerator" element={<ContentGenerator />} />
+				<Route path="courseGenerator" element={<AICourse />} />
 
 				{/* Dashboard route with nested child routes */}
 				<Route path="dashboard" element={<Dashboard />}>
