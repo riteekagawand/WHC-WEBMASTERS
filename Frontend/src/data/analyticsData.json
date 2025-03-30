@@ -1,0 +1,78 @@
+{
+    "metrics": {
+      "activeVisitors": {
+        "value": 1245,
+        "change": "12% increase",
+        "name": "Active Visitors"
+      },
+      "totalClicks": {
+        "value": 3872,
+        "change": "9% increase",
+        "name": "Total Clicks"
+      },
+      "averageTimeOnSite": {
+        "value": "2:34",
+        "change": "5% increase",
+        "name": "Average Time on Site"
+      },
+      "conversionRate": {
+        "value": "4.8%",
+        "change": "3% increase",
+        "name": "Conversion Rate"
+      }
+    },
+    "charts": {
+      "activeVisitorsOverTime": {
+        "name": "Active Visitors",
+        "data": [120, 340, 200, 500, 730, 920, 600, 1245]
+      },
+      "popularProducts": {
+        "name": "Sales",
+        "data": [120, 90, 70, 50, 30],
+        "categories": [
+          "E-Book",
+          "HandBag",
+          "Candles",
+          "Ceramic Mugs",
+          "Bottle"
+        ]
+      }
+    },
+    "topPages": [
+      {
+        "page": "/homepage",
+        "visitors": 542,
+        "avgTime": "1:45",
+        "bounceRate": "32%",
+        "conversion": "5.2%"
+      },
+      {
+        "page": "/products",
+        "visitors": 387,
+        "avgTime": "2:12",
+        "bounceRate": "28%",
+        "conversion": "7.8%"
+      },
+      {
+        "page": "/checkout",
+        "visitors": 245,
+        "avgTime": "1:05",
+        "bounceRate": "45%",
+        "conversion": "3.4%"
+      },
+      {
+        "page": "/blog",
+        "visitors": 198,
+        "avgTime": "3:22",
+        "bounceRate": "22%",
+        "conversion": "2.1%"
+      },
+      {
+        "page": "/about",
+        "visitors": 124,
+        "avgTime": "0:58",
+        "bounceRate": "51%",
+        "conversion": "1.2%"
+      }
+    ]
+  }
