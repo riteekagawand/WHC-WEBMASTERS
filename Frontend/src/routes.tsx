@@ -14,6 +14,7 @@ import LandingPage from "./pages/Landing"; // The landing page with Login button
 import PortfolioBuilder from "./Components/Dashboard/portfolioBuilder";
 import Chatbot from "./pages/AiChat";
 import ContentGenerator from "./pages/ContentGenerator";
+import ResourceHub from "./components/Dashboard/ResourceHub";
 
 const AppRoutes: React.FC = () => {
 	return (
@@ -38,6 +39,7 @@ const AppRoutes: React.FC = () => {
 					<Route path="profile" element={<Profile />} />
 					<Route path="aiassistant" element={<Assistant />} />
 					<Route path="portfoliobuilder" element={<PortfolioBuilder />} />
+					<Route path="resourcehub" element={<ResourceHub />} />
 				</Route>
 
 				{/* Catch-all route for unmatched routes */}
