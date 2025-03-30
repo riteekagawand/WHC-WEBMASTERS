@@ -1,8 +1,7 @@
-import express = require("express");
-import { authMiddleware } from "../middleware/auth.middleware";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express = require("express");
 const router = express.Router();
 // import { deployPortfolio } from "../controllers/user.controller";
-
 // router.post("/deployportfolio", authMiddleware, deployPortfolio);
-
-export default router;
+exports.default = router;

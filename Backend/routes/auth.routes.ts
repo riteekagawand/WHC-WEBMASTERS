@@ -1,4 +1,4 @@
-import express from "express";
+import express = require("express");
 import { register, login, verifyOTP } from "../controllers/auth.controller";
 import { authMiddleware } from "../middleware/auth.middleware";
 

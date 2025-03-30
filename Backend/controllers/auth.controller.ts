@@ -1,44 +1,48 @@
 import { Request, Response } from "express";
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
-import nodemailer from "nodemailer";
-import dotenv from "dotenv";
+import * as bcrypt from "bcryptjs"; // Works with esModuleInterop
+import * as jwt from "jsonwebtoken"; // Fix import
+import * as nodemailer from "nodemailer"; // Fix import
+import * as dotenv from "dotenv"; // Fix import
 import User from "../models/user.model";
 import OTP from "../models/otp.model";
 import { Op } from "sequelize";
 
 dotenv.config();
 
+
+// Ensure required environment variables are set at startup
+const { SENDER_EMAIL, APP_PASSWORD, JWT_SECRET } = process.env;
+if (!SENDER_EMAIL || !APP_PASSWORD || !JWT_SECRET) {
+  console.error("Missing required environment variables.");
+  process.exit(1); // Stop execution if critical env variables are missing
+}
+
 const generateOTP = (): string => Math.floor(100000 + Math.random() * 900000).toString();
 
 const sendOTP = async (email: string, generatedOTP: string): Promise<boolean> => {
-  if (!process.env.SENDER_EMAIL || !process.env.APP_PASSWORD) {
-    console.error("Missing email credentials.");
-    return false;
-  }
   try {
-    console.log("Sending OTP to email:", email);
+    console.log(`[INFO] Sending OTP to: ${email}`);
     const transporter = nodemailer.createTransport({
       host: process.env.EMAIL_HOST || "smtp.gmail.com",
       port: Number(process.env.EMAIL_PORT) || 587,
       secure: false,
       auth: {
-        user: process.env.SENDER_EMAIL,
-        pass: process.env.APP_PASSWORD,
+        user: SENDER_EMAIL,
+        pass: APP_PASSWORD,
       },
     });
 
     await transporter.sendMail({
-      from: process.env.SENDER_EMAIL,
+      from: SENDER_EMAIL,
       to: email,
       subject: "OTP for Verification",
       text: `Your OTP for email verification is: ${generatedOTP}`,
     });
 
-    console.log("OTP sent successfully to:", email);
+    console.log(`[SUCCESS] OTP sent to: ${email}`);
     return true;
   } catch (error) {
-    console.error("Email sending error:", error);
+    console.error("[ERROR] Failed to send OTP:", error);
     return false;
   }
 };
@@ -46,79 +50,70 @@ const sendOTP = async (email: string, generatedOTP: string): Promise<boolean> =>
 export const register = async (req: Request, res: Response): Promise<void> => {
   try {
     const { email, fullName, password } = req.body;
-    console.log("Registering user with email:", email);
     if (!email || !fullName || !password) {
       res.status(400).json({ message: "All fields are required" });
       return;
     }
 
     const emailLower = email.toLowerCase();
+    console.log(`[INFO] Registering user: ${emailLower}`);
+
     const existingUser = await User.findOne({ where: { email: emailLower } });
     if (existingUser) {
-      console.log("User already exists with email:", emailLower);
+      console.log(`[WARN] User already exists: ${emailLower}`);
       res.status(400).json({ message: "User already exists" });
       return;
     }
 
     const otp = generateOTP();
-    console.log("Generated OTP:", otp);
+    console.log(`[INFO] Generated OTP for ${emailLower}: ${otp}`);
 
-    const otpExpiry = new Date(Date.now() + 5 * 60 * 1000);// OTP expires in 5 minutes
-    console.log("OTP expiry time:", otpExpiry);
-
+    const otpExpiry = new Date(Date.now() + 5 * 60 * 1000);
     const otpSent = await sendOTP(emailLower, otp);
+
     if (!otpSent) {
-      console.error("Failed to send OTP to:", emailLower);
+      console.error(`[ERROR] Failed to send OTP to: ${emailLower}`);
       res.status(500).json({ message: "Failed to send OTP" });
       return;
     }
 
     await OTP.upsert({
       email: emailLower,
-      otp,  // New OTP
-      otp_expires: otpExpiry,  // Set the expiration time
+      otp,
+      otp_expires: otpExpiry,
     });
-    console.log("OTP upserted for email:", emailLower);
 
-    console.log("OTP sent to email successfully:", emailLower);
+    console.log(`[SUCCESS] OTP stored for ${emailLower}, expires at: ${otpExpiry}`);
     res.status(200).json({ message: "OTP sent to email" });
   } catch (error) {
-    console.error("Registration error:", error);
+    console.error("[ERROR] Registration error:", error);
     res.status(500).json({ message: "Internal server error" });
   }
 };
-
 
 export const verifyOTP = async (req: Request, res: Response): Promise<void> => {
   try {
     const { email, enteredOTP, password, fullName } = req.body;
     const emailLower = email.toLowerCase();
-    console.log("Verifying OTP for email:", emailLower);
 
-    // Fetch the most recent OTP for verification
+    console.log(`[INFO] Verifying OTP for: ${emailLower}`);
+
     const otpRecord = await OTP.findOne({
       where: {
         email: emailLower,
-        otp_expires: { [Op.gte]: new Date() },  // Ensure OTP has not expired
+        otp_expires: { [Op.gte]: new Date() },
       },
-      order: [['otp_expires', 'DESC']],  // Ensure the latest OTP is fetched
+      order: [['otp_expires', 'DESC']],
     });
 
-
-    // Log OTP record for debugging purposes
-    console.log("OTP Record found:", otpRecord);
-
-    if (!otpRecord) {
-      res.status(400).json({ message: "OTP expired or invalid" });
+    if (!otpRecord || otpRecord.otp !== enteredOTP) {
+      console.log(`[WARN] Invalid or expired OTP for ${emailLower}`);
+      res.status(400).json({ message: "Invalid or expired OTP" });
       return;
     }
 
-    if (otpRecord.otp !== enteredOTP) {
-      res.status(400).json({ message: "Invalid OTP" });
-      return;
-    }
-    console.log("OTP verified successfully");
-    // Proceed with user registration if OTP is valid
+    console.log(`[SUCCESS] OTP verified for ${emailLower}`);
+
     const hashedPassword = await bcrypt.hash(password, 10);
     const photo = `https://ui-avatars.com/api/?name=${fullName.charAt(0).toUpperCase()}&size=150`;
 
@@ -130,46 +125,42 @@ export const verifyOTP = async (req: Request, res: Response): Promise<void> => {
       userType: "entrepreneur",
     });
 
-    // Delete OTP from the database after successful registration
-    // Delete expired OTP records
     await OTP.destroy({
-      where: {
-        otp_expires: { [Op.lt]: new Date() },  // Expired OTPs
-      },
+      where: { email: emailLower },
     });
 
+    console.log(`[SUCCESS] User registered: ${emailLower}`);
     res.status(200).json({ message: "User registered successfully", user: newUser });
   } catch (error) {
-    console.error("OTP verification error:", error);
+    console.error("[ERROR] OTP verification error:", error);
     res.status(500).json({ message: "Internal server error" });
   }
 };
 
-
 export const login = async (req: Request, res: Response): Promise<void> => {
   try {
     const { email, password } = req.body;
-    console.log("Logging in user with email:", email);
     const emailLower = email.toLowerCase();
+
+    console.log(`[INFO] Attempting login for: ${emailLower}`);
 
     const user = await User.findOne({ where: { email: emailLower } });
     if (!user) {
-      console.log("Invalid credentials: No user found with email:", emailLower);
+      console.log(`[WARN] Login failed: No user found with email ${emailLower}`);
       res.status(400).json({ message: "Invalid credentials" });
       return;
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      console.log("Invalid credentials: Password does not match for email:", emailLower);
+      console.log(`[WARN] Login failed: Incorrect password for ${emailLower}`);
       res.status(400).json({ message: "Invalid credentials" });
       return;
     }
 
-    if (!process.env.JWT_SECRET) throw new Error("JWT secret not found.");
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "1h" });
+    const token = jwt.sign({ id: user.id }, JWT_SECRET, { expiresIn: "1h" });
 
-    console.log("Login successful for user:", user.email);
+    console.log(`[SUCCESS] Login successful for: ${emailLower}`);
     res.status(200).json({
       message: "Login successful",
       token,
@@ -181,7 +172,7 @@ export const login = async (req: Request, res: Response): Promise<void> => {
       },
     });
   } catch (error) {
-    console.error("Login error:", error);
+    console.error("[ERROR] Login error:", error);
     res.status(500).json({ message: "Internal server error" });
   }
 };
