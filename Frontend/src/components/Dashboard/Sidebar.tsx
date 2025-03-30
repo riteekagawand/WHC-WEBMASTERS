@@ -80,6 +80,7 @@ const Sidebar: React.FC = () => {
               <span className="text-lg">AI Assistant</span>
             </Link>
           </li>
+          
         </ul>
 
 
