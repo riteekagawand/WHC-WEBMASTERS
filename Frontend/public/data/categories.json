@@ -1,0 +1,75 @@
+{
+    "templates": [
+      {
+        "id": 1,
+        "title": "Beauty",
+        "description": "Explore the latest trends in skincare, makeup, and personal care.",
+        "icon": "FaSpa",
+        "price": 738
+      },
+      {
+        "id": 2,
+        "title": "Food",
+        "description": "Discover delicious recipes, cuisines, and foodie adventures.",
+        "icon": "FaUtensils",
+        "price": 486
+      },
+      {
+        "id": 3,
+        "title": "Handicraft",
+        "description": "Handmade art, crafts, and unique DIY projects.",
+        "icon": "FaPaintBrush",
+        "price": 723
+      },
+      {
+        "id": 4,
+        "title": "Fashion",
+        "description": "Stay stylish with the latest clothing and accessory trends.",
+        "icon": "FaTshirt",
+        "price": 786
+      },
+      {
+        "id": 5,
+        "title": "Travel",
+        "description": "Plan your next adventure with travel tips and destinations.",
+        "icon": "FaPlane",
+        "price": 474
+      },
+      {
+        "id": 6,
+        "title": "Technology",
+        "description": "Get updates on gadgets, software, and innovations.",
+        "icon": "FaLaptop",
+        "price": 718
+      },
+      {
+        "id": 7,
+        "title": "Health",
+        "description": "Tips and products for a healthier lifestyle.",
+        "icon": "FaHeartbeat",
+        "price": 806
+      },
+      {
+        "id": 8,
+        "title": "Education",
+        "description": "Resources for learning and personal growth.",
+        "icon": "FaBook",
+        "price": 715
+      },
+      {
+        "id": 9,
+        "title": "Home Decor",
+        "description": "Ideas and items to beautify your living space.",
+        "icon": "FaHome",
+        "price": 263
+      },
+      {
+        "id": 10,
+        "title": "Fitness",
+        "description": "Workout plans, gear, and fitness motivation.",
+        "icon": "FaDumbbell",
+        "price": 615
+      }
+    ]
+  }
+  
