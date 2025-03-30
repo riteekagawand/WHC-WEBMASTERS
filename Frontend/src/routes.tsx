@@ -16,6 +16,8 @@ import Analytics from "./components/Dashboard/Analytics";
 import SEOOptimization from "./components/Dashboard/Seo";
 import Chatbot from "./pages/AiChat";
 import ContentGenerator from "./pages/ContentGenerator";
+import AllTemplates from "./pages/AllTemplates"; // Import AllTemplates
+
 import ResumeBuilder from "./components/Dashboard/ResumeBuilder";
 import ResumeBody from "./components/AIResume/ResumeBody";
 
@@ -28,8 +30,7 @@ const AppRoutes: React.FC = () => {
       {/* App routes under Layout */}
       <Route path="/" element={<Layout />}>
         <Route path="login" element={<Login />} />
-		<Route path="aiChat" element={<Chatbot />} />
-		<Route path="contentGenerator" element={<ContentGenerator />} />
+
         
         {/* Dashboard route with nested child routes */}
         <Route path="dashboard" element={<Dashboard />}>
@@ -42,10 +43,16 @@ const AppRoutes: React.FC = () => {
           <Route path="forum" element={<Forum />} />
           <Route path="profile" element={<Profile />} />
           <Route path="aiassistant" element={<Assistant />} />
+          <Route path="aiChat" element={<Chatbot />} />
+          <Route path="contentGenerator" element={<ContentGenerator />} />
           <Route path="portfoliobuilder" element={<PortfolioBuilder />} />
           <Route path="resumebuilder" element={<ResumeBuilder />} />
           <Route path="resumebody" element={<ResumeBody/>} />
         </Route>
+
+        <Route path="all-templates" element={<AllTemplates />} />
+
+        
 
 				{/* Catch-all route for unmatched routes */}
 				<Route path="*" element={<NotFound />} />
@@ -54,4 +61,4 @@ const AppRoutes: React.FC = () => {
 	);
 };
 
-export default AppRoutes; // Default export to match main.tsx
+export default AppRoutes;

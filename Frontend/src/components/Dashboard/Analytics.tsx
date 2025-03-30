@@ -244,6 +244,11 @@ const Analytics: React.FC = () => {
     pdf.save('analytics-report.pdf');
   };
 
+   useEffect(() => {
+          window.scrollTo(0, 0);
+          document.title = "HERSPACE | ANALYTICS";
+      }, []);
+
   return (
     <div className="p-6 min-h-screen" ref={dashboardRef}>
       {/* Header */}

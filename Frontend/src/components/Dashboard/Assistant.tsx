@@ -1,5 +1,3 @@
-// src/App.tsx
-
 import React from "react";
 import Card from "../AiTools"; // Note: The import path was updated to match the previous context
 import { FaPlus, FaGlobe, FaChartBar } from "react-icons/fa";
@@ -19,6 +17,7 @@ interface CardProps {
 }
 const App: React.FC = () => {
 	const navigate = useNavigate();
+	
 
 	// Data for Popular AI Tools
 	const popularTools = [
@@ -35,7 +34,7 @@ const App: React.FC = () => {
 			icon: GoPencil,
 			onClick: (e: React.MouseEvent) => {
 				e.preventDefault();
-				navigate("/contentGenerator");
+				navigate("/dashboard/contentGenerator");
 			},
 		},
 		{
@@ -45,7 +44,7 @@ const App: React.FC = () => {
 			icon: RiCustomerService2Line,
 			onClick: (e: React.MouseEvent) => {
 				e.preventDefault();
-				navigate("/aiChat");
+				navigate("/dashboard/aiChat");
 			},
 		},
 	];
@@ -110,6 +109,7 @@ const App: React.FC = () => {
 		"Customer Support",
 		"Saved",
 	];
+	
 
 	return (
 		<div className="p-6 min-h-screen">

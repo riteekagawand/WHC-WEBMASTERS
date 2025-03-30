@@ -1,27 +1,24 @@
 import { Button } from "../../components/ui/button";
 import React, { useContext, useState } from "react";
-import html2pdf from "html2pdf";
+import html2pdf from "html2pdf.js";
 import { toast } from "sonner";
 import { ResumeInfoContext } from "../../context/ResumeContext";
-import { userState } from "../../store/auth";
-import { useRecoilValue } from "recoil";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ImSpinner2 } from "react-icons/im";
 import { FaDownload, FaSave } from "react-icons/fa";
-import { User } from "@/types";  // Add user type
+import { User } from "@/types"; 
 
-const DonwloadResume = () => {
-  const user = useRecoilValue<User | null>(userState);
+const DownloadResume = () => {
+  const user: User | null = JSON.parse(localStorage.getItem("user") || "null");
   const navigate = useNavigate();
   const [loading, setLoading] = useState<boolean>(false);
+  const [resumeInfo] = useContext(ResumeInfoContext);
 
   if (!user) {
     navigate("/");
     return null;
   }
-
-  const [resumeInfo] = useContext(ResumeInfoContext);
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -72,44 +69,30 @@ const DonwloadResume = () => {
 
   const handleDownload = async () => {
     try {
-      const checktrail = await axios.get(
-        `${import.meta.env.VITE_BASE_URL}/api/user/checktrails/resumebuilder`,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
+      const resume = document.getElementById("resume-preview");
+      console.log("Resume Element:", resume);
 
-      if (checktrail.status === 200) {
-        const resume = document.getElementById("resume-preview");
+      if (!resume) {
+        toast.error("Error: Resume preview not found.");
+        return;
+      }
 
+      setTimeout(() => {
         html2pdf()
-          .from(resume!)
+          .from(resume)
           .set({
             margin: 1,
             filename: "My_Resume.pdf",
-            html2canvas: { scale: 2 },
+            html2canvas: { scale: 2, logging: true, useCORS: true },
             jsPDF: { format: "a4", orientation: "portrait" },
           })
           .save();
+      }, 500);
 
-        toast.success("Resume downloaded successfully");
-      } else if (checktrail.status === 400) {
-        toast.error(
-          "You have exhausted your free trials. Please upgrade to premium to continue."
-        );
-        navigate("/pricing");
-      }
-    } catch (error: any) {
-      if (error.response?.status === 400) {
-        toast.error(
-          "You have exhausted your free trials. Please upgrade to premium to continue."
-        );
-        navigate("/pricing");
-      } else {
-        toast.error("Error downloading resume");
-      }
+      toast.success("Resume downloaded successfully");
+    } catch (error) {
+      toast.error("Error downloading resume");
+      console.error("Download Error:", error);
     }
   };
 
@@ -117,11 +100,10 @@ const DonwloadResume = () => {
     <div className="p-5 rounded-lg shadow-lg border-t-primary border-t-8">
       <div className="my-5">
         <h2 className="text-center text-3xl font-bold">
-          Congrats your resume is ready
+          Congrats! Your resume is ready 🎉
         </h2>
         <p className="text-center text-lg font-semibold py-3">
-          You can now download, save and share with potential clients and
-          friends
+          You can now download, save, and share it with potential employers!
         </p>
         <div className="flex justify-center pt-5 gap-5">
           <Button onClick={handleDownload} size="lg" className="flex gap-2">
@@ -144,10 +126,9 @@ const DonwloadResume = () => {
             )}
           </Button>
         </div>
-        <div></div>
       </div>
     </div>
   );
 };
 
-export default DonwloadResume;
+export default DownloadResume;

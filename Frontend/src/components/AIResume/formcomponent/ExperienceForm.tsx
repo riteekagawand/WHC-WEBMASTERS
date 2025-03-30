@@ -33,12 +33,16 @@ const ExperienceForm: React.FC = () => {
     const [resumeInfo, setResumeInfo] = useContext(ResumeInfoContext);
     const [experienceList, setExperienceList] = useState<Experience[]>(resumeInfo.experience || [formField]);
 
+    // Update resumeInfo context only if the experienceList has changed
     useEffect(() => {
-        setResumeInfo({
-            ...resumeInfo,
-            experience: experienceList,
-        });
-    }, [experienceList, resumeInfo]);
+        // Compare previous experienceList with the new one
+        if (JSON.stringify(experienceList) !== JSON.stringify(resumeInfo.experience)) {
+            setResumeInfo({
+                ...resumeInfo,
+                experience: experienceList,
+            });
+        }
+    }, [experienceList, resumeInfo, setResumeInfo]);
 
     const handleChange = (index: number, event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;

@@ -16,8 +16,6 @@ import {
     BreadcrumbSeparator,
 } from "../../Components/ui/breadcrumb";
 import { Separator } from "../../Components/ui/separator";
-import axios from "axios";
-import { toast } from "sonner";
 import { format } from "date-fns";
 import { Skeleton } from "../../Components/ui/skeleton";
 
@@ -31,54 +29,23 @@ interface Resume {
 
 const ResumeBuilder: React.FC = () => {
     const [resumes, setResumes] = useState<Resume[]>([]);
-    const user = JSON.parse(localStorage.getItem("user") || "{}"); // Fetch user from localStorage
     const navigate = useNavigate();
     const [loading, setLoading] = useState<boolean>(true);
     const [currentPage, setCurrentPage] = useState<number>(1);
     const itemsPerPage: number = 5;
-
     const totalPages: number = Math.ceil(resumes.length / itemsPerPage);
 
     useEffect(() => {
-        const fetchResumes = async () => {
-            setLoading(true);
-            try {
-                const response = await axios.get(
-                    `${import.meta.env.VITE_BASE_URL}/api/userresume/getalluserresume/${user?._id}`,
-                    {
-                        headers: {
-                            Authorization: `Bearer ${localStorage.getItem("token")}`,
-                        },
-                    }
-                );
-                setResumes(response.data.resumes);
-            } catch (error) {
-                toast.error("Failed to fetch resumes");
-            } finally {
-                setLoading(false);
-            }
-        };
+        // Simulate fetching resumes from local storage or mock data
+        setLoading(true);
+        setTimeout(() => {
+            setResumes([]); // Replace with mock data if needed
+            setLoading(false);
+        }, 1000);
+    }, []);
 
-        if (user?._id) {
-            fetchResumes();
-        }
-    }, [user?._id]);
-
-    const handleDelete = async (resumeId: string) => {
-        try {
-            await axios.delete(
-                `${import.meta.env.VITE_BASE_URL}/api/userresume/deleteuserresume/${resumeId}`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${localStorage.getItem("token")}`,
-                    },
-                }
-            );
-            toast.success("Resume deleted successfully");
-            setResumes((prevResumes) => prevResumes.filter((resume) => resume._id !== resumeId));
-        } catch (error) {
-            toast.error("Failed to delete resume");
-        }
+    const handleDelete = (resumeId: string) => {
+        setResumes((prevResumes) => prevResumes.filter((resume) => resume._id !== resumeId));
     };
 
     const handlePageClick = (page: number) => {
@@ -93,7 +60,7 @@ const ResumeBuilder: React.FC = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        document.title = "CAREERINSIGHT | MY RESUMES";
+        document.title = "HERSPACE | MY RESUMES";
     }, []);
 
     return (
@@ -117,7 +84,7 @@ const ResumeBuilder: React.FC = () => {
                     </Breadcrumb>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-5 gap-5">
-                    <Link to="/resumebody" className="p-14 py-24 flex items-center justify-center border-2 border-dashed rounded-lg h-[385px] hover:scale-95 transition-all hover:shadow-md cursor-pointer">
+                    <Link to="/dashboard/resumebody" className="p-14 py-24 flex items-center justify-center border-2 border-dashed rounded-lg h-[385px] hover:scale-95 transition-all hover:shadow-md cursor-pointer">
                         <IoMdAdd size={50} />
                     </Link>
                     {loading
