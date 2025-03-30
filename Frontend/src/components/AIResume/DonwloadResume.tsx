@@ -1,9 +1,9 @@
-import { Button } from "../../../components/ui/button";
+import { Button } from "../../components/ui/button";
 import React, { useContext, useState } from "react";
-import html2pdf from "html2pdf.js";
+import html2pdf from "html2pdf";
 import { toast } from "sonner";
-import { ResumeInfoContext } from "@/context/ResumeContext";
-import { userState } from "@/src/store/auth";
+import { ResumeInfoContext } from "../../context/ResumeContext";
+import { userState } from "../../store/auth";
 import { useRecoilValue } from "recoil";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";

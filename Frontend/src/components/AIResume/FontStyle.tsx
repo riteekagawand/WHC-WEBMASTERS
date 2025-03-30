@@ -3,10 +3,10 @@ import {
     Popover,
     PopoverContent,
     PopoverTrigger,
-} from "@/components/ui/popover"
-import { Button } from '@/components/ui/button';
+} from "../../components/ui/popover"
+import { Button } from '../../components/ui/button';
 import { FaFont } from "react-icons/fa";
-import { ResumeInfoContext } from '@/context/ResumeContext';
+import { ResumeInfoContext } from '../../context/ResumeContext';
 
 const FontStyle = () => {
     const [resumeInfo, setResumeInfo] = useContext(ResumeInfoContext);

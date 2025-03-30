@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import PersonalDetailForm from './formcomponents/PersonalDetailForm';
-import { Button } from '@/components/ui/button';
+import PersonalDetailForm from './formcomponent/PersonalDetailForm';
+import { Button } from '../../components/ui/button';
 import { IoMdArrowRoundForward, IoMdArrowRoundBack } from "react-icons/io";
-import SummeryForm from './formcomponents/SummeryForm';
-import ExperienceForm from './formcomponents/ExperienceForm';
-import EducationForm from './formcomponents/EducationForm';
-import SkillForm from './formcomponents/SkillForm';
+import SummeryForm from './formcomponent/SummeryForm';
+import ExperienceForm from './formcomponent/ExperienceForm';
+import EducationForm from './formcomponent/EducationForm';
+import SkillForm from './formcomponent/SkillForm';
 import DonwloadResume from './DonwloadResume';
 import { useNavigate } from 'react-router-dom';
 import ThemeColor from './ThemeColor';

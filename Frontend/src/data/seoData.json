@@ -1,0 +1,154 @@
+{
+    "categories": [
+      {
+        "category": "Beauty",
+        "keywords": [
+          { "keyword": "skincare routine", "searchVolumeTrend": "High", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 90 },
+          { "keyword": "best makeup products", "searchVolumeTrend": "High", "competitionLevel": "High", "suggestedFocus": "Secondary", "searchIntent": "Commercial", "trendScore": 85 },
+          { "keyword": "natural beauty tips", "searchVolumeTrend": "Medium", "competitionLevel": "Low", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 75 },
+          { "keyword": "anti-aging cream", "searchVolumeTrend": "High", "competitionLevel": "High", "suggestedFocus": "Long-tail", "searchIntent": "Transactional", "trendScore": 88 },
+          { "keyword": "haircare products", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Secondary", "searchIntent": "Commercial", "trendScore": 72 },
+          { "keyword": "beauty trends 2025", "searchVolumeTrend": "Low", "competitionLevel": "Low", "suggestedFocus": "Long-tail", "searchIntent": "Informational", "trendScore": 60 },
+          { "keyword": "best face serums", "searchVolumeTrend": "Medium", "competitionLevel": "High", "suggestedFocus": "Secondary", "searchIntent": "Commercial", "trendScore": 77 },
+          { "keyword": "DIY skincare", "searchVolumeTrend": "Medium", "competitionLevel": "Low", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 70 },
+          { "keyword": "vegan beauty brands", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Commercial", "trendScore": 73 },
+          { "keyword": "best sunscreen for face", "searchVolumeTrend": "High", "competitionLevel": "High", "suggestedFocus": "Secondary", "searchIntent": "Commercial", "trendScore": 86 }
+        ]
+      },
+      {
+        "category": "Food",
+        "keywords": [
+          { "keyword": "healthy recipes", "searchVolumeTrend": "High", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 91 },
+          { "keyword": "quick dinner ideas", "searchVolumeTrend": "High", "competitionLevel": "High", "suggestedFocus": "Secondary", "searchIntent": "Informational", "trendScore": 87 },
+          { "keyword": "vegan meal plans", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 78 },
+          { "keyword": "baking tips", "searchVolumeTrend": "Medium", "competitionLevel": "Low", "suggestedFocus": "Secondary", "searchIntent": "Informational", "trendScore": 72 },
+          { "keyword": "gluten-free recipes", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 75 },
+          { "keyword": "meal prep ideas", "searchVolumeTrend": "High", "competitionLevel": "Medium", "suggestedFocus": "Secondary", "searchIntent": "Informational", "trendScore": 85 },
+          { "keyword": "food photography tips", "searchVolumeTrend": "Low", "competitionLevel": "Low", "suggestedFocus": "Long-tail", "searchIntent": "Informational", "trendScore": 58 },
+          { "keyword": "best kitchen gadgets", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Commercial", "searchIntent": "Transactional", "trendScore": 74 },
+          { "keyword": "seasonal produce guide", "searchVolumeTrend": "Low", "competitionLevel": "Low", "suggestedFocus": "Long-tail", "searchIntent": "Informational", "trendScore": 63 },
+          { "keyword": "best meal delivery services", "searchVolumeTrend": "High", "competitionLevel": "High", "suggestedFocus": "Commercial", "searchIntent": "Transactional", "trendScore": 88 }
+        ]
+      },
+      {
+        "category": "Handicraft",
+        "keywords": [
+          { "keyword": "handmade crafts", "searchVolumeTrend": "Medium", "competitionLevel": "Low", "suggestedFocus": "Primary", "searchIntent": "Commercial", "trendScore": "56%" },
+          { "keyword": "DIY home decor", "searchVolumeTrend": "High", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Commercial", "trendScore": "56%" },
+          { "keyword": "crafting tutorials", "searchVolumeTrend": "Medium", "competitionLevel": "Low", "suggestedFocus": "Secondary", "searchIntent": "Commercial", "trendScore": "56%" },
+          { "keyword": "handmade jewelry", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Commercial", "trendScore": "56%" },
+          { "keyword": "upcycled crafts", "searchVolumeTrend": "Low", "competitionLevel": "Low", "suggestedFocus": "Long-tail", "searchIntent": "Commercial", "trendScore": "56%" },
+          { "keyword": "knitting patterns", "searchVolumeTrend": "Medium", "competitionLevel": "Low", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": "58%" },
+          { "keyword": "best craft supplies", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Secondary", "searchIntent": "Transactional", "trendScore": "55%" },
+          { "keyword": "woodworking projects", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": "57%" },
+          { "keyword": "sewing for beginners", "searchVolumeTrend": "Medium", "competitionLevel": "Low", "suggestedFocus": "Secondary", "searchIntent": "Informational", "trendScore": "54%" },
+          { "keyword": "handmade gift ideas", "searchVolumeTrend": "High", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Commercial", "trendScore": "59%" }
+        ]
+      },
+      {
+        "category": "Fashion",
+        "keywords": [
+          { "keyword": "summer fashion trends", "searchVolumeTrend": "High", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 89 },
+          { "keyword": "best jeans for women", "searchVolumeTrend": "High", "competitionLevel": "High", "suggestedFocus": "Secondary", "searchIntent": "Commercial", "trendScore": 85 },
+          { "keyword": "sustainable fashion brands", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Commercial", "trendScore": 77 },
+          { "keyword": "how to style sneakers", "searchVolumeTrend": "Medium", "competitionLevel": "Low", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 74 },
+          { "keyword": "best handbags 2025", "searchVolumeTrend": "High", "competitionLevel": "High", "suggestedFocus": "Secondary", "searchIntent": "Commercial", "trendScore": 83 },
+          { "keyword": "DIY fashion hacks", "searchVolumeTrend": "Medium", "competitionLevel": "Low", "suggestedFocus": "Long-tail", "searchIntent": "Informational", "trendScore": 68 },
+          { "keyword": "affordable fashion brands", "searchVolumeTrend": "High", "competitionLevel": "Medium", "suggestedFocus": "Commercial", "searchIntent": "Transactional", "trendScore": 82 },
+          { "keyword": "how to accessorize outfits", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 75 },
+          { "keyword": "best online clothing stores", "searchVolumeTrend": "High", "competitionLevel": "High", "suggestedFocus": "Commercial", "searchIntent": "Transactional", "trendScore": 87 },
+          { "keyword": "wedding guest outfit ideas", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 79 }
+        ]
+      },
+      {
+        "category": "Travel",
+        "keywords": [
+          { "keyword": "best travel destinations 2025", "searchVolumeTrend": "High", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 92 },
+          { "keyword": "cheap flights", "searchVolumeTrend": "High", "competitionLevel": "High", "suggestedFocus": "Secondary", "searchIntent": "Transactional", "trendScore": 89 },
+          { "keyword": "solo travel tips", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 81 },
+          { "keyword": "best travel backpacks", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Commercial", "searchIntent": "Transactional", "trendScore": 76 },
+          { "keyword": "digital nomad lifestyle", "searchVolumeTrend": "Low", "competitionLevel": "Low", "suggestedFocus": "Long-tail", "searchIntent": "Informational", "trendScore": 65 },
+          { "keyword": "best time to visit Europe", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 78 },
+          { "keyword": "luxury travel experiences", "searchVolumeTrend": "High", "competitionLevel": "High", "suggestedFocus": "Commercial", "searchIntent": "Transactional", "trendScore": 86 },
+          { "keyword": "how to find hotel deals", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Secondary", "searchIntent": "Transactional", "trendScore": 74 },
+          { "keyword": "family-friendly travel destinations", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 80 },
+          { "keyword": "travel insurance comparison", "searchVolumeTrend": "Medium", "competitionLevel": "High", "suggestedFocus": "Commercial", "searchIntent": "Transactional", "trendScore": 79 }
+        ]
+      },
+      {
+        "category": "Technology",
+        "keywords": [
+          { "keyword": "best smartphones 2025", "searchVolumeTrend": "High", "competitionLevel": "High", "suggestedFocus": "Primary", "searchIntent": "Commercial", "trendScore": 91 },
+          { "keyword": "AI in business", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 84 },
+          { "keyword": "best laptops for gaming", "searchVolumeTrend": "High", "competitionLevel": "High", "suggestedFocus": "Secondary", "searchIntent": "Commercial", "trendScore": 88 },
+          { "keyword": "cloud computing trends", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 80 },
+          { "keyword": "cybersecurity best practices", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 79 },
+          { "keyword": "gadget reviews", "searchVolumeTrend": "High", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Commercial", "trendScore": 86 },
+          { "keyword": "tech news", "searchVolumeTrend": "High", "competitionLevel": "High", "suggestedFocus": "Secondary", "searchIntent": "Informational", "trendScore": 89 },
+          { "keyword": "smartphone comparisons", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Secondary", "searchIntent": "Informational", "trendScore": 78 },
+          { "keyword": "tech tutorials", "searchVolumeTrend": "Medium", "competitionLevel": "Low", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 82 },
+          { "keyword": "AI innovations", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Secondary", "searchIntent": "Informational", "trendScore": 80 }
+        ]
+      },
+      {
+        "category": "Health",
+        "keywords": [
+          { "keyword": "fitness tips", "searchVolumeTrend": "High", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 90 },
+          { "keyword": "mental health advice", "searchVolumeTrend": "High", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 88 },
+          { "keyword": "weight loss diet", "searchVolumeTrend": "High", "competitionLevel": "High", "suggestedFocus": "Secondary", "searchIntent": "Commercial", "trendScore": 92 },
+          { "keyword": "yoga for beginners", "searchVolumeTrend": "Medium", "competitionLevel": "Low", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 85 },
+          { "keyword": "healthy lifestyle", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Secondary", "searchIntent": "Informational", "trendScore": 83 },
+          { "keyword": "stress management", "searchVolumeTrend": "Medium", "competitionLevel": "Low", "suggestedFocus": "Secondary", "searchIntent": "Informational", "trendScore": 80 },
+          { "keyword": "nutrition tips", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 81 },
+          { "keyword": "workout plans", "searchVolumeTrend": "High", "competitionLevel": "High", "suggestedFocus": "Secondary", "searchIntent": "Transactional", "trendScore": 89 },
+          { "keyword": "meditation techniques", "searchVolumeTrend": "Medium", "competitionLevel": "Low", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 82 },
+          { "keyword": "best supplements for health", "searchVolumeTrend": "High", "competitionLevel": "High", "suggestedFocus": "Commercial", "searchIntent": "Transactional", "trendScore": 87 }
+        ]
+      },
+      {
+        "category": "Education",
+        "keywords": [
+          { "keyword": "online learning", "searchVolumeTrend": "High", "competitionLevel": "High", "suggestedFocus": "Secondary", "searchIntent": "Informational", "trendScore": 88 },
+          { "keyword": "study tips", "searchVolumeTrend": "High", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 85 },
+          { "keyword": "e-learning platforms", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Secondary", "searchIntent": "Commercial", "trendScore": 80 },
+          { "keyword": "educational resources", "searchVolumeTrend": "Medium", "competitionLevel": "Low", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 78 },
+          { "keyword": "learning apps", "searchVolumeTrend": "Medium", "competitionLevel": "Low", "suggestedFocus": "Secondary", "searchIntent": "Commercial", "trendScore": 76 },
+          { "keyword": "best online courses", "searchVolumeTrend": "High", "competitionLevel": "High", "suggestedFocus": "Primary", "searchIntent": "Transactional", "trendScore": 89 },
+          { "keyword": "how to improve memory", "searchVolumeTrend": "Medium", "competitionLevel": "Low", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 77 },
+          { "keyword": "language learning tips", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Secondary", "searchIntent": "Informational", "trendScore": 79 },
+          { "keyword": "coding for beginners", "searchVolumeTrend": "High", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 86 },
+          { "keyword": "virtual tutoring", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Long-tail", "searchIntent": "Commercial", "trendScore": 75 }
+        ]
+      },
+      {
+        "category": "Home Decor",
+        "keywords": [
+          { "keyword": "home decor ideas", "searchVolumeTrend": "High", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 87 },
+          { "keyword": "interior design trends", "searchVolumeTrend": "High", "competitionLevel": "High", "suggestedFocus": "Secondary", "searchIntent": "Informational", "trendScore": 85 },
+          { "keyword": "DIY home projects", "searchVolumeTrend": "Medium", "competitionLevel": "Low", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 78 },
+          { "keyword": "minimalist decor", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Secondary", "searchIntent": "Commercial", "trendScore": 75 },
+          { "keyword": "home organization", "searchVolumeTrend": "Medium", "competitionLevel": "Low", "suggestedFocus": "Secondary", "searchIntent": "Informational", "trendScore": 76 },
+          { "keyword": "vintage home decor", "searchVolumeTrend": "Low", "competitionLevel": "Low", "suggestedFocus": "Long-tail", "searchIntent": "Commercial", "trendScore": 65 },
+          { "keyword": "best furniture stores", "searchVolumeTrend": "High", "competitionLevel": "High", "suggestedFocus": "Primary", "searchIntent": "Transactional", "trendScore": 88 },
+          { "keyword": "small space decorating", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 79 },
+          { "keyword": "eco-friendly decor", "searchVolumeTrend": "Medium", "competitionLevel": "Low", "suggestedFocus": "Secondary", "searchIntent": "Commercial", "trendScore": 74 },
+          { "keyword": "seasonal decor ideas", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Long-tail", "searchIntent": "Informational", "trendScore": 77 }
+        ]
+      },
+      {
+        "category": "Fitness",
+        "keywords": [
+          { "keyword": "home workouts", "searchVolumeTrend": "High", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 90 },
+          { "keyword": "fitness equipment", "searchVolumeTrend": "High", "competitionLevel": "High", "suggestedFocus": "Secondary", "searchIntent": "Commercial", "trendScore": 88 },
+          { "keyword": "strength training", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 82 },
+          { "keyword": "cardio exercises", "searchVolumeTrend": "Medium", "competitionLevel": "Low", "suggestedFocus": "Secondary", "searchIntent": "Informational", "trendScore": 78 },
+          { "keyword": "fitness motivation", "searchVolumeTrend": "Medium", "competitionLevel": "Low", "suggestedFocus": "Secondary", "searchIntent": "Informational", "trendScore": 75 },
+          { "keyword": "yoga routines", "searchVolumeTrend": "Medium", "competitionLevel": "Low", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 80 },
+          { "keyword": "best fitness apps", "searchVolumeTrend": "High", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Commercial", "trendScore": 87 },
+          { "keyword": "running tips", "searchVolumeTrend": "Medium", "competitionLevel": "Low", "suggestedFocus": "Secondary", "searchIntent": "Informational", "trendScore": 76 },
+          { "keyword": "bodyweight exercises", "searchVolumeTrend": "Medium", "competitionLevel": "Medium", "suggestedFocus": "Primary", "searchIntent": "Informational", "trendScore": 83 },
+          { "keyword": "fitness challenges", "searchVolumeTrend": "High", "competitionLevel": "Medium", "suggestedFocus": "Secondary", "searchIntent": "Informational", "trendScore": 85 }
+        ]
+      }
+    ]
+  }

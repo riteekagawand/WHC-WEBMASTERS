@@ -1,9 +1,9 @@
-import { Button } from '@/src/components/ui/button';
-import { Input } from '@/src/components/ui/input';
+import { Button } from '../../../components/ui/button';
+import { Input } from '../../../components/ui/input';
 import { IoMdAdd, IoMdRemove } from 'react-icons/io';
 import React, { useContext, useEffect, useState } from 'react';
-import RichTextEditor from '../../../RichTextEditor';
-import { ResumeInfoContext } from '@/context/ResumeContext';
+import RichTextEditor from '../RichTextEditor';
+import { ResumeInfoContext } from '../../../context/ResumeContext';
 import { Label } from '../../../components/ui/label';
 import { Checkbox } from "../../../components/ui/checkbox"
 

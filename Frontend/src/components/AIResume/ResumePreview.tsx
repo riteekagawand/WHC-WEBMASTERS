@@ -1,4 +1,4 @@
-import { ResumeInfoContext } from '@/context/ResumeContext';
+import { ResumeInfoContext } from '../../context/ResumeContext';
 import React, { useContext } from 'react';
 import PersonalDetailPreview from './previewcomponents/PersonalDetailPreview';
 import SummeryPreview from './previewcomponents/SummeryPreview';

@@ -1,5 +1,5 @@
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
+import { Button } from '../../components/ui/button';
+import { Label } from '../../components/ui/label';
 import React, { useContext, useState } from 'react';
 import {
     BtnBold,
@@ -17,8 +17,8 @@ import {
     Toolbar
 } from 'react-simple-wysiwyg';
 import { BsRobot, BsStars } from "react-icons/bs";
-import { chatSession } from '@/services/GeminiModel';
-import { ResumeInfoContext } from '@/context/ResumeContext';
+import { chatSession } from '../../services/GeminiModel';
+import { ResumeInfoContext } from '../../context/ResumeContext';
 import { ImSpinner2 } from "react-icons/im";
 import { motion } from "framer-motion";
 

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Input } from "../Components/ui/input";
-import { Label } from "../Components/ui/label";
-import { Button } from "../Components/ui/button";
+import { Input } from "../components/ui/input";
+import { Label } from "../components/ui/label";
+import { Button } from "../components/ui/button";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../Components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
 import {
   Card,
   CardContent,
@@ -13,7 +13,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "../Components/ui/card";
+} from "../components/ui/card";
 import axios from "axios";
 import { ImSpinner2 } from "react-icons/im";
 import { useSetRecoilState } from "recoil";
@@ -39,7 +39,7 @@ const UserLogin = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleLogin = async (e) => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
 
@@ -72,7 +72,7 @@ const UserLogin = () => {
     }
   };
 
-  const handleSignup = async (e) => {
+  const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
 
@@ -117,7 +117,7 @@ const UserLogin = () => {
     }, 1000);
   };
 
-  const handleVerifyOtp = async (e) => {
+  const handleVerifyOtp = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     setVerifyLoading(true);
 
@@ -167,7 +167,7 @@ const UserLogin = () => {
       <Tabs
         value={activeTab}
         onValueChange={setActiveTab}
-        className="w-[400px]"
+        className="w-[400px] "
       >
         <TabsList
           className="grid w-full grid-cols-2"
@@ -176,13 +176,13 @@ const UserLogin = () => {
             color: `var(--text-color)`,
           }}
         >
-          <TabsTrigger value="login">Login</TabsTrigger>
-          <TabsTrigger value="signup">Sign Up</TabsTrigger>
+          < TabsTrigger value="login" className={activeTab === "login" ? "bg-gradient-to-r from-violet-950 to-violet-900 text-white" : ""}>Login</TabsTrigger>
+          <TabsTrigger value="signup" className={activeTab === "signup" ? "bg-gradient-to-r from-violet-950 to-violet-900 text-white" : ""}>Sign Up</TabsTrigger>
         </TabsList>
 
         <TabsContent value="login">
           <Card
-            className="border border-gray-200 bg-[#f9fafb]"
+            className="border border-gray-200 bg-gradient-to-r from-violet-100 to-blue-100"
           >
             <CardHeader>
               <CardTitle className="font-bold text-3xl">
@@ -245,7 +245,7 @@ const UserLogin = () => {
 
         <TabsContent value="signup">
           <Card
-            className="border border-gray-200 bg-[#f9fafb]"
+            className="border border-gray-200 bg-gradient-to-r from-violet-100 to-violet-200"
           >
             <CardHeader>
               <CardTitle className="font-bold text-3xl">
@@ -326,7 +326,7 @@ const UserLogin = () => {
                   <div className="gap-2 flex items-center">
                     <Button
                       disabled={verifyLoading}
-                      className="w-full mt-2 bg-purple"
+                      className="w-full mt-2 bg-purple "
                       type="button"
                       onClick={handleVerifyOtp}
                     >
