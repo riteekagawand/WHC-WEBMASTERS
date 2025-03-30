@@ -13,6 +13,7 @@ import Dashboard from "./components/Dashboard/dashboard";
 import LandingPage from "./pages/Landing"; // The landing page with Login button
 import PortfolioBuilder from "./components/Dashboard/portfolioBuilder";
 import Analytics from "./components/Dashboard/Analytics";
+import SEOOptimization from "./components/Dashboard/Seo";
 
 const AppRoutes: React.FC = () => {
   return (
@@ -31,6 +32,7 @@ const AppRoutes: React.FC = () => {
           <Route path="builder" element={<Builder />} />
           <Route path="ecommerce" element={<Ecommerce />} />
           <Route path="analytics" element={<Analytics />} />
+          <Route path="seo" element={<SEOOptimization />} />
           <Route path="forum" element={<Forum />} />
           <Route path="profile" element={<Profile />} />
           <Route path="aiassistant" element={<Assistant />} />
