@@ -6,8 +6,8 @@ interface Keyword {
   searchVolumeTrend: string;
   competitionLevel: string;
   suggestedFocus: string;
-  searchIntent?: string;
-  trendScore?: number;
+  searchIntent?: string; // Optional, not in your JSON yet
+  trendScore?: number;   // Optional, not in your JSON yet
 }
 
 interface Blog {
@@ -30,50 +30,27 @@ const SEOOptimization: React.FC = () => {
   const [aiBlogs, setAiBlogs] = useState<Blog[]>([]);
   const [error, setError] = useState<string | null>(null);
 
-  // Fetch keywords from seoData.json
-  const fetchKeywordsFromJson = (category: string): Keyword[] => {
-    const categoryData = categories.find((cat) => cat.category === category);
-    return categoryData ? categoryData.keywords : [];
-  };
-
-  // Fetch blogs from Medium API via RapidAPI
-  const fetchBlogsFromMedium = async (category: string): Promise<Blog[]> => {
+  // Simulated data fetch from seoData.json
+  const fetchDataFromJson = (category: string): { keywords: Keyword[]; blogs: Blog[] } => {
     setIsLoading(true);
     setError(null);
 
-    const apiKey = process.env.REACT_APP_RAPIDAPI_KEY; // Add your RapidAPI key in .env file
-    const query = encodeURIComponent(category); // Use the selected category as the search term
+    // Simulate a delay to mimic API call (optional)
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const categoryData = categories.find((cat) => cat.category === category);
+        const keywords = categoryData ? categoryData.keywords : [];
+        
+        // Static blog data (since seoData.json doesn’t include blogs, adding dummy data as an example)
+        const dummyBlogs: Blog[] = keywords.length > 0 ? [
+          { title: `Top ${category} Tips for 2025`, link: `https://example.com/${category.toLowerCase()}-tips` },
+          { title: `How to Excel in ${category}`, link: `https://example.com/${category.toLowerCase()}-guide` },
+        ] : [];
 
-    try {
-      const response = await fetch(`https://medium2.p.rapidapi.com/search/articles?query=${query}`, {
-        method: 'GET',
-        headers: {
-          'X-RapidAPI-Key': apiKey || '',
-          'X-RapidAPI-Host': 'medium2.p.rapidapi.com',
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to fetch Medium articles');
-      }
-
-      const data = await response.json();
-      const articles = data.articles || [];
-
-      // Map Medium API response to our Blog interface
-      const blogs: Blog[] = articles.map((article: any) => ({
-        title: article.title,
-        link: `https://medium.com/@${article.author}/p/${article.id}`,
-      }));
-
-      return blogs.slice(0, 5); // Limit to top 5 articles for simplicity
-    } catch (err) {
-      setError('Error fetching blogs from Medium. Please try again later.');
-      console.error(err);
-      return [];
-    } finally {
-      setIsLoading(false);
-    }
+        setIsLoading(false);
+        resolve({ keywords, blogs: dummyBlogs });
+      }, 1000); // Simulated 1-second delay
+    });
   };
 
   const handleAnalyze = async () => {
@@ -88,17 +65,9 @@ const SEOOptimization: React.FC = () => {
     }
 
     setShowResults(false);
-    setIsLoading(true);
-
-    // Fetch keywords from JSON
-    const keywords = fetchKeywordsFromJson(selectedCategory);
+    const { keywords, blogs } = await fetchDataFromJson(selectedCategory);
     setAiKeywords(keywords);
-
-    // Fetch blogs from Medium API
-    const blogs = await fetchBlogsFromMedium(selectedCategory);
     setAiBlogs(blogs);
-
-    setIsLoading(false);
     setShowResults(true);
   };
 
@@ -228,7 +197,7 @@ const SEOOptimization: React.FC = () => {
       {showResults && (
         <div className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
           <h2 className="text-xl font-semibold text-gray-800 mb-4">
-            Related Blogs from Medium for {selectedCategory}
+            Related Blogs for {selectedCategory}
           </h2>
           {aiBlogs.length > 0 ? (
             <div className="overflow-x-auto">
@@ -254,7 +223,7 @@ const SEOOptimization: React.FC = () => {
               </table>
             </div>
           ) : (
-            <p className="text-gray-600">No blogs found for this category on Medium.</p>
+            <p className="text-gray-600">No blogs found for this category.</p>
           )}
         </div>
       )}
