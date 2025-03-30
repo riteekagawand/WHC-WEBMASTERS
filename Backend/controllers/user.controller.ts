@@ -1,12 +1,13 @@
-import express, { Request, Response } from "express";
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
-import nodemailer from "nodemailer";
-import dotenv from "dotenv";
+import * as express from "express";
+import { Request, Response } from "express";
+import * as bcrypt from "bcryptjs";
+import * as jwt from "jsonwebtoken";
+import * as nodemailer from "nodemailer";
+import * as dotenv from "dotenv";
 import { Op } from "sequelize";
 import User from "../models/user.model";
 import OTP from "../models/otp.model";
-import fs from "fs";
+import * as fs from "fs";
 
 dotenv.config();
 

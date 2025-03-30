@@ -1,6 +1,6 @@
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
+import express = require("express");
+import cors = require("cors");
+import * as dotenv from "dotenv";
 import sequelize from "./config/db";
 import userRoute from "./routes/user.route";
 import authRoutes from "./routes/auth.routes";
