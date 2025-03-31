@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { LiaHomeSolid } from "react-icons/lia";
-import { MdOutlineBuild, MdOutlineShoppingCart, MdOutlineForum } from "react-icons/md";
+import { MdOutlineBuild, MdOutlineShoppingCart, MdOutlineForum, MdOutlineAnalytics, MdOutlineLoop } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { FaRegUser, FaBars, FaTimes } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 import { RiRobot2Line } from "react-icons/ri";
+
+
+
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,26 +42,26 @@ const Sidebar: React.FC = () => {
             </Link>
           </li>
           <li className="rounded-lg hover:bg-[#e8e5ff] transition">
-            <Link to="builder" className="flex items-center space-x-2 p-2 ">
+            <Link to="portfoliobuilder" className="flex items-center space-x-2 p-2 ">
               <MdOutlineBuild className="text-lg" />
-              <span className="text-lg">Builder</span>
+              <span className="text-lg">Website Builder</span>
             </Link>
           </li>
-          {/* <li className="rounded-lg hover:bg-[#e8e5ff] transition">
-            <Link to="ecommerce" className="flex items-center space-x-2 p-2 ">
+          <li className="rounded-lg hover:bg-[#e8e5ff] transition">
+            <Link to="builder" className="flex items-center space-x-2 p-2 ">
               <MdOutlineShoppingCart className="text-lg" />
-              <span className="text-lg">E-commerce</span>
+              <span className="text-lg">Templates</span>
             </Link>
-          </li> */}
+          </li>
           <li className="rounded-lg hover:bg-[#e8e5ff] transition">
             <Link to="analytics" className="flex items-center space-x-2 p-2 ">
-              <MdOutlineShoppingCart className="text-lg" />
-              <span className="text-lg">Analyics</span>
+              <MdOutlineAnalytics className="text-lg" />
+              <span className="text-lg">Analytics</span>
             </Link>
           </li>
           <li className="rounded-lg hover:bg-[#e8e5ff] transition">
             <Link to="seo" className="flex items-center space-x-2 p-2 ">
-              <MdOutlineShoppingCart className="text-lg" />
+              <MdOutlineLoop className="text-lg" />
               <span className="text-lg">Optimize</span>
             </Link>
           </li>
@@ -68,18 +71,14 @@ const Sidebar: React.FC = () => {
               <span className="text-lg">Forum</span>
             </Link>
           </li>
-          <li className="rounded-lg hover:bg-[#e8e5ff] transition">
-            <Link to="portfoliobuilder" className="flex items-center space-x-2 p-2 ">
-              <MdOutlineForum className="text-lg" />
-              <span className="text-lg">Portfolio Builder</span>
-            </Link>
-          </li>
+        
           <li className="rounded-lg hover:bg-[#e8e5ff] transition">
             <Link to="aiassistant" className="flex items-center space-x-2 p-2 ">
               <RiRobot2Line className="text-lg" />
               <span className="text-lg">AI Assistant</span>
             </Link>
           </li>
+          
         </ul>
 
 
