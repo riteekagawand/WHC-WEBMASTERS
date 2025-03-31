@@ -1,5 +1,37 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { getGeminiResponse } from "../services/AIchat";
+
+interface SpeechRecognitionResult {
+	transcript: string;
+	confidence: number;
+}
+
+interface SpeechRecognitionEvent {
+	results: SpeechRecognitionResult[][];
+}
+
+interface SpeechRecognitionErrorEvent {
+	error: string;
+}
+
+interface SpeechRecognition extends EventTarget {
+	continuous: boolean;
+	interimResults: boolean;
+	lang: string;
+	start(): void;
+	stop(): void;
+	onstart: () => void;
+	onend: () => void;
+	onresult: (event: SpeechRecognitionEvent) => void;
+	onerror: (event: SpeechRecognitionErrorEvent) => void;
+}
+
+declare global {
+	interface Window {
+		webkitSpeechRecognition: new () => SpeechRecognition;
+		SpeechRecognition: new () => SpeechRecognition;
+	}
+}
 
 const Chatbot = () => {
 	const [messages, setMessages] = useState<{ text: string; sender: string }[]>(
@@ -9,7 +41,7 @@ const Chatbot = () => {
 	const [isListening, setIsListening] = useState(false);
 	const [isSpeaking, setIsSpeaking] = useState(false); // Track speaking state
 
-	let synth = window.speechSynthesis;
+	const synth = window.speechSynthesis;
 
 	// 🎤 Start Speech Recognition
 	const startListening = () => {
@@ -39,7 +71,7 @@ const Chatbot = () => {
 	};
 
 	// 🗣 AI Voice Response
-	const speakText = (text) => {
+	const speakText = (text: string) => {
 		if (synth.speaking) synth.cancel(); // Stop existing speech before speaking new text
 
 		const utterance = new SpeechSynthesisUtterance(text);
@@ -119,6 +151,7 @@ const Chatbot = () => {
 					className="flex-1 p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mr-2"
 				/>
 				<button
+					type="button"
 					onClick={startListening}
 					className={`px-6 py-3 ${
 						isListening ? "bg-red-500" : "bg-gray-500"
@@ -127,6 +160,7 @@ const Chatbot = () => {
 					🎤
 				</button>
 				<button
+					type="button"
 					onClick={sendMessage}
 					className="bg-blue-500 text-black px-6 py-3 rounded-md hover:bg-blue-600"
 				>
@@ -138,6 +172,7 @@ const Chatbot = () => {
 			{isSpeaking && (
 				<div className="fixed bottom-24 right-4">
 					<button
+						type="button"
 						onClick={stopSpeaking}
 						className="p-3 bg-red-500 text-black rounded-md hover:bg-red-600 shadow-lg"
 					>

@@ -1,19 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { LiaHomeSolid } from "react-icons/lia";
 import {
 	MdOutlineBuild,
 	MdOutlineShoppingCart,
-	MdOutlineForum,
 	MdOutlineAnalytics,
-	MdOutlineLoop
+	MdOutlineLoop,
 } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 import { RiBook2Line, RiRobot2Line } from "react-icons/ri";
-
-
-
 
 const Sidebar: React.FC = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -22,6 +18,7 @@ const Sidebar: React.FC = () => {
 		<>
 			{/* Toggle Button (Visible on Small Screens) */}
 			<button
+				type="button"
 				onClick={() => setIsOpen(!isOpen)}
 				className="md:hidden p-3 fixed top-4 left-4 z-50 bg-lightpurp rounded-lg shadow-lg text-black"
 			>
@@ -46,7 +43,7 @@ const Sidebar: React.FC = () => {
 							<span className="text-lg">Home</span>
 						</Link>
 					</li>
-					<li className="rounded-lg hover:bg-[#e8e5ff] transition">
+					{/* <li className="rounded-lg hover:bg-[#e8e5ff] transition">
 						<Link to="ecommerce" className="flex items-center space-x-2 p-2 ">
 							<MdOutlineShoppingCart className="text-lg" />
 							<span className="text-lg">E-commerce</span>
@@ -57,29 +54,32 @@ const Sidebar: React.FC = () => {
 							<MdOutlineForum className="text-lg" />
 							<span className="text-lg">Forum</span>
 						</Link>
-					</li>
+					</li> */}
 					<li className="rounded-lg hover:bg-[#e8e5ff] transition">
-						<Link to="portfoliobuilder" className="flex items-center space-x-2 p-2 ">
-						<MdOutlineBuild className="text-lg" />
-						<span className="text-lg">Website Builder</span>
+						<Link
+							to="portfoliobuilder"
+							className="flex items-center space-x-2 p-2 "
+						>
+							<MdOutlineBuild className="text-lg" />
+							<span className="text-lg">Website Builder</span>
 						</Link>
 					</li>
 					<li className="rounded-lg hover:bg-[#e8e5ff] transition">
 						<Link to="builder" className="flex items-center space-x-2 p-2 ">
-						<MdOutlineShoppingCart className="text-lg" />
-						<span className="text-lg">Templates</span>
+							<MdOutlineShoppingCart className="text-lg" />
+							<span className="text-lg">Templates</span>
 						</Link>
 					</li>
 					<li className="rounded-lg hover:bg-[#e8e5ff] transition">
 						<Link to="analytics" className="flex items-center space-x-2 p-2 ">
-						<MdOutlineAnalytics className="text-lg" />
-						<span className="text-lg">Analytics</span>
+							<MdOutlineAnalytics className="text-lg" />
+							<span className="text-lg">Analytics</span>
 						</Link>
 					</li>
 					<li className="rounded-lg hover:bg-[#e8e5ff] transition">
 						<Link to="seo" className="flex items-center space-x-2 p-2 ">
-						<MdOutlineLoop className="text-lg" />
-						<span className="text-lg">Optimize</span>
+							<MdOutlineLoop className="text-lg" />
+							<span className="text-lg">Optimize</span>
 						</Link>
 					</li>
 					<li className="rounded-lg hover:bg-[#e8e5ff] transition">
@@ -101,7 +101,10 @@ const Sidebar: React.FC = () => {
 				<div
 					className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
 					onClick={() => setIsOpen(false)}
-				></div>
+					onKeyDown={(e) => e.key === "Escape" && setIsOpen(false)}
+					role="button"
+					tabIndex={0}
+				/>
 			)}
 		</>
 	);
