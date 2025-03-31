@@ -40,7 +40,7 @@ function NavLink({ to, children }: { to: string; children: React.ReactNode }) {
     <Link
       to={to}
       className="group relative px-4 py-2 text-sm font-medium text-gray-300 transition-colors
-        hover:text-white"
+        hover:text-black"
     >
       {children}
       <span

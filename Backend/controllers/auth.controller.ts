@@ -1,20 +1,57 @@
 import { Request, Response } from "express";
-import * as bcrypt from "bcryptjs"; // Works with esModuleInterop
-import * as jwt from "jsonwebtoken"; // Fix import
-import * as nodemailer from "nodemailer"; // Fix import
-import * as dotenv from "dotenv"; // Fix import
+import * as bcrypt from "bcryptjs";
+import * as jwt from "jsonwebtoken";
+import * as nodemailer from "nodemailer";
+import * as dotenv from "dotenv";
 import User from "../models/user.model";
 import OTP from "../models/otp.model";
 import { Op } from "sequelize";
 
-dotenv.config();
+// // Define the structure of the decoded JWT payload
+// interface JwtPayload {
+//   id: number;
+// }
 
+// // Extend the Request type to include the user property
+// interface AuthenticatedRequest extends Request {
+//   user: JwtPayload;
+// }
+
+// // Define the request body for addUserDetails
+// interface AddUserDetailsRequestBody {
+//   businessName: string;
+//   contactNumber: string;
+//   industry: string;
+//   businessDescription: string;
+//   servicesProducts: string[] | string;
+//   socialMedia: string | { [key: string]: string };
+//   yearsInBusiness: number;
+//   address: string;
+// }
+
+// // Define the user details response
+// interface UserDetailsResponse {
+//   businessName?: string;
+//   contactNumber?: string;
+//   industry?: string;
+//   businessDescription?: string;
+//   servicesProducts?: string[];
+//   socialMedia?: string | { [key: string]: string };
+//   yearsInBusiness?: number;
+//   address?: string;
+//   email: string;
+//   fullName: string;
+//   photo?: string;
+//   id: number;
+// }
+
+dotenv.config();
 
 // Ensure required environment variables are set at startup
 const { SENDER_EMAIL, APP_PASSWORD, JWT_SECRET } = process.env;
 if (!SENDER_EMAIL || !APP_PASSWORD || !JWT_SECRET) {
   console.error("Missing required environment variables.");
-  process.exit(1); // Stop execution if critical env variables are missing
+  process.exit(1);
 }
 
 const generateOTP = (): string => Math.floor(100000 + Math.random() * 900000).toString();
@@ -49,7 +86,7 @@ const sendOTP = async (email: string, generatedOTP: string): Promise<boolean> =>
 
 export const register = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { email, fullName, password } = req.body;
+    const { email, fullName, password } = req.body as { email: string; fullName: string; password: string };
     if (!email || !fullName || !password) {
       res.status(400).json({ message: "All fields are required" });
       return;
@@ -93,7 +130,12 @@ export const register = async (req: Request, res: Response): Promise<void> => {
 
 export const verifyOTP = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { email, enteredOTP, password, fullName } = req.body;
+    const { email, enteredOTP, password, fullName } = req.body as {
+      email: string;
+      enteredOTP: string;
+      password: string;
+      fullName: string;
+    };
     const emailLower = email.toLowerCase();
 
     console.log(`[INFO] Verifying OTP for: ${emailLower}`);
@@ -139,7 +181,7 @@ export const verifyOTP = async (req: Request, res: Response): Promise<void> => {
 
 export const login = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { email, password } = req.body;
+    const { email, password } = req.body as { email: string; password: string };
     const emailLower = email.toLowerCase();
 
     console.log(`[INFO] Attempting login for: ${emailLower}`);
@@ -176,3 +218,74 @@ export const login = async (req: Request, res: Response): Promise<void> => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+// export const addUserDetails = async (req: Request, res: Response): Promise<void> => {
+//   try {
+//     const {
+//       businessName,
+//       contactNumber,
+//       industry,
+//       businessDescription,
+//       servicesProducts,
+//       socialMedia,
+//       yearsInBusiness,
+//       address,
+//     }: AddUserDetailsRequestBody = req.body;
+
+//     // Ensure user is authenticated
+//     if (!req.user || !req.user.id) {
+//       res.status(401).json({ message: "Unauthorized" });
+//       return;
+//     }
+
+//     // Find user by ID
+//     const user = await User.findByPk(req.user.id);
+//     if (!user) {
+//       res.status(404).json({ message: "User not found" });
+//       return;
+//     }
+
+//     // Ensure servicesProducts is an array
+//     const formattedServicesProducts: string[] =
+//       typeof servicesProducts === "string"
+//         ? servicesProducts.split(",").map((item) => item.trim())
+//         : servicesProducts;
+
+//     // Convert socialMedia object to string if it's an object
+//     const formattedSocialMedia: string =
+//       typeof socialMedia === "object" ? JSON.stringify(socialMedia) : socialMedia;
+
+//     // Update user details
+//     await user.update({
+//       businessName: businessName || user.businessName,
+//       contactNumber: contactNumber || user.contactNumber,
+//       industry: industry || user.industry,
+//       businessDescription: businessDescription || user.businessDescription,
+//       servicesProducts: formattedServicesProducts || user.servicesProducts,
+//       socialMedia: formattedSocialMedia || user.socialMedia,
+//       yearsInBusiness: yearsInBusiness || user.yearsInBusiness,
+//       address: address || user.address,
+//     });
+
+//     // Construct response
+//     const userDetails: UserDetailsResponse = {
+//       businessName: user.businessName,
+//       contactNumber: user.contactNumber,
+//       industry: user.industry,
+//       businessDescription: user.businessDescription,
+//       servicesProducts: user.servicesProducts,
+//       socialMedia: user.socialMedia,
+//       yearsInBusiness: user.yearsInBusiness,
+//       address: user.address,
+//       email: user.email,
+//       fullName: user.fullName,
+//       photo: user.photo,
+//       id: user.id,
+//     };
+
+//     res.status(200).json({ message: "Your details added successfully", user: userDetails });
+//   } catch (error) {
+//     console.error("Error adding business details:", error);
+//     res.status(500).json({ message: "Internal server error" });
+//   }
+// };

@@ -78,7 +78,7 @@ const AllTemplates: React.FC = () => {
               key={category}
               className={`px-4 py-2 rounded-md border text-sm font-medium transition-all ${
                 selectedCategory === category
-                  ? "bg-blue-600 text-white"
+                  ? "bg-blue-600 text-black"
                   : "bg-gray-200 hover:bg-gray-300"
               }`}
               onClick={() => handleCategoryClick(category)}

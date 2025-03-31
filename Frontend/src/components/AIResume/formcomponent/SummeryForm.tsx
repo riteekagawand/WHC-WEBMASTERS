@@ -80,7 +80,7 @@ const SummaryForm = () => {
                                 type="button"
                                 size="sm"
                                 disabled={loading}
-                                className="relative z-10 bg-primary hover:bg-primary/50 text-white border-none w-full flex items-center gap-2"
+                                className="relative z-10 bg-primary hover:bg-primary/50 text-black border-none w-full flex items-center gap-2"
                             >
                                 {loading ?
                                     <>

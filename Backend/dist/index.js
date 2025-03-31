@@ -44,7 +44,7 @@ const user_route_1 = __importDefault(require("./routes/user.route"));
 const auth_routes_1 = __importDefault(require("./routes/auth.routes"));
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", auth_routes_1.default);

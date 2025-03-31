@@ -38,14 +38,14 @@ const FontStyle = () => {
                         <FaFont size={20} />Font Style
                     </Button>
                 </PopoverTrigger>
-                <PopoverContent className="border border-gray-300" style={{ borderColor: `var(--borderColor)`, backgroundColor: `var(--background-color)` }} >
+                <PopoverContent className="border border-gray-300 bg-lightpurp">
                     <h2 className='mb-3 text-sm font-bold' style={{ color: `var(--text-color)` }}>Select Font Style</h2>
                     <div className='grid grid-cols-2 gap-3'>
                         {fonts.map((font, index) => (
                             <div
                                 key={index}
                                 onClick={() => onFontChange(font)}
-                                className={`p-2 rounded-md cursor-pointer hover:bg-primary ${selectedFont === font ? 'bg-primary text-white' : ''}`}
+                                className={`p-2 rounded-md cursor-pointer hover:bg-primary ${selectedFont === font ? 'bg-primary text-black' : ''}`}
                                 style={{ fontFamily: font, color: `var(--text-color)` }}
                             >
                                 {font}

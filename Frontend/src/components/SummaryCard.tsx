@@ -23,7 +23,7 @@ const SummaryCard: React.FC<SummaryCardProps> = ({ title, value, buttonText, ico
       <p className="text-gray-500 text-sm mt-1">{value}</p>
       {/* Button */}
       <div className="mt-4">
-        <button className="bg-purple text-white px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition">
+        <button className="bg-purple text-black px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition">
           {buttonText}
         </button>
       </div>

@@ -74,7 +74,7 @@ const TemplateCard: React.FC<TemplateCardProps> = ({ title, description, icon: I
         >
           Preview
         </button>
-        <button className="bg-[#634aff] text-white w-24 py-2 rounded-lg font-medium hover:bg-[#5038cc] hover:scale-105 transition-all duration-200">
+        <button className="bg-[#634aff] text-black w-24 py-2 rounded-lg font-medium hover:bg-[#5038cc] hover:scale-105 transition-all duration-200">
           Add to Cart
         </button>
       </div>
@@ -83,7 +83,7 @@ const TemplateCard: React.FC<TemplateCardProps> = ({ title, description, icon: I
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-80 z-50">
           <div className="bg-white w-full md:w-[90%] max-w-[1500px] h-[85vh] rounded-lg shadow-2xl relative overflow-hidden">
             <button
-              className="absolute top-4 right-4 text-white bg-gray-800 bg-opacity-70 p-2 rounded-full text-xl hover:bg-opacity-100 z-20 transition-all"
+              className="absolute top-4 right-4 text-black bg-gray-800 bg-opacity-70 p-2 rounded-full text-xl hover:bg-opacity-100 z-20 transition-all"
               onClick={() => {
                 resetZoom();
                 setIsModalOpen(false);
@@ -93,9 +93,9 @@ const TemplateCard: React.FC<TemplateCardProps> = ({ title, description, icon: I
             </button>
 
             <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
-              <button className="bg-gray-800 text-white px-3 py-2 rounded-md text-sm hover:bg-opacity-100 transition-all" onClick={zoomOut}> <FiMinus /> </button>
-              <span className="text-white px-2">{Math.round(zoomLevel * 100)}%</span>
-              <button className="bg-gray-800 text-white px-3 py-2 rounded-md text-sm hover:bg-opacity-100 transition-all" onClick={zoomIn}> <FiPlus /> </button>
+              <button className="bg-gray-800 text-black px-3 py-2 rounded-md text-sm hover:bg-opacity-100 transition-all" onClick={zoomOut}> <FiMinus /> </button>
+              <span className="text-black px-2">{Math.round(zoomLevel * 100)}%</span>
+              <button className="bg-gray-800 text-black px-3 py-2 rounded-md text-sm hover:bg-opacity-100 transition-all" onClick={zoomIn}> <FiPlus /> </button>
             </div>
 
             <div

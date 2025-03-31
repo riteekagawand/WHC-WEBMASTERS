@@ -346,7 +346,7 @@ const Analytics: React.FC = () => {
       <div className="h-[50px] w-[250px] mt-12 mb-12 flex justify-center rounded-xl items-center bg-purple py-4">
         <button
           onClick={generatePDF}
-          className="bg-purple-600 text-white font-semibold text-lg py-3 px-6 rounded-full hover:bg-purple-700 transition-colors"
+          className="bg-purple-600 text-black font-semibold text-lg py-3 px-6 rounded-full hover:bg-purple-700 transition-colors"
         >
           Generate Full Report
         </button>

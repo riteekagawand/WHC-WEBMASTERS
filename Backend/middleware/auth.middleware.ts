@@ -1,33 +1,35 @@
 import { Request, Response, NextFunction } from "express";
 import * as jwt from "jsonwebtoken";
-const JWT_SECRET = process.env.JWT_SECRET;
 
-if (!JWT_SECRET) {
-  throw new Error("JWT_SECRET is not defined in the environment variables");
+// Define the structure of the decoded JWT payload
+interface JwtPayload {
+  id: number;
 }
 
-// Extend the Request type to include `user`
-declare module "express-serve-static-core" {
-  interface Request {
-    user?: { id: string };
-  }
+// Extend the Request type to include the user property
+interface AuthenticatedRequest extends Request {
+  user?: JwtPayload;
 }
 
-export const authMiddleware = (req: Request, res: Response, next: NextFunction): void => {
-  const token = req.header("Authorization")?.replace("Bearer ", "");
+const JWT_SECRET: string = process.env.JWT_SECRET || "default_secret"; // Ensure this is set
 
-  if (!token) {
-    res.status(401).json({ message: "Access denied. No token provided." });
-    return;
-  }
-
+export const authMiddleware = (req: AuthenticatedRequest, res: Response, next: NextFunction): void => {
   try {
-    const decoded = jwt.verify(token, JWT_SECRET) as { id: string };
-    req.user = decoded; // Now correctly typed
-    next();
+    const token = req.header("Authorization")?.split(" ")[1];
+
+    if (!token) {
+      console.log("[WARN] No token provided.");
+      res.status(401).json({ message: "Unauthorized: No token provided" });
+      return;
+    }
+
+    const decoded = jwt.verify(token, JWT_SECRET) as JwtPayload;
+    req.user = decoded; // Attach user data to request
+
+    console.log("[INFO] User authenticated:", req.user);
+    next(); // Proceed to next middleware/controller
   } catch (error) {
-    res.status(401).json({ message: "Invalid token" });
+    console.error("[ERROR] Authentication failed:", error);
+    res.status(401).json({ message: "Unauthorized: Invalid token" });
   }
 };
-
-

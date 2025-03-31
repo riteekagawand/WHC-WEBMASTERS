@@ -96,7 +96,7 @@ const SEOOptimization: React.FC = () => {
               value={websiteUrl}
               onChange={(e) => setWebsiteUrl(e.target.value)}
               placeholder="Enter your website URL"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 text-gray-700 placeholder-gray-400"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 text-gray-700 placeholder-black"
             />
             <span className="absolute inset-y-0 right-3 flex items-center text-gray-400">∞</span>
           </div>
@@ -112,7 +112,7 @@ const SEOOptimization: React.FC = () => {
               id="websiteCategory"
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 appearance-none text-gray-700 placeholder-gray-400"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 appearance-none text-gray-700 placeholder-black"
             >
               <option value="" disabled>Select category</option>
               {categories.map((category) => (
@@ -130,7 +130,7 @@ const SEOOptimization: React.FC = () => {
           <button
             onClick={handleAnalyze}
             disabled={isLoading}
-            className={`bg-violet-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors ${
+            className={`bg-violet-700 text-black font-semibold py-3 px-6 rounded-lg transition-colors ${
               isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-purple-700'
             }`}
           >

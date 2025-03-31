@@ -47,7 +47,7 @@ const ThemeColor = () => {
                 <PopoverTrigger>
                     <Button variant="secondary" size="sm" className="text-gray-200 flex gap-2 bg-gradient-to-r from-violet-400 via-purple-500 to-indigo-600 hover:bg-gradient-to-r hover:from-violet-500 hover:via-purple-600 hover:to-indigo-700"><IoColorPalette size={25} />Theme</Button>
                 </PopoverTrigger>
-                <PopoverContent className="border border-gray-300" style={{ borderColor: `var(--borderColor)`, backgroundColor: `var(--background-color)` }} >
+                <PopoverContent className="border border-gray-300 bg-lightpurp" >
                     <h2 className='mb-3 text-sm font-bold' style={{ color: `var(--text-color)` }}>Select Theme Color</h2>
                     <div className='grid grid-cols-5 gap-3 -mr-5'>
                         {colors.map((item, index) => (

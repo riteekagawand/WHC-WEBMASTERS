@@ -99,7 +99,7 @@ const Chatbot = () => {
 						<div
 							className={`p-4 rounded-lg break-words max-w-[80%] overflow-x-hidden whitespace-pre-wrap ${
 								msg.sender === "user"
-									? "bg-blue-500 text-white"
+									? "bg-blue-500 text-black"
 									: "bg-gray-200 text-black"
 							}`}
 						>
@@ -122,13 +122,13 @@ const Chatbot = () => {
 					onClick={startListening}
 					className={`px-6 py-3 ${
 						isListening ? "bg-red-500" : "bg-gray-500"
-					} text-white rounded-md ml-2 mr-2 text-xl`}
+					} text-black rounded-md ml-2 mr-2 text-xl`}
 				>
 					🎤
 				</button>
 				<button
 					onClick={sendMessage}
-					className="bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600"
+					className="bg-blue-500 text-black px-6 py-3 rounded-md hover:bg-blue-600"
 				>
 					Send
 				</button>
@@ -139,7 +139,7 @@ const Chatbot = () => {
 				<div className="fixed bottom-24 right-4">
 					<button
 						onClick={stopSpeaking}
-						className="p-3 bg-red-500 text-white rounded-md hover:bg-red-600 shadow-lg"
+						className="p-3 bg-red-500 text-black rounded-md hover:bg-red-600 shadow-lg"
 					>
 						❌ Stop AI Voice
 					</button>

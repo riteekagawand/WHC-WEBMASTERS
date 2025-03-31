@@ -8,7 +8,7 @@ var user_route_1 = require("./routes/user.route");
 var auth_routes_1 = require("./routes/auth.routes");
 dotenv.config();
 var app = express();
-var PORT = process.env.PORT || 5000;
+var PORT = process.env.PORT || 8000;
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", auth_routes_1.default);

@@ -148,7 +148,7 @@ const ContentGenerator = () => {
 					<button
 						type="submit"
 						disabled={loading}
-						className="w-full bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600 disabled:bg-gray-400"
+						className="w-full bg-blue-500 text-black py-3 rounded-md hover:bg-blue-600 disabled:bg-gray-400"
 					>
 						{loading ? "Generating..." : "Generate Content"}
 					</button>

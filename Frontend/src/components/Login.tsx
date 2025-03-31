@@ -171,10 +171,6 @@ const UserLogin = () => {
       >
         <TabsList
           className="grid w-full grid-cols-2"
-          style={{
-            backgroundColor: `var(--background-color)`,
-            color: `var(--text-color)`,
-          }}
         >
           < TabsTrigger value="login" className={activeTab === "login" ? "bg-gradient-to-r from-violet-950 to-violet-900 text-white" : ""}>Login</TabsTrigger>
           <TabsTrigger value="signup" className={activeTab === "signup" ? "bg-gradient-to-r from-violet-950 to-violet-900 text-white" : ""}>Sign Up</TabsTrigger>

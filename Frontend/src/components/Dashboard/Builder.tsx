@@ -67,7 +67,7 @@ const Builder: React.FC = () => {
           <h2 className="text-xl font-semibold text-gray-800">Popular Templates</h2>
           <button
   			onClick={() => navigate("/all-templates")}
-  			className="text-[#634aff] border border-[#634aff] px-4 py-2 rounded-full font-medium transition-all duration-200 hover:bg-[#634aff] hover:text-white"
+  			className="text-[#634aff] border border-[#634aff] px-4 py-2 rounded-full font-medium transition-all duration-200 hover:bg-[#634aff] hover:text-black"
 			  >
   			See All
 		</button>
@@ -91,7 +91,7 @@ const Builder: React.FC = () => {
           <h2 className="text-xl font-semibold text-gray-800">Recently Added</h2>
           <button
   			onClick={() => navigate("/all-templates")}
-  			className="text-[#634aff] border border-[#634aff] px-4 py-2 rounded-full font-medium transition-all duration-200 hover:bg-[#634aff] hover:text-white"
+  			className="text-[#634aff] border border-[#634aff] px-4 py-2 rounded-full font-medium transition-all duration-200 hover:bg-[#634aff] hover:text-black"
 			  >
   			See All
 		</button>

@@ -105,7 +105,7 @@ const App: React.FC = () => {
           placeholder="Search discussions..."
           className="w-1/3 p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-600"
         />
-        <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-indigo-700 transition">
+        <button className="bg-indigo-600 text-black px-4 py-2 rounded-lg font-medium hover:bg-indigo-700 transition">
           Start New Discussion
         </button>
       </div>
@@ -135,7 +135,7 @@ const App: React.FC = () => {
               description={discussion.description}
               icon={discussion.icon}
               actions={
-                <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-indigo-700 transition">
+                <button className="bg-indigo-600 text-black px-4 py-2 rounded-lg font-medium hover:bg-indigo-700 transition">
                   Join Discussion
                 </button>
               }
@@ -186,7 +186,7 @@ const App: React.FC = () => {
               icon={member.icon}
               actions={
                 <div className="flex space-x-2">
-                  <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-indigo-700 transition">
+                  <button className="bg-indigo-600 text-black px-4 py-2 rounded-lg font-medium hover:bg-indigo-700 transition">
                     Connect
                   </button>
                   <button className="text-indigo-600 font-medium px-4 py-2 rounded-lg border border-indigo-600 hover:bg-indigo-50 transition">

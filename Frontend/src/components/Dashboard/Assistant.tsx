@@ -155,7 +155,7 @@ const App: React.FC = () => {
 							actions={
 								<button
 									onClick={tool.onClick}
-									className="bg-purple text-white px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition"
+									className="bg-purple text-black px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition"
 								>
 									Generate
 								</button>
@@ -203,7 +203,7 @@ const App: React.FC = () => {
 							icon={recommendation.icon}
 							actions={
 								<>
-									<button className="bg-purple text-white px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition">
+									<button className="bg-purple text-black px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition">
 										Try Now
 									</button>
 									<button className="text-purple font-medium px-4 py-2 rounded-lg">

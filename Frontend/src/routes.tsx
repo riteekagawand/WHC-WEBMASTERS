@@ -16,25 +16,25 @@ import Analytics from "./components/Dashboard/Analytics";
 import SEOOptimization from "./components/Dashboard/Seo";
 import Chatbot from "./pages/AiChat";
 import ContentGenerator from "./pages/ContentGenerator";
-import AllTemplates from "./pages/AllTemplates"; // Import AllTemplates
-
+// import AllTemplates from "./pages/AllTemplates"; // Import AllTemplates
 import ResumeBuilder from "./components/Dashboard/ResumeBuilder";
 import ResumeBody from "./components/AIResume/ResumeBody";
+import ResourceHub from "./components/Dashboard/ResourceHub";
+// import AICourse from "./pages/AICourse";
+// import AddDetailForm from "./components/AddUserDetails";
 
 const AppRoutes: React.FC = () => {
-	return (
-		<Routes>
-			{/* Root route for LandingPage */}
-			<Route path="/" element={<LandingPage />} />
+  return (
+    <Routes>
+      {/* Public Routes */}
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/login" element={<Login />} />
 
-      {/* App routes under Layout */}
+      {/* Protected Routes under Layout */}
       <Route path="/" element={<Layout />}>
-        <Route path="login" element={<Login />} />
-
-        
-        {/* Dashboard route with nested child routes */}
+        {/* Dashboard Route with Nested Routes */}
         <Route path="dashboard" element={<Dashboard />}>
-          <Route path="" element={<Home />} /> {/* Default route for dashboard */}
+          <Route index element={<Home />} /> {/* Default route */}
           <Route path="home" element={<Home />} />
           <Route path="builder" element={<Builder />} />
           <Route path="ecommerce" element={<Ecommerce />} />
@@ -47,18 +47,16 @@ const AppRoutes: React.FC = () => {
           <Route path="contentGenerator" element={<ContentGenerator />} />
           <Route path="portfoliobuilder" element={<PortfolioBuilder />} />
           <Route path="resumebuilder" element={<ResumeBuilder />} />
-          <Route path="resumebody" element={<ResumeBody/>} />
+          <Route path="resumebody" element={<ResumeBody />} />
+          <Route path="resourcehub" element={<ResourceHub />} />
+          {/* <Route path="adduserdetails" element={<AddDetailForm />} /> */}
         </Route>
 
-        <Route path="all-templates" element={<AllTemplates />} />
-
-        
-
-				{/* Catch-all route for unmatched routes */}
-				<Route path="*" element={<NotFound />} />
-			</Route>
-		</Routes>
-	);
+        {/* Catch-all Route for 404 Pages */}
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
+  );
 };
 
 export default AppRoutes;
