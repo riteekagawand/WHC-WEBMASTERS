@@ -1,0 +1,71 @@
+import React, { useState } from 'react';
+import PersonalDetailForm from './formcomponent/PersonalDetailForm';
+import { Button } from '../../components/ui/button';
+import { IoMdArrowRoundForward, IoMdArrowRoundBack } from "react-icons/io";
+import SummeryForm from './formcomponent/SummeryForm';
+import ExperienceForm from './formcomponent/ExperienceForm';
+import EducationForm from './formcomponent/EducationForm';
+import SkillForm from './formcomponent/SkillForm';
+import DonwloadResume from './DonwloadResume';
+import { useNavigate } from 'react-router-dom';
+import ThemeColor from './ThemeColor';
+import FontStyle from './FontStyle';
+import { FaHome } from 'react-icons/fa';
+
+const ResumeForm: React.FC = () => {
+    const [activeForm, setActiveForm] = useState<number>(1);
+    const [enableNext, setEnableNext] = useState<boolean>(false);
+    const navigate = useNavigate();
+
+    const handleNavigate = () => {
+        navigate("/dashboard");
+    };
+
+    return (
+        <div>
+            <div className="flex flex-col sm:flex-row justify-between items-center mb-5 gap-4 sm:gap-2">
+                <div className="flex gap-2">
+                    <Button onClick={handleNavigate} size="sm" className="flex gap-2">
+                        <FaHome size={20} />
+                    </Button>
+                    <ThemeColor />
+                    <FontStyle />
+                </div>
+
+                <div className="flex gap-2">
+                    {activeForm > 1 && (
+                        <Button
+                            size="sm"
+                            className="flex gap-2"
+                            onClick={() => setActiveForm(activeForm - 1)}
+                        >
+                            <IoMdArrowRoundBack size={20} />
+                            Back
+                        </Button>
+                    )}
+                    {activeForm < 6 && (
+                        <Button
+                            disabled={!enableNext}
+                            className="flex gap-2"
+                            onClick={() => setActiveForm(activeForm + 1)}
+                            size="sm"
+                        >
+                            Next <IoMdArrowRoundForward size={20} />
+                        </Button>
+                    )}
+                </div>
+            </div>
+
+            {activeForm === 1 ? <PersonalDetailForm enableNext={(v: boolean) => setEnableNext(v)} />
+                : activeForm === 2 ? <SummeryForm />
+                    : activeForm === 3 ? <ExperienceForm />
+                        : activeForm === 4 ? <EducationForm />
+                            : activeForm === 5 ? <SkillForm />
+                                : activeForm === 6 ? <DonwloadResume />
+                                    : null
+            }
+        </div>
+    );
+};
+
+export default ResumeForm;

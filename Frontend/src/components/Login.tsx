@@ -17,7 +17,7 @@ import {
 import axios from "axios";
 import { ImSpinner2 } from "react-icons/im";
 import { useSetRecoilState } from "recoil";
-import { tokenState } from "../../store/auth";
+import { tokenState } from "../store/auth";
 
 const UserLogin = () => {
   const [email, setEmail] = useState("");
