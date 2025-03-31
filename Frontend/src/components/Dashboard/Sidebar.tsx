@@ -4,11 +4,16 @@ import {
 	MdOutlineBuild,
 	MdOutlineShoppingCart,
 	MdOutlineForum,
+	MdOutlineAnalytics,
+	MdOutlineLoop
 } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 import { RiBook2Line, RiRobot2Line } from "react-icons/ri";
+
+
+
 
 const Sidebar: React.FC = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -42,12 +47,6 @@ const Sidebar: React.FC = () => {
 						</Link>
 					</li>
 					<li className="rounded-lg hover:bg-[#e8e5ff] transition">
-						<Link to="builder" className="flex items-center space-x-2 p-2 ">
-							<MdOutlineBuild className="text-lg" />
-							<span className="text-lg">Builder</span>
-						</Link>
-					</li>
-					<li className="rounded-lg hover:bg-[#e8e5ff] transition">
 						<Link to="ecommerce" className="flex items-center space-x-2 p-2 ">
 							<MdOutlineShoppingCart className="text-lg" />
 							<span className="text-lg">E-commerce</span>
@@ -60,24 +59,27 @@ const Sidebar: React.FC = () => {
 						</Link>
 					</li>
 					<li className="rounded-lg hover:bg-[#e8e5ff] transition">
-            <Link to="analytics" className="flex items-center space-x-2 p-2 ">
-              <MdOutlineShoppingCart className="text-lg" />
-              <span className="text-lg">Analyics</span>
-            </Link>
-          </li>
-          <li className="rounded-lg hover:bg-[#e8e5ff] transition">
-            <Link to="seo" className="flex items-center space-x-2 p-2 ">
-              <MdOutlineShoppingCart className="text-lg" />
-              <span className="text-lg">Optimize</span>
-            </Link>
-          </li>
+						<Link to="portfoliobuilder" className="flex items-center space-x-2 p-2 ">
+						<MdOutlineBuild className="text-lg" />
+						<span className="text-lg">Website Builder</span>
+						</Link>
+					</li>
 					<li className="rounded-lg hover:bg-[#e8e5ff] transition">
-						<Link
-							to="portfoliobuilder"
-							className="flex items-center space-x-2 p-2 "
-						>
-							<MdOutlineForum className="text-lg" />
-							<span className="text-lg">Website Builder</span>
+						<Link to="builder" className="flex items-center space-x-2 p-2 ">
+						<MdOutlineShoppingCart className="text-lg" />
+						<span className="text-lg">Templates</span>
+						</Link>
+					</li>
+					<li className="rounded-lg hover:bg-[#e8e5ff] transition">
+						<Link to="analytics" className="flex items-center space-x-2 p-2 ">
+						<MdOutlineAnalytics className="text-lg" />
+						<span className="text-lg">Analytics</span>
+						</Link>
+					</li>
+					<li className="rounded-lg hover:bg-[#e8e5ff] transition">
+						<Link to="seo" className="flex items-center space-x-2 p-2 ">
+						<MdOutlineLoop className="text-lg" />
+						<span className="text-lg">Optimize</span>
 						</Link>
 					</li>
 					<li className="rounded-lg hover:bg-[#e8e5ff] transition">
@@ -93,9 +95,7 @@ const Sidebar: React.FC = () => {
 						</Link>
 					</li>
 				</ul>
-
 			</div>
-
 			{/* Overlay (for closing sidebar on mobile) */}
 			{isOpen && (
 				<div
