@@ -37,10 +37,10 @@ const AllTemplates: React.FC = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.templates && Array.isArray(data.templates)) {
-          const mappedTemplates = data.templates.map((template) => ({
+          const mappedTemplates = data.templates.map((template: any) => ({
             ...template,
             icon:
-              FaIcons[template.icon as keyof typeof FaIcons] || FaIcons.FaQuestionCircle, // ✅ Convert string icon to React component
+              FaIcons[template.icon as keyof typeof FaIcons] || FaIcons.FaQuestionCircle,
           }));
 
           setTemplates(mappedTemplates);
@@ -56,7 +56,7 @@ const AllTemplates: React.FC = () => {
       setFilteredTemplates(templates);
     } else {
       const filtered = templates.filter(
-        (t) => t.title.toLowerCase() === category.toLowerCase() // ✅ Use title instead of category
+        (t) => t.title.toLowerCase() === category.toLowerCase()
       );
       setFilteredTemplates(filtered);
     }
@@ -71,7 +71,6 @@ const AllTemplates: React.FC = () => {
           <h1 className="text-3xl font-bold text-gray-800">All Templates</h1>
         </div>
 
-        {/* Category Filter Buttons */}
         <div className="mt-4 flex flex-wrap gap-3">
           {categories.map((category) => (
             <button
@@ -88,16 +87,17 @@ const AllTemplates: React.FC = () => {
           ))}
         </div>
 
-        {/* Template Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6 max-w-full">
+        <div className="mt-6 flex flex-wrap gap-6">
           {filteredTemplates.map((template) => (
-            <TemplateCard
-              key={template.id}
-              title={template.title}
-              description={template.description}
-              icon={template.icon}
-              price={template.price}
-            />
+            <div key={template.id} className="flex-shrink-0 w-[290px] mx-2 my-4">
+              <TemplateCard
+                id={template.id} // Pass the id
+                title={template.title}
+                description={template.description}
+                icon={template.icon}
+                price={template.price}
+              />
+            </div>
           ))}
         </div>
       </div>

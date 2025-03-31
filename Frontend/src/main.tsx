@@ -4,7 +4,8 @@ import "./index.css";
 import { BrowserRouter, useNavigate } from "react-router-dom";
 import { HeroUIProvider } from "@heroui/react";
 import { RecoilRoot } from "recoil"; // Import RecoilRoot
-import  AppRoutes  from "./routes";
+import { CartProvider } from "./context/cartContext"; // Import CartProvider
+import AppRoutes from "./routes";
 
 export default function App() {
   const navigate = useNavigate();
@@ -18,9 +19,11 @@ export default function App() {
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <RecoilRoot> {/* Wrap the app inside RecoilRoot */}
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <CartProvider> {/* Wrap everything inside CartProvider */}
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </CartProvider>
     </RecoilRoot>
   </React.StrictMode>
 );

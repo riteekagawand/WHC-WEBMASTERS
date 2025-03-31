@@ -2,8 +2,10 @@ import React, { useState, useRef } from "react";
 import { IconType } from "react-icons";
 import { FaRupeeSign } from "react-icons/fa6";
 import { FiMinus, FiPlus } from "react-icons/fi";
+import { useCart } from "../context/cartContext"; // Import the cart context
 
 interface TemplateCardProps {
+  id: number; // Add id to props
   title: string;
   description: string;
   icon: IconType;
@@ -23,7 +25,8 @@ const imageMap: Record<string, string> = {
   Fitness: "/images/Webdesign.png",
 };
 
-const TemplateCard: React.FC<TemplateCardProps> = ({ title, description, icon: Icon, price }) => {
+const TemplateCard: React.FC<TemplateCardProps> = ({ id, title, description, icon: Icon, price }) => {
+  const { addToCart } = useCart(); // Use the cart context
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [zoomLevel, setZoomLevel] = useState<number>(1);
   const [isDragging, setIsDragging] = useState<boolean>(false);
@@ -57,6 +60,10 @@ const TemplateCard: React.FC<TemplateCardProps> = ({ title, description, icon: I
 
   const handleMouseUp = () => setIsDragging(false);
 
+  const handleAddToCart = () => {
+    addToCart({ id, title, description, icon: title, price: parseInt(price) });
+  };
+
   return (
     <div className="relative p-5 w-[270px] h-[300px] bg-lightpurp rounded-2xl shadow-sm transition-all duration-300 transform hover:scale-105">
       <div className="absolute top-4 left-4 w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center shadow-md">
@@ -74,7 +81,10 @@ const TemplateCard: React.FC<TemplateCardProps> = ({ title, description, icon: I
         >
           Preview
         </button>
-        <button className="bg-[#634aff] text-white w-24 py-2 rounded-lg font-medium hover:bg-[#5038cc] hover:scale-105 transition-all duration-200">
+        <button
+          className="bg-[#634aff] text-white w-24 py-2 rounded-lg font-medium hover:bg-[#5038cc] hover:scale-105 transition-all duration-200"
+          onClick={handleAddToCart} // Call the addToCart function
+        >
           Add to Cart
         </button>
       </div>
