@@ -29,7 +29,7 @@ const SyncingChart: React.FC<SyncingChartProps> = ({ series }) => {
       },
     },
     stroke: {
-      width: 2,
+      width: 4, // Increased from 2 to 4 for thicker lines
       curve: 'smooth' as const,
     },
     xaxis: {
@@ -67,7 +67,7 @@ const SyncingChart: React.FC<SyncingChartProps> = ({ series }) => {
         color: '#1F2937',
       },
     },
-    colors: ['#3B82F6', '#6B7280', '#10B981'], // Matching the colors in the image
+    colors: ['#3B82F6', '#f7b801', '#fb8500'], // Matching the colors in the image
     legend: {
       show: false, // No legend in the image
     },

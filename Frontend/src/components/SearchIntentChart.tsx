@@ -8,7 +8,7 @@ interface SearchIntentChartProps {
 const SearchIntentChart: React.FC<SearchIntentChartProps> = ({ data }) => {
   const circleChartOptions = {
     chart: {
-      type: 'donut' as const,
+      type: 'radialBar' as const, // Changed from 'donut' to 'radialBar'
       animations: {
         enabled: true,
         easing: 'easeinout',
@@ -16,23 +16,22 @@ const SearchIntentChart: React.FC<SearchIntentChartProps> = ({ data }) => {
       },
     },
     labels: ['Informational', 'Commercial', 'Transactional'],
-    colors: ['#3B82F6', '#10B981', '#F59E0B'], // Modern colors
+    colors: ['#6E3F8B', '#8E61C8', '#B194CA'], // Modern colors
     plotOptions: {
-      pie: {
-        donut: {
-          size: '70%',
-          labels: {
+      radialBar: {
+        dataLabels: {
+          total: {
             show: true,
-            total: {
-              show: true,
-              label: 'Total',
-              color: '#1F2937',
-              formatter: () => '100%',
-            },
+            label: 'Total',
+            color: '#1F2937',
+            formatter: () => '100%',
           },
         },
-        startAngle: -90,
-        endAngle: 270,
+        track: {
+          background: '#E5E7EB', // Optional: adds a track background for better visualization
+          strokeWidth: '70%',
+        },
+        barHeight: '70%', // Adjusts the height of each radial bar
       },
     },
     dataLabels: {
@@ -74,7 +73,7 @@ const SearchIntentChart: React.FC<SearchIntentChartProps> = ({ data }) => {
       <ApexCharts
         options={circleChartOptions}
         series={data}
-        type="donut"
+        type="radialBar"
         height={350}
       />
     </div>
