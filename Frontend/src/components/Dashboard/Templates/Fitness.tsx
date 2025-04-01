@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import grapesjs from "grapesjs";
 import "grapesjs/dist/css/grapes.min.css";
 import grapesjsTailwind from "grapesjs-tailwind";
 import { Button } from "../../ui/button";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const PortfolioBuilder = () => {
-  const [editor, setEditor] = useState(null);
+    const [editor, setEditor] = useState<import("grapesjs").Editor | null>(null);
     const [loading, setLoading] = useState(false);
     const [copied, setCopied] = useState(false);
     const [portfolioUrl, setPortfolioUrl] = useState("");
@@ -314,7 +316,7 @@ const PortfolioBuilder = () => {
     }
 
     // Render the components to HTML
-    const html = components.map((component) => component.toHTML()).join("");
+    const html = components.map((component: any) => component.toHTML()).join("");
 
     // Create a clean HTML file
     const fullHtml = `

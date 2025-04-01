@@ -26,8 +26,9 @@ html {
     background-color: #634aff;
   }
   
+ 
   
-  body {
+   body {
     top: 0 !important;
     
   }
@@ -76,7 +77,7 @@ html {
   .google-translate-container.hidden {
     display: none !important;
   }
-  
+   
   
   
   @layer base {

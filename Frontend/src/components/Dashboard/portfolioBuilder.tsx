@@ -4,7 +4,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage, BreadcrumbS
 import { Separator } from "../../components/ui/separator";
 import { Button } from "../../components/ui/button";
 import { toast } from "sonner";
-import grapesjs, { Editor } from "grapesjs";
+import grapesjs, { Editor, Component } from "grapesjs";
 import "grapesjs/dist/css/grapes.min.css";
 import grapesjsTailwind from "grapesjs-tailwind";
 
@@ -27,62 +27,6 @@ const PortfolioBuilder = () => {
       canvas: {
         styles: ["https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"],
       },
-      // Optional: Add default content to match Image 2
-      components: `
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
-          <div class="bg-gray-100 p-4 rounded-lg shadow">
-            <p class="text-sm text-gray-500">CATEGORY</p>
-            <h2 class="text-xl font-bold">Raclette Blueberry Nextious Level</h2>
-            <p class="text-gray-600">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-            <a href="#" class="text-blue-500 hover:underline">Learn More &rarr;</a>
-            <div class="flex items-center mt-2">
-              <span class="text-gray-500 mr-2">👁️ 1.2K</span>
-              <span class="text-gray-500">💬 6</span>
-            </div>
-          </div>
-          <div class="bg-gray-100 p-4 rounded-lg shadow">
-            <p class="text-sm text-gray-500">CATEGORY</p>
-            <h2 class="text-xl font-bold">Ennui Snackwave Thundercats</h2>
-            <p class="text-gray-600">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-            <a href="#" class="text-blue-500 hover:underline">Learn More &rarr;</a>
-            <div class="flex items-center mt-2">
-              <span class="text-gray-500 mr-2">👁️ 1.2K</span>
-              <span class="text-gray-500">💬 6</span>
-            </div>
-          </div>
-          <div class="bg-gray-100 p-4 rounded-lg shadow">
-            <p class="text-sm text-gray-500">CATEGORY</p>
-            <h2 class="text-xl font-bold">Selvage Poke Waistcoat Godard</h2>
-            <p class="text-gray-600">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-            <a href="#" class="text-blue-500 hover:underline">Learn More &rarr;</a>
-            <div class="flex items-center mt-2">
-              <span class="text-gray-500 mr-2">👁️ 1.2K</span>
-              <span class="text-gray-500">💬 6</span>
-            </div>
-          </div>
-          <div class="flex items-center space-x-2">
-            <span class="text-gray-500">Jul 18</span>
-            <p class="text-sm text-gray-500">CATEGORY</p>
-            <h2 class="text-xl font-bold">The 400 Blows</h2>
-            <p class="text-gray-600">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-            <p class="text-gray-500">Alper Kamu</p>
-          </div>
-          <div class="flex items-center space-x-2">
-            <span class="text-gray-500">Jul 18</span>
-            <p class="text-sm text-gray-500">CATEGORY</p>
-            <h2 class="text-xl font-bold">Shooting Stars</h2>
-            <p class="text-gray-600">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-            <p class="text-gray-500">Holden Caulfield</p>
-          </div>
-          <div class="flex items-center space-x-2">
-            <span class="text-gray-500">Jul 18</span>
-            <p class="text-sm text-gray-500">CATEGORY</p>
-            <h2 class="text-xl font-bold">Neptune</h2>
-            <p class="text-gray-600">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
-            <p class="text-gray-500">Henry Letham</p>
-          </div>
-        </div>
-      `,
     });
 
     setEditor(newEditor);
@@ -102,26 +46,22 @@ const PortfolioBuilder = () => {
 
   const handlePreviewPortfolio = () => {
     if (!editor) return;
-
+  
     setLoading(true);
-
-    // Get the user-created components (not the editor UI)
-    const components = editor.getComponents();
+  
+    // Convert Components collection to an array
+    const components = editor.getComponents().models as Component[];
     const css = editor.getCss();
-
-    // Check if there’s any content
+  
     if (!components.length) {
       toast.error("The canvas is empty! Add some content before generating a preview.");
       setLoading(false);
       return;
     }
-
-    // Render the components to HTML
-    const html = components.map((component) => component.toHTML()).join("");
-
-    // Create a clean HTML file
-    const fullHtml = `
-      <!DOCTYPE html>
+  
+    const html = components.map((component: Component) => component.toHTML()).join("");
+  
+    const fullHtml = `<!DOCTYPE html>
       <html lang="en">
         <head>
           <meta charset="UTF-8">
@@ -131,15 +71,13 @@ const PortfolioBuilder = () => {
           <style>${css || ""}</style>
         </head>
         <body>${html}</body>
-      </html>
-    `;
+      </html>`;
 
-    // Generate a Blob URL
     const blob = new Blob([fullHtml], { type: "text/html" });
     const url = URL.createObjectURL(blob);
     setPortfolioUrl(url);
     toast.success("Portfolio preview generated! Open the URL in a new tab.");
-
+  
     setLoading(false);
   };
 
