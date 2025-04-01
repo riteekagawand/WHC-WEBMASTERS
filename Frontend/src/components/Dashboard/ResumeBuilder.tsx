@@ -7,14 +7,14 @@ import {
 	SidebarInset,
 	SidebarProvider,
 	SidebarTrigger,
-} from "../../Components/ui/sidebar";
+} from "../../components/ui/sidebar";
 import {
 	Breadcrumb,
 	BreadcrumbItem,
 	BreadcrumbList,
 	BreadcrumbPage,
 	BreadcrumbSeparator,
-} from "../../Components/ui/breadcrumb";
+} from "../../components/ui/breadcrumb";
 import { Separator } from "../../components/ui/separator";
 import { format } from "date-fns";
 import { Skeleton } from "../../components/ui/skeleton";
@@ -31,9 +31,6 @@ const ResumeBuilder: React.FC = () => {
 	const [resumes, setResumes] = useState<Resume[]>([]);
 	const navigate = useNavigate();
 	const [loading, setLoading] = useState<boolean>(true);
-	const [currentPage, setCurrentPage] = useState<number>(1);
-	const itemsPerPage: number = 5;
-	const totalPages: number = Math.ceil(resumes.length / itemsPerPage);
 
 	useEffect(() => {
 		// Simulate fetching resumes from local storage or mock data
@@ -49,16 +46,6 @@ const ResumeBuilder: React.FC = () => {
 			prevResumes.filter((resume) => resume._id !== resumeId),
 		);
 	};
-
-	const handlePageClick = (page: number) => {
-		window.scrollTo(0, 0);
-		setCurrentPage(page);
-	};
-
-	const paginatedResumes = resumes.slice(
-		(currentPage - 1) * itemsPerPage,
-		currentPage * itemsPerPage,
-	);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
@@ -99,7 +86,7 @@ const ResumeBuilder: React.FC = () => {
 						? Array.from({ length: 5 }).map((_, index) => (
 								<Skeleton key={index} className="w-full h-56 rounded-lg" />
 							))
-						: paginatedResumes.map((resume) => (
+						: resumes.map((resume) => (
 								<div
 									key={resume._id}
 									className="p-4 shadow-md rounded-lg border"

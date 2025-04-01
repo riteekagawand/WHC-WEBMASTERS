@@ -4,13 +4,15 @@ import StartFromScratchCard from "../StartFromScratchCard";
 import { useNavigate } from "react-router-dom";
 import { CiCirclePlus } from "react-icons/ci";
 import { PiFileArrowUpDuotone } from "react-icons/pi";
-import * as FaIcons from "react-icons/fa"; 
+import * as FaIcons from "react-icons/fa";
+import { IconType } from 'react-icons';
 
 interface Template {
   id: number;
   title: string;
   description: string;
-  icon: string;
+  icon: IconType;
+  price: string;
 }
 
 const Builder: React.FC = () => {
@@ -23,10 +25,10 @@ const Builder: React.FC = () => {
 	  .then((response) => response.json())
 	  .then((data) => {
 		if (data.templates && Array.isArray(data.templates)) {
-		  const mappedTemplates = data.templates.map((template) => ({
+		  const mappedTemplates = data.templates.map((template: any) => ({
 			...template,
-			icon: FaIcons[template.icon] || FaIcons.FaQuestionCircle,
-			price: template.price || "0.00", // Ensure price is included
+			icon: (FaIcons as any)[template.icon] || FaIcons.FaQuestionCircle,
+			price: template.price || "0.00",
 		  }));
   
 		  setPopularTemplates(mappedTemplates.slice(0, 4));
@@ -103,6 +105,7 @@ const Builder: React.FC = () => {
               title={template.title}
               description={template.description}
               icon={template.icon}
+              price={template.price || "0.00"}
             />
           ))}
         </div>

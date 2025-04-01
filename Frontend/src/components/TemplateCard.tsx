@@ -30,12 +30,7 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
 	price,
 }) => {
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-	const [position, setPosition] = useState({ x: 0, y: 0 });
 	const imageUrl = imageMap[title] || "/images/default.png";
-
-	const resetZoom = () => {
-		setPosition({ x: 0, y: 0 });
-	};
 
 	return (
 		<div className="relative p-5 w-[270px] h-[300px] bg-lightpurpl rounded-2xl shadow-sm transition-all duration-300 transform hover:scale-105">
@@ -70,10 +65,7 @@ const TemplateCard: React.FC<TemplateCardProps> = ({
 							<button
 								type="button"
 								className="absolute top-4 right-4 text-gray-600 hover:text-gray-800 z-20 transition-all"
-								onClick={() => {
-									resetZoom();
-									setIsModalOpen(false);
-								}}
+								onClick={() => setIsModalOpen(false)}
 							>
 								✖
 							</button>

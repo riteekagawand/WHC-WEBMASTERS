@@ -16,7 +16,7 @@ import {
     Separator,
     Toolbar
 } from 'react-simple-wysiwyg';
-import { BsRobot, BsStars } from "react-icons/bs";
+import {  BsStars } from "react-icons/bs";
 import { chatSession } from '../../services/GeminiModel';
 import { ResumeInfoContext } from '../../context/ResumeContext';
 import { ImSpinner2 } from "react-icons/im";
@@ -28,12 +28,16 @@ interface RichTextEditorProps {
 }
 
 const RichTextEditor: React.FC<RichTextEditorProps> = ({ onRichTextEditorChange, index }) => {
-    const [resumeInfo, setResumeInfo] = useContext(ResumeInfoContext);
+    const context = useContext(ResumeInfoContext);
+    if (!context) {
+        throw new Error("ResumeInfoContext must be used within a ResumeInfoProvider");
+    }
+    const [resumeInfo] = context;
     const [value, setValue] = useState<string | undefined>();
     const [loading, setLoading] = useState<boolean>(false);
 
     const summeryGenerater = async () => {
-        if (!resumeInfo.experience[index].title) {
+        if (!resumeInfo.experience?.[index]?.title) {
             alert("Please fill the position title");
             return;
         }
@@ -90,7 +94,7 @@ const RichTextEditor: React.FC<RichTextEditorProps> = ({ onRichTextEditorChange,
                 </motion.div>
             </div>
             <EditorProvider>
-                <Editor value={value} onChange={(e) => { setValue(e.target.value); onRichTextEditorChange(e) }}>
+                <Editor value={value} onChange={(e: any) => { setValue(e.target.value); onRichTextEditorChange(e) }}>
                     <Toolbar>
                         <BtnUndo />
                         <BtnRedo />

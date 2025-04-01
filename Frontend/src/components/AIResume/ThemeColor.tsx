@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import {
     Popover,
     PopoverContent,
@@ -9,7 +9,11 @@ import { IoColorPalette } from "react-icons/io5";
 import { ResumeInfoContext } from '../../context/ResumeContext';
 
 const ThemeColor = () => {
-    const [resumeInfo, setResumeInfo] = useContext(ResumeInfoContext);
+    const context = useContext(ResumeInfoContext);
+    if (!context) {
+        throw new Error("ResumeInfoContext must be used within a ResumeInfoProvider");
+    }
+    const [resumeInfo, setResumeInfo] = context;
     const [selectedColor, setSelectedColor] = useState();
     const colors = [
         "#000000",
@@ -34,7 +38,7 @@ const ThemeColor = () => {
         "#8B0000"
     ];
 
-    const onThemeChange = (color) => {
+    const onThemeChange = (color: any) => {
         setSelectedColor(color)
         setResumeInfo({
             ...resumeInfo,

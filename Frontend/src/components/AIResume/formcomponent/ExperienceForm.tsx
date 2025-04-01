@@ -13,7 +13,7 @@ interface Experience {
     city: string;
     state: string;
     startDate: string;
-    endDate: string;
+    endDate?: string;
     currentlyWorking: boolean;
     workSummary: string;
 }
@@ -30,7 +30,11 @@ const formField: Experience = {
 };
 
 const ExperienceForm: React.FC = () => {
-    const [resumeInfo, setResumeInfo] = useContext(ResumeInfoContext);
+    const context = useContext(ResumeInfoContext);
+    if (!context) {
+        throw new Error("ResumeInfoContext must be used within a ResumeInfoProvider");
+    }
+    const [resumeInfo, setResumeInfo] = context;
     const [experienceList, setExperienceList] = useState<Experience[]>(resumeInfo.experience || [formField]);
 
     // Update resumeInfo context only if the experienceList has changed
@@ -47,7 +51,10 @@ const ExperienceForm: React.FC = () => {
     const handleChange = (index: number, event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
         const newEntries = [...experienceList];
-        newEntries[index][name as keyof Experience] = value;
+        newEntries[index] = {
+            ...newEntries[index],
+            [name as keyof Experience]: value
+        };
         setExperienceList(newEntries);
     };
 
@@ -61,7 +68,7 @@ const ExperienceForm: React.FC = () => {
 
     const handleRichChange = (e: React.ChangeEvent<HTMLTextAreaElement>, name: string, index: number) => {
         const newEntries = [...experienceList];
-        newEntries[index][name as keyof Experience] = e.target.value;
+        newEntries[index][name as keyof Experience] = e.target.value as never;
         setExperienceList(newEntries);
     };
 
@@ -136,7 +143,6 @@ const ExperienceForm: React.FC = () => {
                             </div>
                             <div className="flex items-center mt-2">
                                 <Checkbox
-                                    id={`currently-working-${index}`}
                                     checked={exp.currentlyWorking}
                                     onCheckedChange={(checked) => {
                                         const newEntries = [...experienceList];
@@ -149,7 +155,7 @@ const ExperienceForm: React.FC = () => {
                             <div className="col-span-2">
                                 <RichTextEditor
                                     index={index}
-                                    onRichTextEditorChange={(e) => handleRichChange(e, 'workSummary', index)}
+                                    onRichTextEditorChange={(e:any) => handleRichChange(e, 'workSummary', index)}
                                 />
                             </div>
                         </div>

@@ -102,7 +102,7 @@ const UserLogin = () => {
 			} else if (res.status === 400) {
 				toast.error("User already exists");
 			}
-		} catch (err) {
+		} catch (err: any) {
 			toast.error(err.response.data.message || "Server Error");
 		} finally {
 			setLoading(false);
@@ -160,9 +160,9 @@ const UserLogin = () => {
 			className="justify-center min-h-screen flex items-center flex-col bg-[#f9fafb] "
 			onSubmit={(e) => {
 				e.preventDefault();
-				const activeTab = document.querySelector(
-					"[data-state='active']",
-				).textContent;
+				const activeTabElement = document.querySelector("[data-state='active']");
+				if (!activeTabElement?.textContent) return;
+				const activeTab = activeTabElement.textContent;
 				if (activeTab === "Login") {
 					handleLogin(e);
 				} else if (activeTab === "Sign Up") {
@@ -362,7 +362,7 @@ const UserLogin = () => {
 											className="w-full border mt-2 bg-purple"
 											variant="ghost"
 											type="button"
-											onClick={handleSignup}
+											onClick={(e) => handleSignup(e as any)}
 										>
 											{loading ? (
 												<div className="flex flex-row gap-2 items-center">

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { SidebarInset, SidebarProvider, SidebarTrigger } from "../../Components/ui/sidebar";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "../../Components/ui/breadcrumb";
-import { Separator } from "../../Components/ui/separator";
-import { Button } from "../../Components/ui/button";
+import  { useEffect, useState } from "react";
+import { SidebarInset, SidebarProvider, SidebarTrigger } from "../../components/ui/sidebar";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "../../components/ui/breadcrumb";
+import { Separator } from "../../components/ui/separator";
+import { Button } from "../../components/ui/button";
 import { FaCopy, FaCheck } from "react-icons/fa";
 import { ImSpinner2 } from "react-icons/im";
 import { toast } from "sonner";

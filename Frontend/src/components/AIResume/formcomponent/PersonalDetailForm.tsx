@@ -6,21 +6,17 @@ import React, { useContext, ChangeEvent, FormEvent } from 'react'
 import { toast } from 'sonner'
 
 // Define types for ResumeInfo structure
-interface ResumeInfo {
-    firstName: string;
-    lastName: string;
-    jobTitle: string;
-    address: string;
-    phone: string;
-    email: string;
-}
 
 interface PersonalDetailFormProps {
     enableNext: (status: boolean) => void;
 }
 
 const PersonalDetailForm: React.FC<PersonalDetailFormProps> = ({ enableNext }) => {
-    const [resumeInfo, setResumeInfo] = useContext(ResumeInfoContext);
+    const context = useContext(ResumeInfoContext);
+    if (!context) {
+        throw new Error("ResumeInfoContext must be used within a ResumeInfoProvider");
+    }
+    const [resumeInfo, setResumeInfo] = context;
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         enableNext(false);
