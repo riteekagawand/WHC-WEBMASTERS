@@ -1,32 +1,13 @@
-import React from "react";
 import Card from "../AiTools"; // Note: The import path was updated to match the previous context
-import { FaPlus, FaGlobe, FaChartBar } from "react-icons/fa";
 import { GoPencil } from "react-icons/go";
-import { MdOutlineQueryStats } from "react-icons/md";
 import { RiCustomerService2Line } from "react-icons/ri";
-import { TfiStatsUp } from "react-icons/tfi";
-import { TbSpeakerphone } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
 
-interface CardProps {
-	title: string;
-	description: string;
-	icon: React.ComponentType;
-	actions: React.ReactNode;
-	onClick?: (e: React.MouseEvent) => void;
-}
 const App: React.FC = () => {
 	const navigate = useNavigate();
-	
 
 	// Data for Popular AI Tools
 	const popularTools = [
-		{
-			title: "Business Market Analysis",
-			description:
-				"Get insights on market trends, competitor analysis, and growth opportunities",
-			icon: MdOutlineQueryStats,
-		},
 		{
 			title: "Content Generator",
 			description:
@@ -73,44 +54,6 @@ const App: React.FC = () => {
 	//   },
 	// ];
 
-	// Data for Recommended for You
-	const recommendations = [
-		{
-			title: "Growth Forecast",
-			description:
-				"Generate sales predictions based on your historical data and market trends",
-			icon: TfiStatsUp,
-		},
-		{
-			title: "Marketing Ad Copy Writer",
-			description:
-				"Create compelling ad copy for your digital marketing campaigns",
-			icon: TbSpeakerphone,
-		},
-		{
-			title: "Strategy Business Advisor",
-			description:
-				"Get personalized and strategic advice to grow your business",
-			icon: FaChartBar,
-		},
-		{
-			title: "Global Tool",
-			description:
-				"Translate your content into multiple languages for global markets",
-			icon: FaGlobe,
-		},
-	];
-
-	const tabs = [
-		"All",
-		"Tools",
-		"Business Insights",
-		"Content Creator",
-		"Customer Support",
-		"Saved",
-	];
-	
-
 	return (
 		<div className="p-6 min-h-screen">
 			{/* Header */}
@@ -154,8 +97,9 @@ const App: React.FC = () => {
 							icon={tool.icon}
 							actions={
 								<button
+									type="button"
 									onClick={tool.onClick}
-									className="bg-purple text-black px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition"
+									className="bg-purple text-white px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition"
 								>
 									Generate
 								</button>

@@ -1,4 +1,3 @@
-import React from "react";
 import Card from "../AiTools";
 import { FaGraduationCap } from "react-icons/fa";
 import { HiDocumentText } from "react-icons/hi";
@@ -21,12 +20,8 @@ const ResourceHub: React.FC = () => {
 		},
 		{
 			title: "Course Generator",
-			description: "Generate personalized learning paths and course content",
+			description: "This feature is Coming Soon!!",
 			icon: FaGraduationCap,
-			onClick: (e: React.MouseEvent) => {
-				e.preventDefault();
-				navigate("/courseGenerator");
-			},
 		},
 	];
 
@@ -57,8 +52,9 @@ const ResourceHub: React.FC = () => {
 							icon={tool.icon}
 							actions={
 								<button
+									type="button"
 									onClick={tool.onClick}
-									className="bg-purple text-black px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition"
+									className="bg-purple text-white px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition"
 								>
 									Generate
 								</button>

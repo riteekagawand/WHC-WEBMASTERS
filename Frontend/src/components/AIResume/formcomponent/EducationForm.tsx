@@ -3,7 +3,7 @@ import { Input } from '../../../components/ui/input';
 import { Label } from '../../../components/ui/label';
 import { Textarea } from '../../../components/ui/textarea';
 import { ResumeInfoContext } from '../../../context/ResumeContext';
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { IoMdAdd, IoMdRemove } from 'react-icons/io';
 
 const initialEducation = {
@@ -16,7 +16,11 @@ const initialEducation = {
 };
 
 const EducationForm = () => {
-    const [resumeInfo, setResumeInfo] = useContext(ResumeInfoContext);
+    const context = useContext(ResumeInfoContext);
+    if (!context) {
+        throw new Error("ResumeInfoContext must be used within a ResumeInfoProvider");
+    }
+    const [resumeInfo, setResumeInfo] = context;
     const [educationalList, setEducationalList] = useState(resumeInfo.education || [initialEducation]);
 
     useEffect(() => {
@@ -26,10 +30,10 @@ const EducationForm = () => {
         });
     }, [educationalList]);
 
-    const handleChange = (index, event) => {
+    const handleChange = (index: number, event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = event.target;
         const newEntries = educationalList.slice();
-        newEntries[index][name] = value;
+        newEntries[index][name as keyof typeof initialEducation] = value;
         setEducationalList(newEntries);
     };
 

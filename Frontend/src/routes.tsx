@@ -1,4 +1,3 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./Layout"; // Your Layout component
 import Home from "./components/Dashboard/Home";
@@ -32,11 +31,11 @@ import Portfolio from './components/Dashboard/Templates/Portfolio';
 // import AddDetailForm from "./components/AddUserDetails";
 
 const AppRoutes: React.FC = () => {
-  return (
-    <Routes>
-      {/* Public Routes */}
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/login" element={<Login />} />
+	return (
+		<Routes>
+			{/* Public Routes */}
+			<Route path="/" element={<LandingPage />} />
+			<Route path="/login" element={<Login />} />
 
       {/* Protected Routes under Layout */}
       <Route path="/" element={<Layout />}>
@@ -68,11 +67,11 @@ const AppRoutes: React.FC = () => {
           {/* <Route path="adduserdetails" element={<AddDetailForm />} /> */}
         </Route>
 
-        {/* Catch-all Route for 404 Pages */}
-        <Route path="*" element={<NotFound />} />
-      </Route>
-    </Routes>
-  );
+				{/* Catch-all Route for 404 Pages */}
+				<Route path="*" element={<NotFound />} />
+			</Route>
+		</Routes>
+	);
 };
 
 export default AppRoutes;

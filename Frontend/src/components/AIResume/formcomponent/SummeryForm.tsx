@@ -1,6 +1,5 @@
 import { Button } from '../../../components/ui/button';
 import React, { useContext, useEffect, useState } from 'react';
-import { BsStars } from "react-icons/bs";
 import { Textarea } from "../../../components/ui/textarea";
 import { ResumeInfoContext } from '../../../context/ResumeContext';
 import { chatSession } from '../../../services/GeminiModel';
@@ -16,7 +15,11 @@ interface AIResponse {
 }
 
 const SummaryForm = () => {
-    const [resumeInfo, setResumeInfo] = useContext(ResumeInfoContext);
+    const context = useContext(ResumeInfoContext);
+    if (!context) {
+        throw new Error("ResumeInfoContext must be used within a ResumeInfoProvider");
+    }
+    const [resumeInfo, setResumeInfo] = context;
     const [summary, setSummary] = useState<string>(resumeInfo?.summary || '');
     const [loading, setLoading] = useState<boolean>(false);
     const [response, setResponse] = useState<AIResponse[] | null>(null);

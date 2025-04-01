@@ -9,10 +9,14 @@ import { IoMdAdd, IoMdRemove } from 'react-icons/io';
 
 interface Skill {
     name: string;
-    rating: number;
+    level: string;
 }
 
-class ErrorBoundary extends React.Component {
+interface ErrorBoundaryProps {
+    children: React.ReactNode;
+}
+
+class ErrorBoundary extends React.Component<ErrorBoundaryProps> {
     state = { hasError: false };
     static getDerivedStateFromError() {
         return { hasError: true };
@@ -29,16 +33,19 @@ class ErrorBoundary extends React.Component {
 }
 
 const SkillForm: React.FC = () => {
-    const [resumeInfo, setResumeInfo] = useContext(ResumeInfoContext);
-    // Initialize skillsList with resumeInfo.skills or default value, only on mount
+    const context = useContext(ResumeInfoContext);
+    if (!context) {
+        throw new Error("ResumeInfoContext must be used within a ResumeInfoProvider");
+    }
+    const [resumeInfo, setResumeInfo] = context;
     const [skillsList, setSkillsList] = useState<Skill[]>(() => {
         if (resumeInfo.skills && Array.isArray(resumeInfo.skills)) {
-            return resumeInfo.skills.map((skill: Skill) => ({
+            return resumeInfo.skills.map((skill: { name: string; level: string }) => ({
                 name: skill.name || '',
-                rating: skill.rating || 0,
+                level: skill.level || '',
             }));
         }
-        return [{ name: '', rating: 0 }];
+        return [{ name: '', level: '' }];
     });
 
     // Sync resumeInfo.skills with skillsList, but avoid infinite loop
@@ -58,14 +65,14 @@ const SkillForm: React.FC = () => {
         console.log(`handleChange called - index: ${index}, name: ${name}, value: ${value}`);
         setSkillsList((prevSkills) => {
             const updatedSkills = [...prevSkills];
-            updatedSkills[index][name] = value;
+            updatedSkills[index][name] = value as never;
             return updatedSkills;
         });
     }, []);
 
     const addNewSkill = () => {
         console.log('Adding new skill');
-        setSkillsList((prev) => [...prev, { name: '', rating: 0 }]);
+        setSkillsList((prev) => [...prev, { name: '', level: '' }]);
     };
 
     const removeSkill = () => {
@@ -97,10 +104,8 @@ const SkillForm: React.FC = () => {
                                 <div>
                                     <Rating
                                         style={{ maxWidth: 120 }}
-                                        name="rating"
-                                        value={Math.min(Math.max(skill.rating, 0), 5)}
-                                        onChange={(value) => handleChange(index, 'rating', value)}
-                                        key={`rating-${index}`}
+                                        value={Math.min(Math.max(parseInt(skill.level) || 0, 0), 5)}
+                                        onChange={(value: number) => handleChange(index, 'level', value.toString())}
                                     />
                                 </div>
                             </div>

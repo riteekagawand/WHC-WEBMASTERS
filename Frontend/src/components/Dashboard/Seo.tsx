@@ -9,7 +9,7 @@ interface Keyword {
   competitionLevel: string;
   suggestedFocus: string;
   searchIntent?: string;
-  trendScore?: number;
+  trendScore?: string | number;
 }
 
 interface Category {
@@ -28,11 +28,11 @@ const SEOOptimization: React.FC = () => {
   const [searchIntentChartData, setSearchIntentChartData] = useState<number[]>([0, 0, 0]);
   const [syncingChartData, setSyncingChartData] = useState<any[]>([]);
 
-  const fetchDataFromJson = (category: string): { keywords: Keyword[] } => {
+  const fetchDataFromJson = (category: string): Promise<{ keywords: Keyword[] }> => {
     setIsLoading(true);
     setError(null);
 
-    return new Promise((resolve) => {
+    return new Promise<{ keywords: Keyword[] }>((resolve) => {
       setTimeout(() => {
         const categoryData = categories.find((cat) => cat.category === category);
         const keywords = categoryData ? categoryData.keywords : [];
@@ -69,7 +69,7 @@ const SEOOptimization: React.FC = () => {
   const prepareSyncingChartData = (keywords: Keyword[]) => {
     const sortedKeywords = keywords
       .filter((k) => k.trendScore !== undefined)
-      .sort((a, b) => (b.trendScore || 0) - (a.trendScore || 0))
+      .sort((a, b) => (Number(b.trendScore) || 0) - (Number(a.trendScore) || 0))
       .slice(0, 3);
 
     const series = sortedKeywords.map((keyword, index) => ({
@@ -130,7 +130,7 @@ const SEOOptimization: React.FC = () => {
         SEO & Keyword Optimization
       </h1>
       <p className="text-gray-600 mb-8 text-lg">
-        AI-powered keyword suggestions to boost your website’s visibility
+        AI-powered keyword suggestions to boost your website's visibility
       </p>
 
       {/* Form */}
@@ -183,7 +183,7 @@ const SEOOptimization: React.FC = () => {
           <button
             onClick={handleAnalyze}
             disabled={isLoading}
-            className={`bg-violet-700 text-black font-semibold py-3 px-6 rounded-lg transition-colors ${
+            className={`bg-violet-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors ${
               isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-purple-700'
             }`}
           >

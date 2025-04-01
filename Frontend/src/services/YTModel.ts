@@ -31,7 +31,7 @@ const incrementApiCount = () => {
 	);
 };
 
-const getVideos = async (query) => {
+const getVideos = async (query: string) => {
 	const apiCount = getApiCount();
 
 	if (apiCount >= 20) {

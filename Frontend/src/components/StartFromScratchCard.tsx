@@ -35,7 +35,7 @@ const StartFromScratchCard: React.FC<StartFromScratchCardProps> = ({ title, desc
       <div className="mt-4">
         <button
           onClick={handleNavigate}
-          className={`bg-purple text-black px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition ${
+          className={`bg-purple text-white px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition ${
             isDisabled ? 'cursor-not-allowed opacity-50' : ''
           }`}
           disabled={isDisabled}
