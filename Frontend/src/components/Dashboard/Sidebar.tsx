@@ -8,7 +8,6 @@ import {
 } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { FaPlus } from "react-icons/fa6";
 import { RiBook2Line, RiRobot2Line } from "react-icons/ri";
 import logo from "../../assets/HerSpace Logo.svg"
 

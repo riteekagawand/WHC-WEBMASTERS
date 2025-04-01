@@ -1,7 +1,6 @@
 // src/pages/Home.tsx
 
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa"; // For the arrow icon
 import { motion } from "framer-motion"; // Import Framer Motion
 import background from "../../assets/Background.png";
