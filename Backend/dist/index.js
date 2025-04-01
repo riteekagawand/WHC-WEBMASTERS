@@ -45,7 +45,9 @@ const auth_routes_1 = __importDefault(require("./routes/auth.routes"));
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8000;
-app.use(cors());
+app.use(cors({
+    origin: '*', // This allows all domains to access your server
+}));
 app.use(express.json());
 app.use("/api/auth", auth_routes_1.default);
 app.use("/api/user", user_route_1.default);

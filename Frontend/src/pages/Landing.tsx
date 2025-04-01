@@ -29,53 +29,11 @@ const LandingPage: React.FC = () => {
             <img src={logo} className="h-16 w-44 mt-[-10px]" alt="Logo" />
           </Link>
 
-          {/* Navigation */}
-          <nav className="hidden md:flex space-x-7">
-            <Link
-              to="/home"
-              className="text-gray-600 hover:text-purple-600 font-medium"
-            >
-              Home
-            </Link>
-            <Link
-              to="/what-we-do"
-              className="text-gray-600 hover:text-purple-600 font-medium"
-            >
-              What we do
-            </Link>
-            <Link
-              to="/category"
-              className="text-gray-600 hover:text-purple-600 font-medium"
-            >
-              Category
-            </Link>
-            <Link
-              to="/community"
-              className="text-gray-600 hover:text-purple-600 font-medium"
-            >
-              Community
-            </Link>
-            <Link
-              to="/blog"
-              className="text-gray-600 hover:text-purple-600 font-medium"
-            >
-              Blog
-            </Link>
-          </nav>
+          
 
           {/* Search and Login */}
           <div className="flex items-center justify-between space-x-3">
-            {/* Search Bar */}
-            <div className="flex items-center space-x-3">
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  className="pl-8 pr-3 py-1 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-purple-600"
-                />
-                <FiSearch className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400" />
-              </div>
-            </div>
+            
 
             {/* Login Button */}
             <Link

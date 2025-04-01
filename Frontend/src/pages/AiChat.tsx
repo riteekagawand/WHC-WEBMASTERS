@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { getGeminiResponse } from "../services/AIchat";
+import { FaMicrophoneLines } from "react-icons/fa6";
+import { FaUserAlt, FaRobot } from "react-icons/fa";
+
+
 
 interface SpeechRecognitionResult {
 	transcript: string;
@@ -122,9 +126,9 @@ const Chatbot = () => {
 						{/* Icon */}
 						<div className="w-10 h-10 shrink-0 rounded-full flex items-center justify-center">
 							{msg.sender === "user" ? (
-								<span className="text-2xl">👤</span>
+								<span className="text-2xl"><FaUserAlt /></span>
 							) : (
-								<span className="text-2xl">🤖</span>
+								<span className="text-2xl"><FaRobot /></span>
 							)}
 						</div>
 						{/* Message */}
@@ -148,21 +152,21 @@ const Chatbot = () => {
 					value={input}
 					onChange={(e) => setInput(e.target.value)}
 					placeholder="Type or speak..."
-					className="flex-1 p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mr-2"
+					className="flex-1 p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500 mr-2"
 				/>
 				<button
 					type="button"
 					onClick={startListening}
 					className={`px-6 py-3 ${
-						isListening ? "bg-red-500" : "bg-gray-500"
+						isListening ? "bg-red-500" : "bg-violet-600 "
 					} text-black rounded-md ml-2 mr-2 text-xl`}
 				>
-					🎤
+					<FaMicrophoneLines className="text-white size-6"/>
 				</button>
 				<button
 					type="button"
 					onClick={sendMessage}
-					className="bg-blue-500 text-black px-6 py-3 rounded-md hover:bg-blue-600"
+					className="text-lg rounded-lg bg-gradient-to-r from-violet-600 to-violet-800 text-white font-semibold px-6 py-3  hover:bg-violet-600"
 				>
 					Send
 				</button>

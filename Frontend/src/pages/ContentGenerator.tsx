@@ -60,10 +60,12 @@ const ContentGenerator = () => {
 	};
 
 	return (
-		<div className="w-full h-screen flex flex-col bg-white p-6">
+		<div className="w-full h-screen flex flex-col bg-white p-2 ">
 			<div className="max-w-4xl mx-auto w-full">
 				<h1 className="text-3xl font-bold mb-6">AI Content Generator</h1>
-
+<p className="text-gray-600">Generate your content effortlessly. Your perfect content is just one-click away!</p>
+<br/>
+<div className="bg-violet-100 rounded-xl max-w-4xl mx-auto w-full p-11 mb-10">
 				{/* Input Form */}
 				<form onSubmit={handleSubmit} className="space-y-6 mb-8">
 					{/* Content Type Selection */}
@@ -76,7 +78,7 @@ const ContentGenerator = () => {
 							onChange={(e) =>
 								setFormData({ ...formData, contentType: e.target.value })
 							}
-							className="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500"
+							className="w-full p-3 border rounded-md focus:ring-2 focus:ring-violet-500"
 							required
 						>
 							<option value="">Select content type</option>
@@ -98,7 +100,7 @@ const ContentGenerator = () => {
 							onChange={(e) =>
 								setFormData({ ...formData, description: e.target.value })
 							}
-							className="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500 h-32"
+							className="w-full p-3 border rounded-md focus:ring-2 focus:ring-violet-500 h-32"
 							placeholder="Describe what you want to generate..."
 							required
 						/>
@@ -114,7 +116,7 @@ const ContentGenerator = () => {
 							onChange={(e) =>
 								setFormData({ ...formData, tone: e.target.value })
 							}
-							className="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500"
+							className="w-full p-3 border rounded-md focus:ring-2 focus:ring-violet-500"
 						>
 							{tones.map((tone) => (
 								<option key={tone} value={tone.toLowerCase()}>
@@ -134,7 +136,7 @@ const ContentGenerator = () => {
 							onChange={(e) =>
 								setFormData({ ...formData, length: e.target.value })
 							}
-							className="w-full p-3 border rounded-md focus:ring-2 focus:ring-blue-500"
+							className="w-full p-3 border rounded-md focus:ring-2 focus:ring-violet-500"
 						>
 							{lengths.map((length) => (
 								<option key={length.value} value={length.value}>
@@ -148,11 +150,13 @@ const ContentGenerator = () => {
 					<button
 						type="submit"
 						disabled={loading}
-						className="w-full bg-blue-500 text-black py-3 rounded-md hover:bg-blue-600 disabled:bg-gray-400"
+						className="w-full bg-gradient-to-r from-violet-600 to-violet-800 text-white font-semibold py-3 rounded-xl hover:bg-violet-600 disabled:bg-gray-400"
 					>
 						{loading ? "Generating..." : "Generate Content"}
 					</button>
 				</form>
+
+				</div>
 
 				{/* Generated Content */}
 				{generatedContent && (
