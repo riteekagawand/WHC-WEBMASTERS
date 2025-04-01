@@ -8,7 +8,7 @@ interface SearchIntentChartProps {
 const SearchIntentChart: React.FC<SearchIntentChartProps> = ({ data }) => {
   const circleChartOptions = {
     chart: {
-      type: 'radialBar' as const, // Changed from 'donut' to 'radialBar'
+      type: 'radialBar' as const,
       animations: {
         enabled: true,
         easing: 'easeinout',
@@ -16,7 +16,7 @@ const SearchIntentChart: React.FC<SearchIntentChartProps> = ({ data }) => {
       },
     },
     labels: ['Informational', 'Commercial', 'Transactional'],
-    colors: ['#6E3F8B', '#8E61C8', '#B194CA'], // Modern colors
+    colors: ['#6E3F8B', '#8E61C8', '#B194CA'],
     plotOptions: {
       radialBar: {
         dataLabels: {
@@ -28,10 +28,10 @@ const SearchIntentChart: React.FC<SearchIntentChartProps> = ({ data }) => {
           },
         },
         track: {
-          background: '#E5E7EB', // Optional: adds a track background for better visualization
+          background: '#E5E7EB',
           strokeWidth: '70%',
         },
-        barHeight: '70%', // Adjusts the height of each radial bar
+        barHeight: '70%',
       },
     },
     dataLabels: {
@@ -49,6 +49,7 @@ const SearchIntentChart: React.FC<SearchIntentChartProps> = ({ data }) => {
       labels: {
         colors: '#1F2937',
       },
+      show: true, // Explicitly ensuring legend is visible (though true by default)
     },
     title: {
       text: 'Search Intent Distribution',

@@ -89,7 +89,7 @@ const LandingPage: React.FC = () => {
                 
                 {/* Get Started Button (Unchanged) */}
                 <Link to="/login">
-                  <button className="mt-2 px-8 py-3 font-semibold bg-gradient-to-r from-violet-950 to-violet-900 text-black rounded-full shadow-md hover:from-purple-800 hover:to-purple-600">
+                  <button className="mt-2 px-8 py-3 font-semibold bg-gradient-to-r from-violet-950 to-violet-900 text-white rounded-full shadow-md hover:from-purple-800 hover:to-purple-600">
                     Get Started
                   </button>
                 </Link>
@@ -273,7 +273,7 @@ const LandingPage: React.FC = () => {
           {/* Sign Up Button */}
           <Link
     to="/login"
-    className="px-6 py-2 font-semibold bg-gradient-to-r from-violet-950 to-violet-900 text-black rounded-full shadow-gray-400 shadow-md hover:from-purple-800 hover:to-purple-600"
+    className="px-6 py-2 font-semibold bg-gradient-to-r from-violet-950 to-violet-900 text-white rounded-full shadow-gray-400 shadow-md hover:from-purple-800 hover:to-purple-600"
   >
     Sign Up
   </Link>

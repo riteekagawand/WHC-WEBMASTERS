@@ -1,0 +1,60 @@
+{
+    "blogs": [
+      {
+        "blog_title": "9 Top Business Trends (2025 & 2026)",
+        "image": "https://img.freepik.com/free-photo/business-concept-with-graphic-holography_23-2149160934.jpg?t=st=1743522615~exp=1743526215~hmac=588656d4a412e56e8765021dd8557e8e59640bdf3703cba0b5606c439c6b6d33&w=1480",
+        "blog_url": "https://explodingtopics.com/blog/business-trends",
+        "description": "Explore the latest business trends shaping 2025 and 2026, including generative AI, e-commerce growth, and social media marketing, with insights for startups and established companies alike.",
+        "tag": "trending"
+      },
+      {
+        "blog_title": "The 50 Best Business Blogs of 2025",
+        "image": "https://img.freepik.com/free-photo/guy-shows-document-girl-group-young-freelancers-office-have-conversation-working_146671-13569.jpg?uid=R184482242&ga=GA1.1.387076836.1667834047&semt=ais_hybrid",
+        "blog_url": "https://detailed.com/business-blogs/",
+        "description": "A curated list of top business blogs for 2025, ranked algorithmically, offering entrepreneurs actionable advice on marketing, SEO, and growth strategies.",
+        "tag": "popular"
+      },
+      {
+        "blog_title": "16 Key Business Trends for 2025 + How to Stay Ahead",
+        "image": "https://img.freepik.com/free-photo/business-people-shaking-hands-together_53876-13391.jpg?uid=R184482242&ga=GA1.1.387076836.1667834047&semt=ais_hybrid",
+        "blog_url": "https://www.coursera.org/articles/business-trends",
+        "description": "Learn about major trends like AI tools and e-commerce expansion, with practical tips to adapt and thrive in the evolving business landscape of 2025.",
+        "tag": "new"
+      },
+      {
+        "blog_title": "Business Trends 2025: Growth, Flexibility, and Innovation",
+        "image": "https://img.freepik.com/free-photo/diagram-graphs-information-statistics-stock-data-concept_53876-64925.jpg?uid=R184482242&ga=GA1.1.387076836.1667834047&semt=ais_hybrid",
+        "blog_url": "https://www.lbmc.com/blog/business-trends-2025/",
+        "description": "This guide dives into 2025 trends such as digital transformation and flexible work models, offering strategies for leaders to boost growth and resilience.",
+        "tag": "must-read"
+      },
+      {
+        "blog_title": "13 Reasons Blogging Isn’t Dead in 2025 — Why Blogs Still Kicking",
+        "image": "https://img.freepik.com/free-photo/teamwork-making-online-blog_53876-94868.jpg?uid=R184482242&ga=GA1.1.387076836.1667834047&semt=ais_hybrid",
+        "blog_url": "https://ippei.com/blogging-isnt-dead/",
+        "description": "Discover why blogging remains a powerful tool for business growth in 2025, with insights on its role in authority building and lead generation.",
+        "tag": "popular"
+      },
+      {
+        "blog_title": "8 Small Business Trends To Know for 2025",
+        "image": "https://img.freepik.com/free-photo/medium-shot-woman-talking-phone_23-2149461782.jpg?uid=R184482242&ga=GA1.1.387076836.1667834047&semt=ais_hybrid",
+        "blog_url": "https://www.paychex.com/articles/growth/small-business-trends",
+        "description": "Stay ahead with predictions on small business trends for 2025, including AI integration and workforce expansion, tailored for operational success.",
+        "tag": "new"
+      },
+      {
+        "blog_title": "The 5 Biggest Business Trends For 2025 Everyone Must Be Ready For Now",
+        "image": "https://img.freepik.com/free-photo/business-success-report-graph-concept_53876-124755.jpg?uid=R184482242&ga=GA1.1.387076836.1667834047&semt=ais_hybrid",
+        "blog_url": "https://www.forbes.com/sites/bernardmarr/2024/09/29/the-5-biggest-business-trends-for-2025-everyone-must-be-ready-for-now/",
+        "description": "A Forbes article outlining five transformative trends for 2025, from AI strategies to sustainability, essential for business leaders to prepare for now.",
+        "tag": "trending"
+      },
+      {
+        "blog_title": "Adobe 2025 AI and Digital Trends | Key Insights & Future Growth",
+        "image": "https://img.freepik.com/free-photo/creative-creator-doing-portrait-retouch-using-color-grade-late-night-professional-editing-office_482257-5161.jpg?uid=R184482242&ga=GA1.1.387076836.1667834047&semt=ais_hybrid",
+        "blog_url": "https://business.adobe.com/blog/trends/2025-ai-digital-trends-report-insights",
+        "description": "Adobe’s insights on AI and digital trends for 2025, highlighting innovations driving business growth and customer engagement in a digital-first world.",
+        "tag": "must-read"
+      }
+    ]
+  }
