@@ -20,6 +20,14 @@ import ContentGenerator from "./pages/ContentGenerator";
 import ResumeBuilder from "./components/Dashboard/ResumeBuilder";
 import ResumeBody from "./components/AIResume/ResumeBody";
 import ResourceHub from "./components/Dashboard/ResourceHub";
+import Hotel from './components/Dashboard/Templates/restaurant-menu';
+import Store from "./components/Dashboard/Templates/online-store";
+import BusinessPro from './components/Dashboard/Templates/BusinessPro';
+import BlogStandard from './components/Dashboard/Templates/BlogStandard';
+import Fitness from './components/Dashboard/Templates/Fitness';
+import Photography from './components/Dashboard/Templates/photography';
+import Event from "./components/Dashboard/Templates/eventLanding";
+import Portfolio from './components/Dashboard/Templates/Portfolio';
 // import AICourse from "./pages/AICourse";
 // import AddDetailForm from "./components/AddUserDetails";
 
@@ -49,6 +57,14 @@ const AppRoutes: React.FC = () => {
           <Route path="resumebuilder" element={<ResumeBuilder />} />
           <Route path="resumebody" element={<ResumeBody />} />
           <Route path="resourcehub" element={<ResourceHub />} />
+          <Route path="restaurant-menu" element={<Hotel />} />
+          <Route path="online-store" element={<Store />} />
+          <Route path="business-pro" element={<BusinessPro />} />
+          <Route path="blog-standard" element={<BlogStandard />} />
+          <Route path="fitness-coach" element={<Fitness />} />
+          <Route path="photography" element={<Photography />} />
+          <Route path="event-landing" element={<Event />} />
+          <Route path="portfolio-basic" element={<Portfolio />} />
           {/* <Route path="adduserdetails" element={<AddDetailForm />} /> */}
         </Route>
 
