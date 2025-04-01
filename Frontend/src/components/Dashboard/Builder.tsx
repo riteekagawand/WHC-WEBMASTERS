@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
  import TemplateCard from '../../components/TemplateCard';
  import StartFromScratchCard from '../../components/StartFromScratchCard'; // Import the new component
  import { RiLayout5Line, RiRestaurantFill, RiCalendarEventLine } from 'react-icons/ri';
@@ -11,6 +11,12 @@ import React from 'react';
  import { PiFileArrowUpDuotone } from "react-icons/pi";
  
  const Builder: React.FC = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = `HerSpace | Template`;
+  }, []);
+
    const popularTemplates = [
      { title: 'Portfolio Basic', description: 'Clean, minimal design for showcasing your work', icon: RiLayout5Line },
      { title: 'Business Pro', description: 'Professional layout for small businesses and startups', icon: BsBuildings },

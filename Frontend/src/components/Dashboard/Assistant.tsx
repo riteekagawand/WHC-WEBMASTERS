@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Card from "../AiTools"; // Note: The import path was updated to match the previous context
 import { GoPencil } from "react-icons/go";
 import { RiCustomerService2Line } from "react-icons/ri";
@@ -5,6 +6,11 @@ import { useNavigate } from "react-router-dom";
 
 const App: React.FC = () => {
 	const navigate = useNavigate();
+	  useEffect(() => {
+		window.scrollTo(0, 0);
+		document.title = `HerSpace | AI Assistant`;
+	  }, []);
+	
 
 	// Data for Popular AI Tools
 	const popularTools = [

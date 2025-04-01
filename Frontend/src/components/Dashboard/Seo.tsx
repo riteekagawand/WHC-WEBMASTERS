@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import SearchIntentChart from '../../components/SearchIntentChart'; // Import the new component
 import SyncingChart from '../../components/SyncingChart'; // Import the new component
 import seoData from '../../data/seoData.json';
@@ -27,6 +27,11 @@ const SEOOptimization: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [searchIntentChartData, setSearchIntentChartData] = useState<number[]>([0, 0, 0]);
   const [syncingChartData, setSyncingChartData] = useState<any[]>([]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = `HerSpace | Optimize`;
+  }, []);
 
   const fetchDataFromJson = (category: string): Promise<{ keywords: Keyword[] }> => {
     setIsLoading(true);

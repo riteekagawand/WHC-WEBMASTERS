@@ -49,6 +49,8 @@ const Home: React.FC = () => {
 
   // Log the filtered blogs to debug
   useEffect(() => {
+    window.scrollTo(0, 0);
+    document.title = `HerSpace | dashboard`;
     console.log("Filtered blogs:", filteredBlogs);
   }, [filteredBlogs]);
 

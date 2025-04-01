@@ -12,9 +12,9 @@ const PortfolioBuilder = () => {
     const [copied, setCopied] = useState(false);
     const [portfolioUrl, setPortfolioUrl] = useState("");
 
- useEffect(() => {
-    window.scrollTo(0, 0);
-    document.title = `Portfolio Builder`;
+    useEffect(() => {
+      window.scrollTo(0, 0);
+      document.title = `HerSpace | Template | Restaurant Menu`;
 
     const newEditor = grapesjs.init({
       container: "#editor",

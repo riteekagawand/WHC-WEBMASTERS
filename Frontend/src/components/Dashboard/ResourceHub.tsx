@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Card from "../AiTools";
 import { FaGraduationCap } from "react-icons/fa";
 import { HiDocumentText } from "react-icons/hi";
@@ -5,7 +6,10 @@ import { useNavigate } from "react-router-dom";
 
 const ResourceHub: React.FC = () => {
 	const navigate = useNavigate();
-
+		  useEffect(() => {
+			window.scrollTo(0, 0);
+			document.title = `HerSpace | Resource Hub`;
+		  }, []);
 	// Data for Resource Tools
 	const resourceTools = [
 		{
