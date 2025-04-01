@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 import { RiBook2Line, RiRobot2Line } from "react-icons/ri";
+import logo from "../../assets/HerSpace Logo.svg"
 
 const Sidebar: React.FC = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -32,8 +33,9 @@ const Sidebar: React.FC = () => {
 			>
 				{/* Header */}
 				<div className="flex items-center text-xl font-semibold mb-6 pl-4 font-sans">
-					<span>HerSpace</span>
-					<FaPlus className="ml-auto text-lg cursor-pointer" />
+				<Link to='/'>
+								  <img src={logo} className="h-14  w-40 mt-[-10px]" alt="Logo" />
+								</Link>
 				</div>
 				{/* Sidebar menu */}
 				<ul className="pl-4">
@@ -43,18 +45,7 @@ const Sidebar: React.FC = () => {
 							<span className="text-lg">Home</span>
 						</Link>
 					</li>
-					{/* <li className="rounded-lg hover:bg-[#e8e5ff] transition">
-						<Link to="ecommerce" className="flex items-center space-x-2 p-2 ">
-							<MdOutlineShoppingCart className="text-lg" />
-							<span className="text-lg">E-commerce</span>
-						</Link>
-					</li>
-					<li className="rounded-lg hover:bg-[#e8e5ff] transition">
-						<Link to="forum" className="flex items-center space-x-2 p-2 ">
-							<MdOutlineForum className="text-lg" />
-							<span className="text-lg">Forum</span>
-						</Link>
-					</li> */}
+					
 					<li className="rounded-lg hover:bg-[#e8e5ff] transition">
 						<Link
 							to="portfoliobuilder"

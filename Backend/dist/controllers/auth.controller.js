@@ -46,19 +46,53 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.login = exports.verifyOTP = exports.register = void 0;
-const bcrypt = __importStar(require("bcryptjs")); // Works with esModuleInterop
-const jwt = __importStar(require("jsonwebtoken")); // Fix import
-const nodemailer = __importStar(require("nodemailer")); // Fix import
-const dotenv = __importStar(require("dotenv")); // Fix import
+const bcrypt = __importStar(require("bcryptjs"));
+const jwt = __importStar(require("jsonwebtoken"));
+const nodemailer = __importStar(require("nodemailer"));
+const dotenv = __importStar(require("dotenv"));
 const user_model_1 = __importDefault(require("../models/user.model"));
 const otp_model_1 = __importDefault(require("../models/otp.model"));
 const sequelize_1 = require("sequelize");
+// // Define the structure of the decoded JWT payload
+// interface JwtPayload {
+//   id: number;
+// }
+// // Extend the Request type to include the user property
+// interface AuthenticatedRequest extends Request {
+//   user: JwtPayload;
+// }
+// // Define the request body for addUserDetails
+// interface AddUserDetailsRequestBody {
+//   businessName: string;
+//   contactNumber: string;
+//   industry: string;
+//   businessDescription: string;
+//   servicesProducts: string[] | string;
+//   socialMedia: string | { [key: string]: string };
+//   yearsInBusiness: number;
+//   address: string;
+// }
+// // Define the user details response
+// interface UserDetailsResponse {
+//   businessName?: string;
+//   contactNumber?: string;
+//   industry?: string;
+//   businessDescription?: string;
+//   servicesProducts?: string[];
+//   socialMedia?: string | { [key: string]: string };
+//   yearsInBusiness?: number;
+//   address?: string;
+//   email: string;
+//   fullName: string;
+//   photo?: string;
+//   id: number;
+// }
 dotenv.config();
 // Ensure required environment variables are set at startup
 const { SENDER_EMAIL, APP_PASSWORD, JWT_SECRET } = process.env;
 if (!SENDER_EMAIL || !APP_PASSWORD || !JWT_SECRET) {
     console.error("Missing required environment variables.");
-    process.exit(1); // Stop execution if critical env variables are missing
+    process.exit(1);
 }
 const generateOTP = () => Math.floor(100000 + Math.random() * 900000).toString();
 const sendOTP = (email, generatedOTP) => __awaiter(void 0, void 0, void 0, function* () {
@@ -200,3 +234,66 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.login = login;
+// export const addUserDetails = async (req: Request, res: Response): Promise<void> => {
+//   try {
+//     const {
+//       businessName,
+//       contactNumber,
+//       industry,
+//       businessDescription,
+//       servicesProducts,
+//       socialMedia,
+//       yearsInBusiness,
+//       address,
+//     }: AddUserDetailsRequestBody = req.body;
+//     // Ensure user is authenticated
+//     if (!req.user || !req.user.id) {
+//       res.status(401).json({ message: "Unauthorized" });
+//       return;
+//     }
+//     // Find user by ID
+//     const user = await User.findByPk(req.user.id);
+//     if (!user) {
+//       res.status(404).json({ message: "User not found" });
+//       return;
+//     }
+//     // Ensure servicesProducts is an array
+//     const formattedServicesProducts: string[] =
+//       typeof servicesProducts === "string"
+//         ? servicesProducts.split(",").map((item) => item.trim())
+//         : servicesProducts;
+//     // Convert socialMedia object to string if it's an object
+//     const formattedSocialMedia: string =
+//       typeof socialMedia === "object" ? JSON.stringify(socialMedia) : socialMedia;
+//     // Update user details
+//     await user.update({
+//       businessName: businessName || user.businessName,
+//       contactNumber: contactNumber || user.contactNumber,
+//       industry: industry || user.industry,
+//       businessDescription: businessDescription || user.businessDescription,
+//       servicesProducts: formattedServicesProducts || user.servicesProducts,
+//       socialMedia: formattedSocialMedia || user.socialMedia,
+//       yearsInBusiness: yearsInBusiness || user.yearsInBusiness,
+//       address: address || user.address,
+//     });
+//     // Construct response
+//     const userDetails: UserDetailsResponse = {
+//       businessName: user.businessName,
+//       contactNumber: user.contactNumber,
+//       industry: user.industry,
+//       businessDescription: user.businessDescription,
+//       servicesProducts: user.servicesProducts,
+//       socialMedia: user.socialMedia,
+//       yearsInBusiness: user.yearsInBusiness,
+//       address: user.address,
+//       email: user.email,
+//       fullName: user.fullName,
+//       photo: user.photo,
+//       id: user.id,
+//     };
+//     res.status(200).json({ message: "Your details added successfully", user: userDetails });
+//   } catch (error) {
+//     console.error("Error adding business details:", error);
+//     res.status(500).json({ message: "Internal server error" });
+//   }
+// };

@@ -115,7 +115,7 @@ const SEOOptimization: React.FC = () => {
   };
 
   return (
-    <div className="p-8 min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="p-8 min-h-screen bg-white">
       {/* Breadcrumb */}
       <div className="text-sm text-gray-600 mb-6 flex items-center space-x-2">
         <span className="hover:text-purple-600 cursor-pointer">Analytics</span>
