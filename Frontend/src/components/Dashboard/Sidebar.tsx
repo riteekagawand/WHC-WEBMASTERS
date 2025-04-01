@@ -9,8 +9,9 @@ import {
 } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { FaPlus } from "react-icons/fa6";
 import { RiBook2Line, RiRobot2Line } from "react-icons/ri";
+import logo from '../../assets/HerSpace Logo.svg'
+
 
 
 
@@ -35,8 +36,9 @@ const Sidebar: React.FC = () => {
 			>
 				{/* Header */}
 				<div className="flex items-center text-xl font-semibold mb-6 pl-4 font-sans">
-					<span>HerSpace</span>
-					<FaPlus className="ml-auto text-lg cursor-pointer" />
+					 <Link to='/'>
+								  <img src={logo} className="h-14  w-40 mt-[-10px]" alt="Logo" />
+								</Link>
 				</div>
 				{/* Sidebar menu */}
 				<ul className="pl-4">

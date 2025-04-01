@@ -184,7 +184,7 @@ const SEOOptimization: React.FC = () => {
             onClick={handleAnalyze}
             disabled={isLoading}
             className={`bg-violet-700 text-black font-semibold py-3 px-6 rounded-lg transition-colors ${
-              isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-purple-700'
+              isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-violet-700'
             }`}
           >
             {isLoading ? 'Analyzing...' : 'Analyze'}

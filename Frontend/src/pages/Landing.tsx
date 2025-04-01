@@ -15,30 +15,13 @@ const LandingPage: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
       {/* Header */}
-      <header className="w-full bg-white shadow-md">
+      <header className="w-full bg-white shadow-md shadow-violet-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         <Link to='/'>
               <img src={logo} className="h-16  w-44 mt-[-10px]" alt="Logo" />
             </Link>
 
-          {/* Navigation */}
-          <nav className="hidden md:flex space-x-7">
-            <Link to="/home" className="text-gray-600 hover:text-purple-600 font-medium">
-              Home
-            </Link>
-            <Link to="/what-we-do" className="text-gray-600 hover:text-purple-600 font-medium">
-              What we do
-            </Link>
-            <Link to="/category" className="text-gray-600 hover:text-purple-600 font-medium">
-              Category
-            </Link>
-            <Link to="/community" className="text-gray-600 hover:text-purple-600 font-medium">
-              Community
-            </Link>
-            <Link to="/blog" className="text-gray-600 hover:text-purple-600 font-medium">
-              Blog
-            </Link>
-          </nav>
+         
 
           {/* Search, Language, and User */}
           <div className="flex items-center justify-between space-x-3">
@@ -54,11 +37,7 @@ const LandingPage: React.FC = () => {
       <FiSearch className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400" />
     </div>
 
-    {/* Language and User */}
-    <button className="text-gray-600 hover:text-purple-600">EN</button>
-    <button className="w-8 h-8 bg-purple-600 text-black rounded-full flex items-center justify-center">
-      S
-    </button>
+    
   </div>
 
   {/* Right Section: Login Button */}
