@@ -5,15 +5,11 @@ HerSpace is a digital platform designed to help women entrepreneurs seamlessly c
 
 ## Features
 - *Effortless Website Builder* – Drag-and-drop functionality with customizable templates.
-- *E-commerce Module* – Product listing, inventory management, and secure payments.
 - *Analytics Dashboard* – Real-time insights on visitor behavior and engagement.
-- *Content Management System* – Secure and scalable storage using AWS S3 Buckets.
 - *AI-powered Resource Hub* – Business courses, resume builder, and curated learning materials.
-- *Discussion Forum* – A collaborative space for entrepreneurs to connect and share experiences.
 - *SEO & Keyword Optimization* – AI-driven recommendations to enhance online visibility.
 - *AI Assistant* – Business insights, automated customer support, and content suggestions.
 - *Multilingual Support* – Ensuring accessibility across diverse user bases.
-- *Supply Chain & Logistics Management* – Tools to optimize inventory and delivery.
 
 ## Technology Stack
 - *Frontend:* React.js (for a dynamic and responsive user experience)
