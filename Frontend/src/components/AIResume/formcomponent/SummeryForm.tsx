@@ -68,7 +68,7 @@ const SummaryForm = () => {
                 <form className="mt-7" onSubmit={onSave} >
                     <div className="flex justify-between items-end">
                         <Label className="text-sm">Add Summary</Label>
-                        <motion.div
+                        {/* <motion.div
                             className="relative p-[2px] rounded-lg"
                             initial={{ backgroundPosition: "0% 50%" }}
                             animate={{ backgroundPosition: "200% 50%" }}
@@ -83,7 +83,7 @@ const SummaryForm = () => {
                                 type="button"
                                 size="sm"
                                 disabled={loading}
-                                className="relative z-10 bg-primary hover:bg-primary/50 text-black border-none w-full flex items-center gap-2"
+                                className="relative z-10 bg-primary hover:bg-primary/50 text-white border-none w-full flex items-center gap-2"
                             >
                                 {loading ?
                                     <>
@@ -95,7 +95,7 @@ const SummaryForm = () => {
                                     </>
                                 }
                             </Button>
-                        </motion.div>
+                        </motion.div> */}
                     </div>
                     <Textarea
                         required
