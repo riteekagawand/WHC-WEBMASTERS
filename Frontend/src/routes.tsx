@@ -68,6 +68,7 @@ const AppRoutes: React.FC = () => {
               <Route path="photography" element={<Photography />} />
               <Route path="event-landing" element={<Event />} />
               <Route path="portfolio-basic" element={<Portfolio />} />
+              <Route path="forum" element={<Forum />} />
             </Route>
 
             {/* Catch-all Route for 404 Pages */}

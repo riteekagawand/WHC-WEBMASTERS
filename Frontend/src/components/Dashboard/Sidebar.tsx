@@ -84,6 +84,12 @@ const Sidebar: React.FC = () => {
 							<span className="text-lg">Resource Hub</span>
 						</Link>
 					</li>
+					<li className="rounded-lg hover:bg-[#e8e5ff] transition">
+						<Link to="forum" className="flex items-center space-x-2 p-2 ">
+							<RiBook2Line className="text-lg" />
+							<span className="text-lg">Discussion Forum</span>
+						</Link>
+					</li>
 				</ul>
 			</div>
 			{/* Overlay (for closing sidebar on mobile) */}
