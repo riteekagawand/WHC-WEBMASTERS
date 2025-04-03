@@ -11,7 +11,6 @@ HerSpace is a digital platform designed to help women entrepreneurs seamlessly c
 - *AI Assistant* – Business insights, automated customer support, and content suggestions.
 - *Multilingual Support* – Ensuring accessibility across diverse user bases.
 
-
 ## Technology Stack
 - *Frontend:* React.js (for a dynamic and responsive user experience)
 - *Backend:* Node.js (Express) (for efficient API handling and backend logic)
@@ -34,8 +33,10 @@ HerSpace aims to revolutionize women-led businesses by:
 ## Contact
 For support or inquiries, reach out to us at *support@herspace.com*.
 
-![HerSpace Banner](./Frontend/src//assets/1111.png)
+## Implementation
 
-![HerSpace Banner](./Frontend/src//assets/2222.png)
+![HerSpace Banner](./Frontend/src//assets/1..png)
 
-![HerSpace Banner](./Frontend/src//assets/3333.png)
+![HerSpace Banner](./Frontend/src//assets/2..png)
+
+![HerSpace Banner](./Frontend/src//assets/3..png)

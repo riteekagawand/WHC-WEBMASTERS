@@ -1,7 +1,6 @@
 // LandingPage.tsx
 import React from "react";
 import { Link } from "react-router-dom";
-import { FiSearch } from "react-icons/fi";
 import SiddhiHateSVG from "../assets/frame-3.svg";
 import { FaArrowRightLong } from "react-icons/fa6";
 import logo from "../assets/HerSpace Logo.svg";

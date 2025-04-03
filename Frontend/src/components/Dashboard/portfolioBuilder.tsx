@@ -16,7 +16,7 @@ const PortfolioBuilder = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = `Portfolio Builder`;
+    document.title = `HerSpace | Website Builder`;
 
     const newEditor = grapesjs.init({
       container: "#editor",

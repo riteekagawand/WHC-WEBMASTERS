@@ -7,7 +7,7 @@ export default {
     email: 'riteekagawand7@gmail.com',
     themeColor: '#7c3aed',
     fontStyle: 'Arial',
-    summary: 'Greetings, I go by the name Meet Dodiya, where ambition, self-motivation, and an unwavering drive define my identity as a versatile Full Stack Developer.',
+    summary: 'Greetings, I go by the name Riteeka Gawand, where ambition, self-motivation, and an unwavering drive define my identity as a versatile Full Stack Developer.',
     experience: [
         {
             id: 1,

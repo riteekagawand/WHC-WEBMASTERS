@@ -12,9 +12,10 @@ import "react-toastify/dist/ReactToastify.css";
     const [copied, setCopied] = useState(false);
     const [portfolioUrl, setPortfolioUrl] = useState("");
 
- useEffect(() => {
-    window.scrollTo(0, 0);
-    document.title = `Website Builder`;
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+      document.title = `HerSpace | Template | Online Store`;
 
     const newEditor = grapesjs.init({
       container: "#editor",
